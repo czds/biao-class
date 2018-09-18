@@ -30,8 +30,8 @@ row main
                            row link
                            row link
                          column 
-                           二维码
-           row recommend 二手房
+                           QR Code
+           row recommend second-hand
                     row header
                            column
                              row title
@@ -48,7 +48,7 @@ row main
                                   row describe
 
                             row link
-           row recommend 小区 grey
+           row recommend village grey
                     row header
                             column
                               row title
