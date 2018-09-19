@@ -1,0 +1,95 @@
+row header
+        row navigation 
+               column left
+                         column LOGO
+                         column location
+               column right
+                         column user
+                         column links
+        row title
+               column main
+               column subhead
+        row search 
+               column type-select
+               column input
+        row statement
+row main
+          row service
+                 column * 3
+                    row picture
+                    row 
+                      row title
+                      row describe
+          row APP
+                 row title
+                    row main
+                    row
+                 row describe
+                 row download
+                    column
+                      buttom
+                      button
+                    column
+                      QR-code
+           row recommend second-hand
+                 row header
+                      column left
+                           row title
+                           row describe
+                      column right
+                           link
+                 row center
+                      column * 4
+                           row 
+                                row picture
+                                      thumbnail
+                                      price
+                                row title
+                                row describe
+                           row link
+           row recommend village grey
+                 row header
+                      column left
+                           row title
+                           row describe
+                      column right
+                           link
+                 row center
+                      column * 3
+                          row picture
+                          row describe
+                             column left
+                               row title
+                               row price
+                             column right
+           row recommend new-house
+                 row header
+                       column left
+                           row title
+                           row describe
+                       column right
+                            link
+                 row center
+                      column * 3
+                          row picture
+                            row background
+                            row describe
+                            row other
+           row search
+                 column left
+                      row title
+                      row subhead
+                 column right
+                      row slogan
+                      row search
+
+row footer
+         row contact
+              column left
+                 links
+              column right
+                 telephone
+         row 
+               row type-select
+               row links
+         row company
