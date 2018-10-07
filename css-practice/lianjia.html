@@ -3,15 +3,17 @@
 
 <head>
     <title>链家</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://chuangzuodashi.cn/css/global.css">
     <style>
         a {
     text-decoration: none;
+    color: inherit;
     }
 
     .heading {
         text-align: center;
-        margin-top: 120px;
+        margin-top: 100px;
     }
     .link-group {
         text-align: right;
@@ -26,33 +28,39 @@
     .heading .sub-title {
         font-size: 18px;
         color: aliceblue;
+        margin-top: 10px;
     }
     .first-screen {
         background: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/bannerV2.jpg) no-repeat;
         background-position: center 0;
+        background-attachment: fixed;
     }
     .service .card {
         height: 200px;
         text-align: center;
     }
     .app {
-        height: 600px;
-        background: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/bg-app.jpg);
+        height: 520px;
+        background: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/bg-app.jpg) no-repeat;
+        background-position: center 0;
     }
     .app .title {
-        font-size: 60px;
+        font-size: 65px;
         font-weight: 600;
     }
     .app .sub-title {
         font-size: 40px;
+        padding-top: 100px;
     }
     .app .detail {
         font-size: 85%;
         max-width: 450px;
+        padding-top: 18px;
     }
     .search {
         text-align: center;
-        margin: 80px;
+        margin: 50px 80px 0 0;
+        padding-left: 120px;
     }
     #logo {
         display: inline-block;
@@ -67,15 +75,20 @@
         height: 20px;
         background-image:url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?index=20170526);
         background-position: -182px -20px;
+        position: relative;
+        top: .5em;
+        left: .2em;
     }
     .location {
         display: inline-block;
         background: rgba(0,0,0,0.25);
-        padding: 4px;
         border-radius: 14px;
         color: aliceblue;
+        height: 27px;
+        padding-right: .7em;
         position: relative;
-        bottom: 18px;
+        top: -1.2em;
+        left: .2em;
     }
     .icon-user {
         display: inline-block;
@@ -109,6 +122,140 @@
     .nav .link-group {
         font-size: 105%;
     }
+    input, button {
+            border-radius: 2px;
+            font-size: 14px;
+        }
+    .first-screen .search input {
+        border: 1px solid #ddd;
+        padding: 1.3em;
+        width: 40em;
+        outline: 0;
+    }
+    .first-screen .search button {
+        color: #eee;
+        border: 1px solid #00ae66;
+        font-size: 120%;
+        padding: .75em 1.4em;
+        position: relative;
+        top: .14em;
+        left: -0.1em;
+        background: #00ae66;
+    }
+    .search-list {
+        position: relative;
+        left: -11em;
+        top: -0.8em;
+    }
+    .search-list a {
+        color: #fff;
+        padding: .5em;
+    }
+    .statement {
+        padding: 140px 0 30px 0;
+        margin-bottom: 40px;
+    }
+    .statement a {
+        font-size: 13px;
+        padding: 0 1em;
+        color: #ddd;
+    }
+    .statement a:hover {
+        color: #fff;
+    }
+    .main .service .card span {
+        background-image: url(https://image1.ljcdn.com/materials/list/2016-11-23/phpe022WE.png);
+        background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;
+        height: 65px;
+        width: 80px;
+        display: block;
+        position: relative;
+        left: 150px;
+        margin-bottom: 15px;
+    }
+    .main .service .card span:hover {
+        top: -5px;
+    }
+    .main .service .card .title {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: .3em;
+    }
+    .main .service .card .detail {
+        font-size: 14px;
+        color: #aaa;
+        text-align: center;
+    }
+    .old-house,
+    .village,
+    .new-house  {
+        font-size: 14px;
+        color: #777;
+        padding: 30px 0 50px 0;
+    }
+    .old-house .wrapper>.title,
+    .village .wrapper>.title,
+    .new-house .wrapper>.title {
+        font-size: 32px;
+        color: #333;
+        margin: 8px 2px;
+    }
+    .desc {
+        margin-top: .5em;
+        margin-bottom: 2.5em;
+    }
+    .desc .fr{
+        color: #000;
+    }
+    .old-house .card .title {
+        font-size: 17px;
+        color: #000;
+        margin-left: 1em;
+        margin-top: .4em;
+    }
+    .old-house .card,
+    .village .card,
+    .new-house .card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        margin-bottom: 1em;
+    }
+    .old-house .card .text {
+        font-size: 12px;
+        padding-top: 1em;
+        padding-left: 1.5em;
+        padding-bottom: .8em;
+    }
+    .old-house .col.col-6 {
+        padding-right: 2em;
+        position: relative;
+    }
+    .old-house .card .price {
+        font-size: 18px;
+        color: #fff;
+        padding: .1em .2em;
+        background: #444;
+        position: absolute;
+        top: 9.5em;
+    }
+    .village {
+        background: #eee;
+    }
+    .village .text {
+        background: #fff;
+        color: #000;
+        font-weight: bold;
+        padding: 1em 2em;
+    }
+    .village .text .title {
+        font-size: 20px;
+        padding-bottom: .3em;
+    }
+    .village .build-at {
+        color: #777;
+    }
+    .village .card {
+        padding: 0 2em;
+    }
     </style>
 </head>
 
@@ -133,7 +280,7 @@
                         <a href="#">二手房</a>
                         <a href="#">新房</a>
                         <a href="#">租房</a>
-                        <a href="#"><span class="icon"></span>  旅居</a>
+                        <a href="#"><span class="icon"></span> 旅居</a>
                         <a href="#">海外</a>
                         <a href="#">小区</a>
                         <a href="#">经纪人</a>
@@ -150,10 +297,16 @@
                 <div class="title">连接每个家的故事</div>
                 <div class="sub-title">北京链家真实租房 10138 套</div>
             </div>
-            <div class="row search">
-                <input type="text" name="" id="">
-                <button>开始找房</button>
-            </div>
+            <form class="search">
+                <div class="search-list">
+                    <a href="#">找二手房</a>
+                    <a href="#">找新房</a>
+                    <a href="#">找租房</a>
+                    <a href="#">找小区</a>
+                    <a href="#">搜问答</a>
+                </div>
+                <input type="text" placeholder="请输入区域或小区名开始找房"><button>开始找房</button>
+            </form>
             <div class="row statement">
                 <a href="#">关于仿冒我公司进行不正当竞争行为的郑重声明</a>
                 <a href="#">房地产中介诚信服务承诺及保证书</a>
@@ -161,20 +314,40 @@
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <div class="row main">
-            <div class="row service">
+    <div class="row main">
+        <div class="row service">
+            <div class="wrapper">
                 <div class="col col-8 card">
-                    找二手房
+                    <a href="#">
+                        <span></span>
+                        <div class="title">找二手房</div>
+                        <div class="detail">
+                            真实二手房源,链家承诺真实在售<br>所见即真
+                        </div>
+                    </a>
                 </div>
                 <div class="col col-8 card">
-                    地图找房
+                    <a href="#">
+                        <span></span>
+                        <div class="title">地图找房</div>
+                        <div class="detail">
+                            真实二手房源,链家承诺真实在售<br>所见即真
+                        </div>
+                    </a>
                 </div>
                 <div class="col col-8 card">
-                    房屋估价
+                    <a href="#">
+                        <span></span>
+                        <div class="title">房屋估价</div>
+                        <div class="detail">
+                            真实二手房源,链家承诺真实在售<br>所见即真
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="row app">
+        </div>
+        <div class="row app">
+            <div class="wrapper">
                 <div class="row sub-title">一链倾城</div>
                 <div class="row title">为你为家</div>
                 <div class="row detail">
@@ -188,12 +361,155 @@
                     <div class="col col-10"></div>
                 </div>
             </div>
-            <div class="row old-house"></div>
-            <div class="row village"></div>
-            <div class="row new-house"></div>
-            <div class="row promise"></div>
         </div>
-        <div class="row footer">
+        <div class="row old-house">
+            <div class="wrapper">
+                <div class="title">
+                    <strong>二手好房</strong>&nbsp;为你而选
+                </div>
+                <div class="row desc">
+                    <span class="fl">好房源那么多，我们为你精选，链家网会越来越懂你</span>
+                    <span class="fr"><a href="#">更多北京二手房</a></span>
+                </div>
+                <div class="row">
+                    <div class="col col-6">
+                        <a href="#">
+                            <div class="card">
+                                <span class="price">350万</span>
+                                <img src="https://image1.ljcdn.com/110000-inspection/b545d03b-4c87-43d8-853c-c640f536b131.jpg.280x210.jpg">
+                                <div>
+                                    <div class="title">龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修</div>
+                                    <div class="row text">
+                                        <div class="col col-10">龙城花园北二区</div>
+                                        <div class="col col-7">2室1厅</div>
+                                        <div class="col col-7">65.64平米</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>近期关注度较高房源</div>
+                        </a>
+                    </div>
+                    <div class="col col-6">
+                        <a href="#">
+                            <div class="card">
+                                <span class="price">350万</span>
+                                <img src="https://image1.ljcdn.com/110000-inspection/b545d03b-4c87-43d8-853c-c640f536b131.jpg.280x210.jpg">
+                                <div>
+                                    <div class="title">龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修</div>
+                                    <div class="row text">
+                                        <div class="col col-10">龙城花园北二区</div>
+                                        <div class="col col-7">2室1厅</div>
+                                        <div class="col col-7">65.64平米</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>近期关注度较高房源</div>
+                        </a>
+                    </div>
+                    <div class="col col-6">
+                        <a href="#">
+                            <div class="card">
+                                <span class="price">350万</span>
+                                <img src="https://image1.ljcdn.com/110000-inspection/b545d03b-4c87-43d8-853c-c640f536b131.jpg.280x210.jpg">
+                                <div>
+                                    <div class="title">龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修</div>
+                                    <div class="row text">
+                                        <div class="col col-10">龙城花园北二区</div>
+                                        <div class="col col-7">2室1厅</div>
+                                        <div class="col col-7">65.64平米</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>近期关注度较高房源</div>
+                        </a>
+                    </div>
+                    <div class="col col-6">
+                        <a href="#">
+                            <div class="card">
+                                <span class="price">350万</span>
+                                <img src="https://image1.ljcdn.com/110000-inspection/b545d03b-4c87-43d8-853c-c640f536b131.jpg.280x210.jpg">
+                                <div>
+                                    <div class="title">龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修</div>
+                                    <div class="row text">
+                                        <div class="col col-10">龙城花园北二区</div>
+                                        <div class="col col-7">2室1厅</div>
+                                        <div class="col col-7">65.64平米</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>近期关注度较高房源</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row village">
+            <div class="wrapper">
+                <div class="title">
+                    <strong>小区</strong>&nbsp;为您推荐
+                </div>
+                <div class="row desc">
+                    <span class="fl">纵览小区，恋上这座城</span>
+                    <span class="fr"><a href="#">更多北京小区</a></span>
+                </div>
+                <div class="row">
+                    <div class="col col-8 card">
+                        <a href="#">
+                            <div>
+                                <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
+                            </div>
+                            <div class="text">
+                                <div class="title">远洋山水</div>
+                                <div class="row">
+                                    <span class="price">65520元/平</span>
+                                    <span class="build-at fr">2003年建</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col col-8 card">
+                        <a href="#">
+                            <div>
+                                <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
+                            </div>
+                            <div class="text">
+                                <div class="title">北京新天地</div>
+                                <div class="row">
+                                    <span class="price">22222元/平</span>
+                                    <span class="build-at fr">2002年建</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col col-8 card">
+                        <a href="#">
+                            <div>
+                                    <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
+                                
+                            </div>
+                            <div class="text">
+                                <div class="title">北京新天地</div>
+                                <div class="row">
+                                    <span class="price">312442元/平</span>
+                                    <span class="build-at fr">2001年建</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-house">
+            <div class="wrapper">
+            </div>
+        </div>
+        <div class="row promise">
+            <div class="wrapper">
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="wrapper">
             <div class="row contact">
                 <div class="col col-18 left">
                     <a href="#">了解链家</a>

@@ -14,14 +14,111 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>知乎导航栏</title>
+    <style>
+        .container {
+            max-width: 1050px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .nav:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .nav {
+            background: #fff;
+            border: 1px solid #eee;
+            font-size: 15px;
+        }
+        .nav a {
+            display: inline-block;
+            padding: 1em;
+            color: #999;
+        }
+        .nav a:hover {
+            color: rgb(19, 90, 204);
+        }
+        .nav a.home-page {
+            color: #555;
+            padding-left: 1.4em;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .nav input,
+        .nav button {
+            padding: .7em;
+            margin: .7em;
+        }
+        input, button {
+            border: 1px solid #ccc;
+            outline: 0;
+            border-radius: 4px;
+        }
+        button.primary {
+            background:#0080ff;
+            color: #fff;
+        }
+        button.primary:hover {
+            background:#0070ff;
+        }
+        .nav button {
+            width: 15%;
+        }
+        .nav input {
+            width: 70%;
+            background: #f6f6f6;
+        }
+        .nav form {
+            position: relative;
+            top: -0.1em
+        }
+        .logo {
+            height: 35px;
+            width: 70px;
+            background: url(../img/70x40.png);
+            position: relative;
+            top: .5em;
+        }
+        .nav .text-right a {
+            background: url(../img/40x35.png);
+            opacity: .8;
+            padding-left: 2em;
+            margin-left: 1em;
+            position: relative;
+            top: .7em;
+        }
+        .nav .text-right a:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="nav">
+        <div class="container">
+            <div class="col col-7">
+                <a href="#" class="logo"></a>
+                <a href="#" class="home-page">首页</a>
+                <a href="#">发现</a>
+                <a href="#">话题</a>
+            </div>
+            <form class="col col-11">
+                <input type="text">
+                <button class="primary">提问</button>
+            </form>
+            <div class="col col-6 text-right">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
