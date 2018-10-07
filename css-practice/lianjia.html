@@ -10,6 +10,9 @@
     text-decoration: none;
     color: inherit;
     }
+    img {
+        width: 100%;
+    }
 
     .heading {
         text-align: center;
@@ -226,7 +229,7 @@
         padding-bottom: .8em;
     }
     .old-house .col.col-6 {
-        padding-right: 2em;
+        padding: 0 0.8em;
         position: relative;
     }
     .old-house .card .price {
@@ -235,7 +238,7 @@
         padding: .1em .2em;
         background: #444;
         position: absolute;
-        top: 9.5em;
+        top: 9em;
     }
     .village {
         background: #eee;
@@ -253,8 +256,14 @@
     .village .build-at {
         color: #777;
     }
-    .village .card {
-        padding: 0 2em;
+    .village .left{
+        padding-right: 2em;
+    }
+    .village .mid {
+        padding: 0 1em;
+    }
+    .village .right {
+        padding-left: 2em
     }
     </style>
 </head>
@@ -453,48 +462,55 @@
                     <span class="fr"><a href="#">更多北京小区</a></span>
                 </div>
                 <div class="row">
-                    <div class="col col-8 card">
-                        <a href="#">
-                            <div>
-                                <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
-                            </div>
-                            <div class="text">
-                                <div class="title">远洋山水</div>
-                                <div class="row">
-                                    <span class="price">65520元/平</span>
-                                    <span class="build-at fr">2003年建</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col col-8 card">
-                        <a href="#">
-                            <div>
-                                <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
-                            </div>
-                            <div class="text">
-                                <div class="title">北京新天地</div>
-                                <div class="row">
-                                    <span class="price">22222元/平</span>
-                                    <span class="build-at fr">2002年建</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col col-8 card">
-                        <a href="#">
-                            <div>
+                    <div class="col col-8 left">
+                        <div class="card">
+                            <a href="#">
+                                <div>
                                     <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
-                                
-                            </div>
-                            <div class="text">
-                                <div class="title">北京新天地</div>
-                                <div class="row">
-                                    <span class="price">312442元/平</span>
-                                    <span class="build-at fr">2001年建</span>
                                 </div>
-                            </div>
-                        </a>
+                                <div class="text">
+                                    <div class="title">远洋山水</div>
+                                    <div class="row">
+                                        <span class="price">65520元/平</span>
+                                        <span class="build-at fr">2003年建</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col col-8 mid">
+                        <div class="card">
+                            <a href="#">
+                                <div>
+                                    <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
+                                </div>
+                                <div class="text">
+                                    <div class="title">没有山水</div>
+                                    <div class="row">
+                                        <span class="price">65520元/平</span>
+                                        <span class="build-at fr">2003年建</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col col-8 right">
+                        <div class="card">
+                            <a href="#">
+                                <div>
+                                    <img src="https://image1.ljcdn.com/hdic-resblock/356c6bce-4179-40ae-977d-d1e2c59ebe80.jpg.280x210.jpg">
+                                </div>
+                                <div class="text">
+                                    <div class="title">北京新天地</div>
+                                    <div class="row">
+                                        <span class="price">312442元/平</span>
+                                        <span class="build-at fr">2001年建</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
