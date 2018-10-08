@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
     <title>豆瓣小组</title>
@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        .activity {
+        .card {
             min-height: 200px;
         }
 
@@ -23,7 +23,9 @@
             font-size: 24px;
             margin: 20px;
         }
-
+        img {
+            width: 100%;
+        }
         .logo {
             font-size: 28px;            
             color: darkcyan;
@@ -33,7 +35,7 @@
         .footer {
             font-size: 13px;
         }
-        .activity {
+        .card {
             padding-right: 60px;
         }
 
@@ -57,7 +59,7 @@
         }
         .page a {
             display: inline-block;
-            font-size: 16px;
+            font-size: 15px;
             color: darkcyan;
             padding-left: 10px;
             margin: .5em ,7em ;
@@ -69,6 +71,81 @@
         .footer {
             font-size: .8em;
             line-height: 35px;
+        }
+        .nav.page .col-18 a {
+            padding: .7em 1em;
+        }
+        .page .search input {
+            padding: .5em;
+            outline: 0;
+            min-width: 54%;
+            border: 1px solid #ddd;
+            position: relative;
+            top: .5em
+        }
+
+        .card .like span {
+            display: block;
+            text-align: center;
+            color: #ca6445;
+            font-size: 14px;
+        }
+        .card .like {
+            background: #fae9da;
+            padding: .3em 0;
+        }
+        .card>.col-3 {
+            padding: .5em 1.3em;
+        }
+        .card .title {
+            color: #37a;
+            font-size: 15px;
+        }
+        .card .preview {
+            background: #eee;
+            font-size: 14px;
+            margin: 1em 0;
+            padding: .5em;
+            color: #777;
+        }
+        .card .thumbnail img {
+            width: 80%;
+            height: 70px;
+        }
+        .card .preview .col-21 {
+            padding: .5em;
+        }
+        .card .from {
+            font-size: 14px;
+            color: #555;
+        }
+        .card .time {
+            font-size: 14px;
+            color: #888;
+            padding-left: 1em;
+        }
+        aside .title {
+            font-size: 14px;
+            color: #666;
+        }
+        aside .picture img {
+            width: 60%;
+        }
+        aside .name {
+            color: #37a;
+            font-size: 14px;
+        }
+        aside .menbers {
+            font-size: 13px;
+            color: #666;
+        }
+        aside .join {
+            color: #37a;
+            font-size: 14px;
+            margin-left: 1em;
+        }
+        aside .bd{
+            margin-top: .8em;
         }
 
     </style>
@@ -109,9 +186,9 @@
                     <a href="#">科技</a>
                 </div>
             </div>
-            <div class="col col-11 search">
+            <form class="col col-11 search">
                 <input type="text" name="" id="" placeholder="小组、话题">
-            </div>
+            </form>
         </div>
     </div>
 
@@ -120,86 +197,262 @@
         <div class="title">讨论精选</div>
         <div class="row">
             <div class="col col-17">
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
-                <div class="row activity">
-                    <div class="col col-4">
-                        喜欢
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
                     </div>
-                    <div class="col col-20">
-                        内容
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
+                    </div>
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
+                    </div>
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row card">
+                    <div class="col col-3">
+                        <div class="like">
+                            <span>23</span>
+                            <span>喜欢</span>
+                        </div>
+                    </div>
+                    <div class="col col-21">
+                        <div class="title">成分党谈一下如何极简护肤(更新中)</div>
+                        <div class="row preview">
+                            <div class="col col-3 thumbnail"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col col-21">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Voluptates, delectus nihil quisquam sint magni quidem. Unde earum, cumque ad quos,
+                                dicta placeat quidem quia amet cum voluptas dolores minus voluptate.</div>
+                        </div>
+                        <div class="row">
+                            <span class="from">来自女性联合会小组</span>
+                            <span class="time">19秒前</span>
+                        </div>
                         <hr>
                     </div>
                 </div>
             </div>
-            <div class="col col-7">
+            <aside class="col col-7">
                 <div class="title">值得加入的小组</div>
                 <hr>
                 <div>
                     <div class="row group">
-                        <div class="col col-6">头像</div>
-                        <div class="col col-18">内容</div>
+                        <div class="col col-6 picture"><img src="https://img3.doubanio.com/icon/g234762-1.jpg"></div>
+                        <div class="col col-18">
+                            <div class="row name">长沙我们约会吧</div>
+                            <div class="row bd">
+                                <span class="menbers">17765个成员</span>
+                                <span class="join">+加入小组</span>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <div class="row group">
@@ -233,7 +486,7 @@
                     </div>
                     <hr>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
     <div class="wrapper row footer">
