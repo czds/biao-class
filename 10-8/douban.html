@@ -1,0 +1,385 @@
+<html>
+
+<head>
+    <title>豆瓣小组</title>
+    <style>
+
+        .col-1 {
+            width: 4.16666666666667%;
+        }
+
+        .col-2 {
+            width: 8.33333333333333%;
+        }
+
+        .col-3 {
+            width: 12.5%;
+        }
+
+        .col-4 {
+            width: 16.66666666666667%;
+        }
+
+        .col-5 {
+            width: 20.83333333333333%;
+        }
+
+        .col-6 {
+            width: 25%;
+        }
+
+        .col-7 {
+            width: 29.16666666666667%;
+        }
+
+        .col-8 {
+            width: 33.33333333333333%;
+        }
+
+        .col-9 {
+            width: 37.5%;
+        }
+
+        .col-10 {
+            width: 41.66666666666667%;
+        }
+
+        .col-11 {
+            width: 45.83333333333333%;
+        }
+
+        .col-12 {
+            width: 50%;
+        }
+
+        .col-13 {
+            width: 54.16666666666667%;
+        }
+
+        .col-14 {
+            width: 58.33333333333333%;
+        }
+
+        .col-15 {
+            width: 62.5%;
+        }
+
+        .col-16 {
+            width: 66.66666666666667%;
+        }
+
+        .col-17 {
+            width: 70.83333333333333%;
+        }
+
+        .col-18 {
+            width: 75%;
+        }
+
+        .col-19 {
+            width: 79.16666666666667%;
+        }
+
+        .col-20 {
+            width: 83.33333333333333%;
+        }
+
+        .col-21 {
+            width: 87.5%;
+        }
+
+        .col-22 {
+            width: 91.66666666666667%;
+        }
+
+        .col-23 {
+            width: 95.83333333333333%;
+        }
+
+        .col-24 {
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1020px;
+            margin: 0 auto;
+            /* 不要跟.row作用于同一个div,不然左右居中会被覆盖 */
+        }
+
+        .row {
+            margin: 0 -5px;
+            /* 单纯的整行不要加这个类,负的左右边距用于
+            里面的列在有padding时内容区显示仍然靠边 */
+        }
+
+        .row:before,
+        .row:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-13,
+        .col-14,
+        .col-15,
+        .col-16,
+        .col-17,
+        .col-18,
+        .col-19,
+        .col-20,
+        .col-21,
+        .col-22,
+        .col-23,
+        .col-24 {
+            float: left;
+            padding: 0 5px;
+            /* 列之间留点距离 */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+    </style>
+    <style>
+        .nav .page form {
+            position: relative;
+        }
+        form.search button {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav global">
+        <div class="container">
+            <div class="row">
+                <div class="col-18">
+                    <a href="#">豆瓣</a>
+                    <a href="#">读书</a>
+                    <a href="#">电影</a>
+                    <a href="#">音乐</a>
+                    <a href="#">同城</a>
+                    <a href="#">小组</a>
+                    <a href="#">阅读</a>
+                    <a href="#">FM</a>
+                    <a href="#">时间</a>
+                    <a href="#">豆品</a>
+                    <a href="#">更多</a>
+                </div>
+                <div class="col-6 text-right">
+                    <a href="#">下载豆瓣客户端</a>
+                    <a href="#">登陆</a>
+                    <a href="#">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav page">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 logo">
+                    <a href="#">豆瓣小组</a>
+                </div>
+                <div class="col-10">
+                    <a href="#">精选</a>
+                    <a href="#">文化</a>
+                    <a href="#">行摄</a>
+                    <a href="#">娱乐</a>
+                    <a href="#">时尚</a>
+                    <a href="#">生活</a>
+                    <a href="#">科技</a>
+                </div>
+                <form class="col-11 search">
+                    <input type="text" placeholder="小组、话题">
+                    <button type="submit"><img src="https://img3.doubanio.com/f/shire/f71f15922ebd7c0ff0ea0e7a25577529efd8981a/pics/icon/bn_srh_1.png"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="mian container">
+        <h1>讨论精选</h1>
+
+        <div class="row">
+            <div class="col-18">
+                <div class="row article">
+                    <div class="col-3">
+                        <div class="text-center">23</div>
+                        <div class="text-center">喜欢</div>
+                    </div>
+                    <div class="col-21">
+                        <a class="title" href="#">成分党谈一下如何极简护肤(更新中)</a>
+                        <div class="row preview">
+                            <div class="col-3"><img src="https://img3.doubanio.com/view/group_topic/small/public/p141211373.webp"></div>
+                            <div class="col-21">来小组窥屏已久，今天忍不住晒眼睛了，跟宝石一样，好想看看你们的眼睛啊啊啊啊啊啊！小猫咪为什么这么可爱！</div>
+                        </div>
+                        <div class="info">
+                            <span class="from">来自<a href="#">女性联合会小组</a></span>
+                            <span class="time">今天16:46</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row article">
+                    <div class="col-3">
+                        <div class="text-center">23</div>
+                        <div class="text-center">喜欢</div>
+                    </div>
+                    <div class="col-21">
+                        <a class="title" href="#">成分党谈一下如何极简护肤(更新中)</a>
+                        <div class="row preview">
+                            <div class="col-3"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col-21">来小组窥屏已久，今天忍不住晒眼睛了，跟宝石一样，好想看看你们的眼睛啊啊啊啊啊啊！小猫咪为什么这么可爱！</div>
+                        </div>
+                        <div class="info">
+                            <span class="from">来自<a href="#">女性联合会小组</a></span>
+                            <span class="time">19秒前</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row article">
+                    <div class="col-3">
+                        <div class="text-center">23</div>
+                        <div class="text-center">喜欢</div>
+                    </div>
+                    <div class="col-21">
+                        <a class="title" href="#">成分党谈一下如何极简护肤(更新中)</a>
+                        <div class="row preview">
+                            <div class="col-3"><img src="https://img3.doubanio.com/view/group_topic/small/public/p138959900.webp"></div>
+                            <div class="col-21">来小组窥屏已久，今天忍不住晒眼睛了，跟宝石一样，好想看看你们的眼睛啊啊啊啊啊啊！小猫咪为什么这么可爱！</div>
+                        </div>
+                        <div class="info">
+                            <span class="from">来自<a href="#">女性联合会小组</a></span>
+                            <span class="time">今天12:10</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row paginator  text-center">
+                    <a href="#">上一页</a>
+                    <span>&nbsp;&nbsp;</span>
+
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+
+                    <span>&nbsp;&nbsp;</span>
+                    <a href="#">下一页</a>
+                </div>
+            </div>
+
+            <aside class="col-6">
+                <div class="title">值得加入的小组
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-6"><img src="https://img3.doubanio.com/icon/g234762-1.jpg"></div>
+                    <div class="col-18">
+                        <a class="name" href="#">佛学</a>
+                        <div class="info">
+                            17765个成员
+                            <a href="#" class="join">+加入小组</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-6"><img src="https://img3.doubanio.com/icon/g234762-1.jpg"></div>
+                    <div class="col-18">
+                        <a class="name" href="#">佛学</a>
+                        <div class="info">
+                            17765个成员
+                            <a href="#" class="join">+加入小组</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-6"><img src="https://img3.doubanio.com/icon/g234762-1.jpg"></div>
+                    <div class="col-18">
+                        <a class="name" href="#">佛学</a>
+                        <div class="info">
+                            17765个成员
+                            <a href="#" class="join">+加入小组</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </aside>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    © 2005－2018 douban.com, all rights reserved 北京豆网科技有限公司
+                </div>
+                <div class="col-12 text-right">
+                    <a href="#">关于豆瓣</a>
+                    <a href="#">在豆瓣工作</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">免责申明</a>
+                    <a href="#">帮助中心</a>
+                    <a href="#">移动应用</a>
+                    <a href="#">豆瓣广告</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
