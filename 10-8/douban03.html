@@ -1,0 +1,544 @@
+<html>
+
+<head>
+    <title>豆瓣小组</title>
+    <style>
+        .col-1 {
+                width: 4.16666666666667%;
+            }
+    
+            .col-2 {
+                width: 8.33333333333333%;
+            }
+    
+            .col-3 {
+                width: 12.5%;
+            }
+    
+            .col-4 {
+                width: 16.66666666666667%;
+            }
+    
+            .col-5 {
+                width: 20.83333333333333%;
+            }
+    
+            .col-6 {
+                width: 25%;
+            }
+    
+            .col-7 {
+                width: 29.16666666666667%;
+            }
+    
+            .col-8 {
+                width: 33.33333333333333%;
+            }
+    
+            .col-9 {
+                width: 37.5%;
+            }
+    
+            .col-10 {
+                width: 41.66666666666667%;
+            }
+    
+            .col-11 {
+                width: 45.83333333333333%;
+            }
+    
+            .col-12 {
+                width: 50%;
+            }
+    
+            .col-13 {
+                width: 54.16666666666667%;
+            }
+    
+            .col-14 {
+                width: 58.33333333333333%;
+            }
+    
+            .col-15 {
+                width: 62.5%;
+            }
+    
+            .col-16 {
+                width: 66.66666666666667%;
+            }
+    
+            .col-17 {
+                width: 70.83333333333333%;
+            }
+    
+            .col-18 {
+                width: 75%;
+            }
+    
+            .col-19 {
+                width: 79.16666666666667%;
+            }
+    
+            .col-20 {
+                width: 83.33333333333333%;
+            }
+    
+            .col-21 {
+                width: 87.5%;
+            }
+    
+            .col-22 {
+                width: 91.66666666666667%;
+            }
+    
+            .col-23 {
+                width: 95.83333333333333%;
+            }
+    
+            .col-24 {
+                width: 100%;
+            }
+    
+            * {
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+            }
+    
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+            }
+    
+            form {
+                margin: 0;
+            }
+    
+            a {
+                text-decoration: none;
+            }
+    
+            .container {
+                max-width: 1020px;
+                margin: 0 auto;
+                /* 不要跟.row作用于同一个div,不然左右居中会被覆盖 */
+            }
+    
+            .row {
+                margin: 0 -5px;
+                /* 单纯的整行不要加这个类,负的左右边距用于
+                里面的列在有padding时内容区显示仍然靠边 */
+            }
+    
+            .row:before,
+            .row:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+    
+            .fl {
+                float: left;
+            }
+    
+            .fr {
+                float: right;
+            }
+    
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-5,
+            .col-6,
+            .col-7,
+            .col-8,
+            .col-9,
+            .col-10,
+            .col-11,
+            .col-12,
+            .col-13,
+            .col-14,
+            .col-15,
+            .col-16,
+            .col-17,
+            .col-18,
+            .col-19,
+            .col-20,
+            .col-21,
+            .col-22,
+            .col-23,
+            .col-24 {
+                float: left;
+                padding: 0 5px;
+                /* 列之间留点距离 */
+            }
+    
+            .text-center {
+                text-align: center;
+            }
+    
+            .text-right {
+                text-align: right;
+            }
+    </style>
+    <style>
+        a:hover {
+            background: #afe4ca;
+        }
+
+        .nav.global {
+            background:#545652;
+        }
+        .global a {
+            display: inline-block;
+            font-size: 12px;
+            padding: 6px 12px;
+            color:#ddd;
+        }
+        .global a:hover {
+            color: #fff;
+            background:#545652;
+        }
+
+        .nav.page {
+           background: #f0f6f3;
+           padding: 18px;
+        }
+        .page .logo a {
+            font-size: 28px;
+            font-weight: 600;
+            color: darkcyan;
+        }
+        .page .links a {
+            display: inline-block;
+            font-size: 15px;
+            color: darkcyan;
+            padding: 10px;
+        }
+
+        .page form.search {
+            position: relative;
+            top: 5px;
+        }
+        .page .search input {
+            min-width: 70%;
+            padding: 7px;
+            outline: 0;
+            border: 1px solid #ddd;
+        }
+        form.search button {
+            border: 0;
+            background: transparent;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            right: 5px;
+        }
+        form.search button:hover {
+           /* 暂时找不到好的效果 */
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 500;
+            color: #555;
+            margin: 30px 0;
+        }
+
+        hr {
+            color: #fff;
+            opacity: .4;
+            margin-bottom: 20px;
+        }
+
+        .article .like {
+            background: #fae9da;
+            color: coral;
+            font-size: 14px;
+            padding: 8px;
+            margin: 12px;
+        }
+        .article .title {
+            color: #37a;
+            font-size: 15px;
+            letter-spacing:3px;
+        }
+        .article .preview {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px 5px;
+            font-size: 13px;
+            color: #999;
+        }
+        .article .preview .img {
+            display: block;
+            height: 60px;
+            width: 60px;
+            background: url(https://img3.doubanio.com/view/group_topic/small/public/p141211373.webp) no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+        .article .info {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .article .info a {
+            color: inherit;
+        }
+        .article .info .time {
+            color: #aaa;
+            padding-left: 14px;
+        }
+
+        .paginator {
+            margin-bottom: 50px;
+            font-size: 14px;
+        }
+        .paginator a {
+            color: #37a;
+            padding: 8px 12px;
+        }
+
+        aside.col-8 {
+            padding-left: 60px;
+        }
+        aside .title {
+            color: #666;
+            font-size: 14px;
+        }
+        aside .group {
+            font-size: 14px;
+            color: #666;
+        }
+        aside .name {
+            color: #37a;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        aside .join {
+            color: #37a;
+            margin-left: 1em;
+        }
+        aside hr {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            font-size: 14px;
+            margin: 40px 0 15px 0;
+            color: #777;
+        }
+        .footer a {
+            color: #37a;
+            padding: 2px 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav global">
+        <div class="container">
+            <div class="row">
+                <div class="col-14">
+                    <a href="#">豆瓣</a>
+                    <a href="#">读书</a>
+                    <a href="#">电影</a>
+                    <a href="#">音乐</a>
+                    <a href="#">同城</a>
+                    <a href="#">小组</a>
+                    <a href="#">阅读</a>
+                    <a href="#">FM</a>
+                    <a href="#">时间</a>
+                    <a href="#">豆品</a>
+                    <a href="#">更多</a>
+                </div>
+                <div class="col-10 text-right">
+                    <a href="#">下载豆瓣客户端</a>
+                    <a href="#">登陆</a>
+                    <a href="#">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav page">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 logo"><a href="#">豆瓣小组</a></div>
+                <div class="col-10 links">
+                    <a href="#">精选</a>
+                    <a href="#">文化</a>
+                    <a href="#">行摄</a>
+                    <a href="#">娱乐</a>
+                    <a href="#">时尚</a>
+                    <a href="#">生活</a>
+                    <a href="#">科技</a>
+                </div>
+                <form class="col-10 search text-right">
+                    <input type="text" placeholder="小组、话题">
+                    <button type="submit"><img src="https://img3.doubanio.com/f/shire/f71f15922ebd7c0ff0ea0e7a25577529efd8981a/pics/icon/bn_srh_1.png"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <h1 class="title">讨论精选</h1>
+            <div class="row">
+                <div class="col-16">
+
+                    <div class="row article">
+                        <div class="col-3">
+                            <div class="like text-center">
+                                <div>25</div>
+                                <div>喜欢</div>
+                            </div>
+                        </div>
+                        <div class="col-21">
+                            <a href="#" class="title">手动滑稽YO2333333333</a>
+                            <div class="row preview">
+                                <div class="col-3"><span class="img"></span></div>
+                                <div class="col-21">
+                                    因为这个梗 哈哈哈 把提到还比较多的贴上来了 谢谢大家 笔芯🙆🏻♀️ 宝格丽大吉岭 Kenzo 风之恋 欧珑无极乌龙 橘绿 银色山泉 Loewe事后
+                                    爱马仕大地
+                                    范思哲云淡风轻
+                                </div>
+                            </div>
+                            <div class="info">
+                                来自<a href="#">生活小组</a>
+                                <span class="time">09-29</span>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row article">
+                        <div class="col-3">
+                            <div class="like text-center">
+                                <div>25</div>
+                                <div>喜欢</div>
+                            </div>
+                        </div>
+                        <div class="col-21">
+                            <a href="#" class="title">手动滑稽YO2333333333</a>
+                            <div class="row preview">
+                                <div class="col-3"><span class="img"></span></div>
+                                <div class="col-21">
+                                    因为这个梗 哈哈哈 把提到还比较多的贴上来了 谢谢大家 笔芯🙆🏻♀️ 宝格丽大吉岭 Kenzo 风之恋 欧珑无极乌龙 橘绿 银色山泉 Loewe事后
+                                    爱马仕大地
+                                    范思哲云淡风轻
+                                </div>
+                            </div>
+                            <div class="info">
+                                来自<a href="#">生活小组</a>
+                                <span class="time">09-29</span>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row article">
+                        <div class="col-3">
+                            <div class="like text-center">
+                                <div>25</div>
+                                <div>喜欢</div>
+                            </div>
+                        </div>
+                        <div class="col-21">
+                            <a href="#" class="title">手动滑稽YO2333333333</a>
+                            <div class="row preview">
+                                <div class="col-3"><span class="img"></span></div>
+                                <div class="col-21">
+                                    因为这个梗 哈哈哈 把提到还比较多的贴上来了 谢谢大家 笔芯🙆🏻♀️ 宝格丽大吉岭 Kenzo 风之恋 欧珑无极乌龙 橘绿 银色山泉 Loewe事后
+                                    爱马仕大地
+                                    范思哲云淡风轻
+                                </div>
+                            </div>
+                            <div class="info">
+                                来自<a href="#">生活小组</a>
+                                <span class="time">09-29</span>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row article">
+                        <div class="col-3">
+                            <div class="like text-center">
+                                <div>25</div>
+                                <div>喜欢</div>
+                            </div>
+                        </div>
+                        <div class="col-21">
+                            <a href="#" class="title">手动滑稽YO2333333333</a>
+                            <div class="row preview">
+                                <div class="col-3"><span class="img"></span></div>
+                                <div class="col-21">
+                                    因为这个梗 哈哈哈 把提到还比较多的贴上来了 谢谢大家 笔芯🙆🏻♀️ 宝格丽大吉岭 Kenzo 风之恋 欧珑无极乌龙 橘绿 银色山泉 Loewe事后
+                                    爱马仕大地
+                                    范思哲云淡风轻
+                                </div>
+                            </div>
+                            <div class="info">
+                                来自<a href="#">生活小组</a>
+                                <span class="time">09-29</span>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="paginator text-center">
+                        <a href="#">上一页</a>
+                        <span>&nbsp;&nbsp;</span>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <span>&nbsp;&nbsp;</span>
+                        <a href="#">下一页</a>
+                    </div>
+
+                </div>
+
+                <aside class="col-8">
+                    <div class="title">值得加入的小组</div>
+                    <hr>
+                    <div class="row group">
+                        <div class="col-6"><img src="https://img3.doubanio.com/icon/g234762-1.jpg"></div>
+                        <div class="col-18">
+                            <a href="#" class="name">小组名字</a>
+                            <div>
+                                17765个成员
+                                <a href="#" class="join">+加入小组</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    © 2005－2018 douban.com, all rights reserved 北京豆网科技有限公司
+                </div>
+                <div class="col-12">
+                    <a href="#">关于豆瓣</a>
+                    <a href="#">在豆瓣工作</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">免责申明</a>
+                    <a href="#">帮助中心</a>
+                    <a href="#">移动应用</a>
+                    <a href="#">豆瓣广告</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
