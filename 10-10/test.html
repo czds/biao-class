@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*向上*/
+        .triangle_border_up {
+            width: 0;
+            height: 0;
+            border-width: 0 30px 30px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+            /* margin:40px auto; */
+            position: relative;
+        }
+
+        /* .triangle_border_up span{
+    display:block;
+    width:0;
+    height:0;
+    border-width:0 28px 28px;
+    border-style:solid;
+    border-color:transparent transparent #fc0;
+    position:absolute;
+    top:0px;
+    left:0px;
+} */
+        /*向下*/
+        .triangle_border_down {
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 0;
+            border-style: solid;
+            border-color: #333 transparent transparent;
+            /*灰 透明 透明 */
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .triangle_border_down span {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 28px 28px 0;
+            border-style: solid;
+            border-color: #fc0 transparent transparent;
+            /*黄 透明 透明 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        /*向左*/
+        .triangle_border_left {
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 30px 0;
+            border-style: solid;
+            border-color: transparent #333 transparent transparent;
+            /*透明 灰 透明 透明 */
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .triangle_border_left span {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 28px 28px 28px 0;
+            border-style: solid;
+            border-color: transparent #fc0 transparent transparent;
+            /*透明 黄 透明 透明 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        img {
+            width: 350px;
+            height: 260px;
+            transition: .7s ease-in-out;
+        }
+
+        .d {
+            width: 20%;
+            border: 1px solid #000;
+        }
+
+        div {
+            overflow: hidden;
+        }
+
+        .img:hover {
+            transform: scale(1.1);
+        }
+        .di {
+            margin-top: 10px;
+        }
+        .img {
+            width: 300px;
+            height: 200px;
+            display: block;
+            background: url(https://image1.ljcdn.com/xf-resblock/b384bab6-1f47-44c2-997b-e8309d7f7a1e.jpeg.510x300.jpg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background: grey;">
+        <!-- 向上的三角形 -->
+        <div class="triangle_border_up">
+
+        </div>
+    </div>
+    <div class="d">
+
+        <div>
+<span class="img"></span>
+        </div>
+        <div class="di">2222</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1045 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>链家</title>
+    <style>
+        .col-1 {
+            width: 4.16666666666667%;
+        }
+
+        .col-2 {
+            width: 8.33333333333333%;
+        }
+
+        .col-3 {
+            width: 12.5%;
+        }
+
+        .col-4 {
+            width: 16.66666666666667%;
+        }
+
+        .col-5 {
+            width: 20.83333333333333%;
+        }
+
+        .col-6 {
+            width: 25%;
+        }
+
+        .col-7 {
+            width: 29.16666666666667%;
+        }
+
+        .col-8 {
+            width: 33.33333333333333%;
+        }
+
+        .col-9 {
+            width: 37.5%;
+        }
+
+        .col-10 {
+            width: 41.66666666666667%;
+        }
+
+        .col-11 {
+            width: 45.83333333333333%;
+        }
+
+        .col-12 {
+            width: 50%;
+        }
+
+        .col-13 {
+            width: 54.16666666666667%;
+        }
+
+        .col-14 {
+            width: 58.33333333333333%;
+        }
+
+        .col-15 {
+            width: 62.5%;
+        }
+
+        .col-16 {
+            width: 66.66666666666667%;
+        }
+
+        .col-17 {
+            width: 70.83333333333333%;
+        }
+
+        .col-18 {
+            width: 75%;
+        }
+
+        .col-19 {
+            width: 79.16666666666667%;
+        }
+
+        .col-20 {
+            width: 83.33333333333333%;
+        }
+
+        .col-21 {
+            width: 87.5%;
+        }
+
+        .col-22 {
+            width: 91.66666666666667%;
+        }
+
+        .col-23 {
+            width: 95.83333333333333%;
+        }
+
+        .col-24 {
+            width: 100%;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-13,
+        .col-14,
+        .col-15,
+        .col-16,
+        .col-17,
+        .col-18,
+        .col-19,
+        .col-20,
+        .col-21,
+        .col-22,
+        .col-23,
+        .col-24,
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .row:before,
+        .row:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+    </style>
+    <style>
+        .triangle {
+        width:0;
+        height:0;
+        border-style:solid;
+        border-width:0 9px 10px;
+        border-color:transparent transparent #fff;
+        position: relative;
+        top: 2px;
+        left: 20px;
+        }
+        .first-screen {
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/bannerV2.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center 0;
+        }
+        .first-screen .logo .img {
+            height: 60px;
+            width: 130px;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?index=20170526);
+            background-repeat: no-repeat;
+            background-position: 0 -375px;
+        }
+        .first-screen .logo .location .icon {
+            height: 12px;
+            width: 10px;
+            display: inline-block;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?index=20170526);
+            background-repeat: no-repeat;
+            background-position: -189px -20px;
+        }
+        .first-screen .user .icon {
+            height: 16px;
+            width: 17px;
+            display: inline-block;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?index=20170526);
+            background-repeat: no-repeat;
+            background-position: -203px -20px;
+        }
+        .first-screen .links .icon {
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/lvju.png?_v=20181011211706);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .first-screen .statement .icon-1 {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            background-image: url(https://image1.ljcdn.com/materials/list/2016-08-17/php3X11MP.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .first-screen .statement .icon-2 {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            background-image: url(https://image1.ljcdn.com/materials/list/2016-06-29/phpAPdvEm.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .app {
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/bg-app.jpg);
+            background-repeat: no-repeat;
+            background-position: center 0;
+        }
+        .app .download {
+            padding-bottom: 75px;
+        }
+        .app .iPhone,
+        .app .Android {
+            height: 44px;
+            width: 130px;
+            display: block;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?index=20170526);
+            background-repeat: no-repeat;
+        }
+        .app .iPhone {
+            background-position: -20px -139px;
+            margin-bottom: 12px;
+        }
+        .app .Android {
+            background-position: -20px -197px;
+        }
+        .app .qr-code {
+            height: 100px;
+            width: 100px;
+            display: block;
+            background-image: url(https://ajax.api.lianjia.com/qr/getDownloadQr?location=site_middle&ljweb_channel_key=site_index);
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 10px;
+        }
+        .app .title {
+            font-size: 70px;
+            font-weight: 600;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            color: #363e41;
+        }
+        .app .sub-title {
+            font-size: 44px;
+            font-weight: 300;
+            color: #555;
+            padding-top: 100px;
+        }
+        .app .desc {
+            font-size: 14px;
+            max-width: 460px;
+            margin-bottom: 40px;
+            color: #7dcfa0;
+        }
+    </style>
+    <style>
+        .first-screen {
+            color: #fff;
+        }
+        .first-screen a {
+            color: inherit;
+        }
+        .logo {
+            margin-top: 30px;
+        }
+        .logo > * {
+            vertical-align: middle;
+            display: inline-block;
+        }
+        .logo .location {
+            background: rgba(0, 0, 0, .25);
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        .user {
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        .user > * {
+            vertical-align: middle;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .first-screen .links a {
+            display: inline-block;
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .heading {
+            margin-top: 100px;
+        }
+        .heading .head {
+            font-size: 68px;
+            font-weight: 600;
+        }
+        .heading .sub-head {
+            font-size: 20px;
+        }
+        .first-screen .search {
+            margin-top: 30px;
+            margin-bottom: 150px;
+        }
+        .first-screen .search > * {
+            vertical-align: middle;
+        }
+        .first-screen .search .type span {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            opacity: .5;
+            cursor: pointer;
+        }
+        .first-screen .search .type span:hover {
+            opacity: .8;
+        }
+        .first-screen .search .type span.acticed {
+            opacity: 1;
+        }
+        .first-screen .search input {
+            width: 80%;
+            padding: 20px;
+            font-size: 14px;
+            outline: none;
+            border: none;
+            border-radius: 2px 0 0 2px;
+
+        }
+        .first-screen .search button {
+            width: 15%;
+            font-size: 20px;
+            color: inherit;
+            background: #00ae66;
+            border: none;
+            border-radius: 0 2px 2px 0;
+            padding: 15px 0;
+        }
+        .first-screen .statement {
+            padding-bottom: 30px;
+        }
+        .first-screen .statement a {
+            font-size: 12px;
+            margin-right: 20px;
+        }
+        .first-screen .statement a span {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .first-screen .statement a {
+            font-size: 12px;
+            opacity: .8;
+        }
+        .first-screen .statement a:hover {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        .footer {
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/footer-bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center 0;
+            color: #999;
+            font-size: 12px;
+        }
+        .footer .contact {
+            padding: 30px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+        }
+        .footer .contact a {
+            color: #fff;
+            margin-right: 10px;
+        }
+        .footer .contact .tel {
+            color: #7dcfa0;
+        }
+        .footer .link-group  .type span {
+            background: #000;
+            cursor: pointer;
+            display: inline-block;
+            padding: 8px 10px;
+            margin: 15px 10px 20px 0;
+        }
+        .footer .link-group  .type span:hover {
+            background: #394043;
+            color: #fff;
+        }
+        .footer .link-group  .links a {
+            color: inherit;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .footer .link-group  .links a:hover {
+            text-decoration: underline;
+        }
+        .footer .link-group {
+            min-height: 160px;
+            border-bottom: 1px solid #333;
+        }
+        .footer .owner-info {
+            padding-top: 30px;
+            padding-bottom: 110px;
+        }
+        .footer .owner-info a {
+            color: inherit;
+            display: inline-block;
+            padding-top: 5px;
+        }
+        .footer .owner-info a > * {
+            vertical-align: middle;
+            padding-right: 5px;
+        }
+
+        .slogan {
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/truth-bgV2.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #fff;
+            font-size: 16px;
+        }
+        .slogan .title {
+            font-size: 50px;
+            font-weight: 500;
+            margin-top: 50px;
+        }
+        .slogan .sub-title {
+            font-size: 50px;
+            font-weight: 100;
+        }
+        .slogan .text {
+            margin-top: 60px;
+            line-height: 150%;
+        }
+        .slogan form {
+            margin-top: 20px;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        .slogan form input {
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 2px;
+        }
+        .slogan form button {
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            left: 90%;
+            bottom: 4px;
+            background-color: transparent;
+        }
+        .slogan form .icon {
+            display: block;
+            width: 35px;
+            height: 35px;
+            background-image: url(https://s1.ljcdn.com/feroot/pc/asset/img/home/spriteV2_new.png?t=2017052520523424);
+            background-repeat: no-repeat;
+            background-position: -402px -12px;
+
+        }
+    </style>
+    <style>
+        .main .header {
+            padding-top: 40px;
+        }
+        .main .header .title {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .main .header .sub-title {
+            color: #666;
+            margin-left: 5px;
+            font-size: 30px;
+            font-weight: 100;
+        }
+        .main .header .info {
+            font-size: 13px;
+        }
+        .main .header .info .fl {
+            color: #777;
+        }
+        .main .header .info .fr a {
+            color: inherit;
+        }
+        .main .header .info .fr a:hover {
+            text-decoration: underline;
+        }
+        .main .header .info {
+            margin-top: 5px;
+            margin-bottom: 40px;
+        }
+        .old-house .wrapper,
+        .village .wrapper,
+        .new-house .wrapper {
+            margin-left: -25px;
+            margin-right: -25px;
+            overflow: hidden;
+            padding-bottom: 60px;
+        }
+        .old-house .wrapper {
+            padding-bottom: 40px;
+        }
+
+        .old-house .card .img {
+            height: 190px;
+            background-image: url(https://image1.ljcdn.com/110000-inspection/b545d03b-4c87-43d8-853c-c640f536b131.jpg.280x210.jpg);
+            background-size: contain;
+        }
+        .village .card .img {
+            height: 200px;
+            background-image: url(https://image1.ljcdn.com/hdic-resblock/c057cbaf-d5a1-4dc7-af82-b852f4f22b97.jpg.280x210.jpg);
+            background-size: cover;
+        }
+        .new-house .card .img {
+            height: 260px;
+            background-image: url(https://image1.ljcdn.com/xf-resblock/b384bab6-1f47-44c2-997b-e8309d7f7a1e.jpeg.510x300.jpg);
+            background-size: cover;
+        }
+        .card .img {
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            transition: .6s ease-in-out;
+        }
+        .village .card .img:hover,
+        .new-house .card .img:hover {
+            transform: scale(1.03);
+        }
+        .img-container {
+            overflow: hidden;
+        }
+
+        .wrapper a {
+            color: #000;
+            display: inline-block;
+            padding: 0 25px;
+        }
+        .card {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .village .wrapper .card {
+            border-radius: 2px;
+        }
+        .old-house .wrapper a {
+            font-size: 12px;
+            color: #777;
+        }
+        .old-house .card .name {
+            font-size: 15px;
+            color: #000;
+            margin: 10px 20px;
+        }
+        .old-house .card .desc {
+            margin: 10px 20px;
+        }
+        .old-house .card .desc span {
+            margin-right: 5px; 
+        }
+        .old-house .card .price {
+            font-size: 18px;
+            background: #555;
+            color: #fff;
+            padding: 2px 6px;
+            position: absolute;
+            top: 150px;
+        }
+        .old-house .tips {
+            margin-top: 15px;
+        }
+
+        .village {
+            background: #eeeef1;
+        }
+        .village .card .name {
+            font-weight: bold;
+            color: #444;
+            margin: 10px 20px;
+        }
+        .village .card .desc {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 20px;
+        }
+        .village .card .build-at {
+            font-size: 12px;
+            color: #777;
+        }
+        .new-house .card .info {
+            position: absolute;
+            bottom: 110px;
+            left: 20%;
+        }
+        .new-house .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .new-house .price {
+            font-size: 18px;
+            color: #fff2ab;
+        }
+        .new-house .discount {
+            font-size: 18px;
+            background: #fff2ab;
+            padding: 4px 8px;
+            font-weight: bold;
+            position: absolute;
+            bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first-screen">
+        <div class="container">
+
+            <div class="row nav global">
+
+                <div class="col-6 logo">
+                    <a href="#" title="链家网" class="img"></a>
+                    <a href="" class="location">
+                        <span class="icon"></span>
+                        <span>北京</span>
+                    </a>
+                </div>
+
+                <div class="col-18 text-right">
+                    <div class="user">
+                        <span class="icon"></span>
+                        <a href="#">登陆</a>
+                        <a href="#">立即注册</a>
+                    </div>
+                    <div class="links">
+                        <a href="#">二手房</a>
+                        <a href="#">新房</a>
+                        <a href="#">租房</a>
+                        <a href="#"><span class="icon"></span>旅居</a>
+                        <a href="#">海外</a>
+                        <a href="#">小区</a>
+                        <a href="#">经纪人</a>
+                        <a href="#">指南</a>
+                        <a href="#">房价</a>
+                        <a href="#">工具</a>
+                        <a href="#">经验</a>
+                        <a href="#">发布房源</a>
+                        <a href="#">企业汇</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="heading text-center">
+                <div class="head">连接每个家的故事</div>
+                <div class="sub-head">北京链家真实租房 10138 套</div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">&nbsp;</div>
+
+                <form class="col-18 search">
+                    <div class="type">
+                        <span class="acticed">找二手房</span>
+                        <span>找新房</span>
+                        <span>找租房</span>
+                        <span>找小区</span>
+                        <span>搜问答</span>
+                    </div>
+                    <div class="triangle"></div>
+                    <input type="text" placeholder="请输入区域或小区名开始找房"><button type="submit">开始找房</button>
+                </form>
+
+                <div class="col-3">&nbsp;</div>
+            </div>
+
+            <div class="statement">
+                <div class="container">
+                    <a href="#"><span class="icon-1"></span> <span>关于仿冒我公司进行不正当竞争行为的郑重声明</span></a>
+                    <a href="#"><span class="icon-2"></span> <span>房地产中介诚信服务承诺及保证书</span></a>
+                    <a href="#"><span class="icon-2"></span> <span>致广大用户</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="main">
+
+        <div class="service">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-8"></div>
+                    <div class="col-8"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app">
+            <div class="container">
+                <div class="sub-title">一链倾城</div>
+                <div class="title">为你为家</div>
+                <div class="desc">
+                    集二手、新房、租房功能于一体，随时随地任性找房。IM匿名咨询让您放心，消息动态推送让您省心，服务承诺让您安心，数据百科锦囊让您感受贴心漫漫找房路，我们努力为您想更多。
+                </div>
+                <div class="row download">
+                    <div class="col-3">
+                        <a href="#" class="iPhone"></a>
+                        <a href="#" class="Android"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#"><span class="qr-code"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="old-house">
+            <div class="container">
+
+                <div class="header">
+                    <div>
+                        <span class="title">二手好房</span>
+                        <span class="sub-title">为你而选</span>
+                    </div>
+                    <div class="row info">
+                        <div class="fl">好房源那么多，我们为你精选，链家网会越来越懂你</div>
+                        <div class="fr"><a href="#">更多北京二手房</a></div>
+                    </div>
+                </div>
+
+                <div class="row wrapper">
+
+                    <a href="#" class="col-6">
+                        <div class="card">
+                            <div class="img"></div>
+                            <div class="name">
+                                龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修
+                            </div>
+                            <div class="desc">
+                                <span>龙城花园北二区</span>
+                                <span>2室1厅</span>
+                                <span>65.64平米</span>
+                            </div>
+                            <span class="price">350万</span>
+                        </div>
+                        <div class="tips">近期关注度较高房源</div>
+                    </a>
+                    <a href="#" class="col-6">
+                        <div class="card">
+                            <div class="img"></div>
+                            <div class="name">
+                                龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修
+                            </div>
+                            <div class="desc">
+                                <span>龙城花园北二区</span>
+                                <span>2室1厅</span>
+                                <span>65.64平米</span>
+                            </div>
+                            <span class="price">350万</span>
+                        </div>
+                        <div class="tips">近期关注度较高房源</div>
+                    </a>
+                    <a href="#" class="col-6">
+                        <div class="card">
+                            <div class="img"></div>
+                            <div class="name">
+                                龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修
+                            </div>
+                            <div class="desc">
+                                <span>龙城花园北二区</span>
+                                <span>2室1厅</span>
+                                <span>65.64平米</span>
+                            </div>
+                            <span class="price">350万</span>
+                        </div>
+                        <div class="tips">近期关注度较高房源</div>
+                    </a>
+                    <a href="#" class="col-6">
+                        <div class="card">
+                            <div class="img"></div>
+                            <div class="name">
+                                龙城别墅&nbsp;&nbsp;两居&nbsp;&nbsp;精装修
+                            </div>
+                            <div class="desc">
+                                <span>龙城花园北二区</span>
+                                <span>2室1厅</span>
+                                <span>65.64平米</span>
+                            </div>
+                            <span class="price">350万</span>
+                        </div>
+                        <div class="tips">近期关注度较高房源</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="village">
+            <div class="container">
+
+                <div class="header">
+                    <div>
+                        <span class="title">小区</span>
+                        <span class="sub-title">为您推荐</span>
+                    </div>
+                    <div class="row info">
+                        <div class="fl">纵览小区，恋上这座城</div>
+                        <div class="fr"><a href="#">更多北京小区</a></div>
+                    </div>
+                </div>
+
+                <div class="row wrapper">
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="name">远洋山水</div>
+                            <div class="row desc">
+                                <div class="price fl">66224元/平</div>
+                                <div class="build-at fr">2003年建</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="name">远洋山水</div>
+                            <div class="row desc">
+                                <div class="price fl">66224元/平</div>
+                                <div class="build-at fr">2003年建</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="name">远洋山水</div>
+                            <div class="row desc">
+                                <div class="price fl">66224元/平</div>
+                                <div class="build-at fr">2003年建</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="new-house">
+            <div class="container">
+
+                <div class="header">
+                    <div>
+                        <span class="title">新房</span>
+                        <span class="sub-title">新起航</span>
+                    </div>
+                    <div class="row info">
+                        <div class="fl">真实信息准确同步，楼盘动态一手掌握</div>
+                        <div class="fr"><a href="#">更多北京新房</a></div>
+                    </div>
+                </div>
+
+                <div class="row wrapper">
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="info text-center">
+                                <div class="name">万科大都会滨江N2</div>
+                                <div class="price"><strong>65000</strong>元/平</div>
+                            </div>
+                            <span class="discount">立减15万</span>
+                        </div>
+                    </a>
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="info text-center">
+                                <div class="name">万科大都会滨江N2</div>
+                                <div class="price"><strong>65000</strong>元/平</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-8">
+                        <div class="card">
+                            <div class="img-container">
+                                <div class="img"></div>
+                            </div>
+                            <div class="info text-center">
+                                <div class="name">万科大都会滨江N2</div>
+                                <div class="price"><strong>65000</strong>元/平</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="slogan">
+            <div class="row container">
+
+                <div class="col-13">
+                    <div class="title">链家真实房源</div>
+                    <div class="sub-title">不是嘴上说说就可以!</div>
+                </div>
+
+                <div class="col-11">
+                    <div class="text">
+                        <div>真实存在，真实在售，真实价格，真实图片！</div>
+                        <div>链家郑重向用户承诺：真实房源，假一赔百元！</div>
+                    </div>
+                    <form>
+                        <input type="text" placeholder="请输入链家编号查询真伪...">
+                        <button type="submit"><span class="icon"></span></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+
+            <div class="row contact">
+                <div class="col-20">
+                    <a href="#">了解链家</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">经纪人登陆</a>
+                    <a href="#">了解链家</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">经纪人登陆</a>
+                </div>
+                <div class="col-4 tel text-right">官方客服 1010 9666</div>
+            </div>
+
+            <div class="row link-group">
+                <div class="type">
+                    <span>城市二手房</span>
+                    <span>城市新房</span>
+                    <span>城市租房</span>
+                    <span>问答</span>
+                    <span>百科</span>
+                    <span>热门小区</span>
+                    <span>城市二手房推荐</span>
+                    <span>推荐新房</span>
+                    <span>推荐楼盘</span>
+                    <span>合作与友情链接</span>
+                </div>
+                <div class="links">
+                    <a href="#">租房链接1</a>
+                    <a href="#">租房链接2</a>
+                    <a href="#">租房链接3</a>
+                    <a href="#">租房链接4</a>
+                    <a href="#">租房链接5</a>
+                    <a href="#">租房链接6</a>
+                    <a href="#">租房链接7</a>
+                    <a href="#">租房链接8</a>
+                    <a href="#">租房链接9</a>
+                    <a href="#">租房链接10</a>
+                    <a href="#">租房链接11</a>
+                    <a href="#">租房链接12</a>
+                    <a href="#">租房链接13</a>
+                    <a href="#">租房链接14</a>
+                    <a href="#">租房链接15</a>
+                    <a href="#">租房链接16</a>
+                    <a href="#">租房链接17</a>
+                    <a href="#">租房链接18</a>
+                    <a href="#">租房链接19</a>
+                    <a href="#">租房链接20</a>
+                    <a href="#">租房链接21</a>
+                    <a href="#">租房链接22</a>
+                    <a href="#">租房链接23</a>
+                    <a href="#">租房链接24</a>
+                    <a href="#">租房链接25</a>
+                    <a href="#">租房链接26</a>
+                </div>
+            </div>
+            <div class="owner-info">
+                <div>链家网（北京）科技有限公司 | 网络经营许可证 京ICP备16057509号-2 | © Copyright©2010-2018 链家网Lianjia.com版权所有</div>
+                <div><a href="#"><img src="https://s1.ljcdn.com/feroot/pc/asset/img/home/beian.png?_v=20181011211706">京公网安备
+                        11010802024019号</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
