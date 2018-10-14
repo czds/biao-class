@@ -164,10 +164,6 @@
             margin: 0 auto;
         }
 
-        .text-left {
-            text-align: left;
-        }
-
         .text-center {
             text-align: center;
         }
@@ -333,7 +329,6 @@
         }
         .heading .head {
             font-size: 68px;
-            font-weight: 600;
         }
         .heading .sub-head {
             font-size: 20px;
@@ -654,6 +649,30 @@
             position: absolute;
             bottom: 20px;
         }
+
+        .main .service {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .main .service a img {
+            display: block;
+            width: 76px;
+            height: 65px;
+            margin: 0 auto 15px auto;
+            transition: .6s ease;
+        }
+        .main .service a img:hover {
+            transform:translateY(-10px);
+        }
+        .main .service a .title {
+            color: #000;
+            font-size: 18px;
+        }
+        .main .service a .desc {
+            color: #b0b3b4;
+            font-size: 12px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -702,9 +721,9 @@
             </div>
 
             <div class="row">
-                <div class="col-3">&nbsp;</div>
+                <div class="col-4">&nbsp;</div>
 
-                <form class="col-18 search">
+                <form class="col-17 search">
                     <div class="type">
                         <span class="acticed">找二手房</span>
                         <span>找新房</span>
@@ -734,9 +753,39 @@
         <div class="service">
             <div class="container">
                 <div class="row">
-                    <div class="col-8"></div>
-                    <div class="col-8"></div>
-                    <div class="col-8"></div>
+                    <div class="col-8 text-center">
+                        <a href="#">
+                            <img src="https://image1.ljcdn.com/materials/list/2016-11-23/phpe022WE.png">
+                            <div class="title">找二手房</div>
+                            <div class="desc">
+                                <div>真实二手房源,链家承诺真实在售</div>
+                                <div>所见即真</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 text-center">
+                        <a href="#">
+                            <img src="https://image1.ljcdn.com/materials/list/2017-02-16/phphnmv10.png">
+                            <div class="title">房屋估价</div>
+                            <div class="desc">
+                                <div>基于海量成交数据,帮您合理定价</div>
+                                <div>预估市值</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 text-center">
+                        <a href="#">
+                            <img src="https://image1.ljcdn.com/materials/list/2016-07-21/php4TtmtO.png">
+                            <div class="title">地图找房</div>
+                            <div class="desc">
+                                <div>为您精准定位,位置周边配套设施</div>
+                                <div>一览无余</div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
