@@ -1,0 +1,482 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米商城</title>
+    <link rel="stylesheet" href="../icon/ali/iconfont.css">
+    <style>
+        .col-1 {
+            width: 4.16666666666667%;
+        }
+
+        .col-2 {
+            width: 8.33333333333333%;
+        }
+
+        .col-3 {
+            width: 12.5%;
+        }
+
+        .col-4 {
+            width: 16.66666666666667%;
+        }
+
+        .col-5 {
+            width: 20.83333333333333%;
+        }
+
+        .col-6 {
+            width: 25%;
+        }
+
+        .col-7 {
+            width: 29.16666666666667%;
+        }
+
+        .col-8 {
+            width: 33.33333333333333%;
+        }
+
+        .col-9 {
+            width: 37.5%;
+        }
+
+        .col-10 {
+            width: 41.66666666666667%;
+        }
+
+        .col-11 {
+            width: 45.83333333333333%;
+        }
+
+        .col-12 {
+            width: 50%;
+        }
+
+        .col-13 {
+            width: 54.16666666666667%;
+        }
+
+        .col-14 {
+            width: 58.33333333333333%;
+        }
+
+        .col-15 {
+            width: 62.5%;
+        }
+
+        .col-16 {
+            width: 66.66666666666667%;
+        }
+
+        .col-17 {
+            width: 70.83333333333333%;
+        }
+
+        .col-18 {
+            width: 75%;
+        }
+
+        .col-19 {
+            width: 79.16666666666667%;
+        }
+
+        .col-20 {
+            width: 83.33333333333333%;
+        }
+
+        .col-21 {
+            width: 87.5%;
+        }
+
+        .col-22 {
+            width: 91.66666666666667%;
+        }
+
+        .col-23 {
+            width: 95.83333333333333%;
+        }
+
+        .col-24 {
+            width: 100%;
+        }
+
+        .twenty-percent {
+            width: 20%;
+        }
+
+        .eighty-percent {
+            width: 80%;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-13,
+        .col-14,
+        .col-15,
+        .col-16,
+        .col-17,
+        .col-18,
+        .col-19,
+        .col-20,
+        .col-21,
+        .col-22,
+        .col-23,
+        .col-24,
+        .twenty-percent,
+        .eighty-percent,
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .row:before,
+        .row:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+
+        .container {
+            max-width: 1230px;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            margin-left: -6px;
+            margin-right: -6px;
+        }
+
+        .wrapper>* {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .del-line {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+    </style>
+    <style>
+        .ad a {
+            display: block;
+            width: 100%;
+            height: 120px;
+            background-image: url(https://i1.mifile.cn/a4/cms_15392619375595_OtGhC.jpg);
+            background-repeat: no-repeat;
+            background-position: center 0;
+            margin: 40px 0;
+        }
+
+        .ad.top a {
+            margin: 0;
+        }
+
+        a.card {
+            display: block;
+            background-color: #fff;
+            height: 300px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        a.card.small {
+            height: 144px;
+        }
+
+        a.card img {
+            display: block;
+            height: 180px;
+            width: 230px;
+            margin: 0 auto;
+        }
+
+        a.card.small img {
+            height: 130px;
+        }
+
+        a.card.full img {
+            height: 300px;
+        }
+
+        a.card.long img {
+            height: 612px;
+        }
+
+        a.card .content {
+            margin-top: 20px;
+        }
+
+        a.card.small .content {
+            position: absolute;
+            top: 20px;
+            left: 20%;
+        }
+
+        a.card .content .price {
+            color: rgb(223, 73, 73);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        a.card .content .name {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        a.card .content .desc {
+            color: #777;
+        }
+
+        a.card .content .new,
+        a.card .content .discount {
+            position: absolute;
+            font-size: 14px;
+            color: #fff;
+            top: 0;
+            left: 38%;
+        }
+
+        a.card .content .new {
+            padding: 2px 20px;
+            background: green;
+        }
+
+        a.card .content .discount {
+            padding: 2px 10px;
+            background: red;
+        }
+
+        a.card.small .content .more {
+            font-size: 18px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+    </style>
+    <style>
+        header .nav.global {
+            background-color: #333;
+            margin-bottom: 20px;
+        }
+        header .nav.global a {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 10px 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+        header .nav.global .shopping-cart {
+            background: #444;
+            padding: 5px 20px 5px 15px;
+        }
+        header .nav.global .shopping-cart > * {
+            vertical-align: middle;
+        }
+        header .nav.global .shopping-cart i {
+            font-size: 20px;
+        }
+        header .nav.global a:hover {
+            color: #fff;
+        }
+        header .nav.page .logo a img {
+            vertical-align: middle;
+        }
+        header .nav.page .logo .sub {
+            margin-left: 20px;
+        }
+        header .nav.page .links a {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        header .nav.page .links a:hover {
+            color: orange;
+        }
+        header .nav.page .search {
+            position: relative;
+            top: 10px;
+        }
+        header .nav.page .search input {
+            outline: none;
+            border: 1px solid #ddd;
+            width: 90%;
+            padding: 15px 10px;
+        }
+        header .nav.page .search input:focus {
+            border-color: orange;
+        }
+        header .nav.page .search button {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            color: #666;
+            padding: 10px 14px;
+            font-size: 23px;
+            top: 0;
+            right: 0;
+        } 
+    </style>
+    <style>
+        header .product-group .banner img {
+            width: 1226px;
+            height: 460px;
+        }
+        header .product-group .type {
+            padding: 20px 0;
+            background: #777;
+            color: #eee;
+            font-size: 15px;
+        }
+        header .product-group .type .row {
+            padding: 10px 30px;
+        }
+        header .product-group .type div:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="ad top"><a href="#"></a></div>
+
+        <div class="nav global">
+            <div class="row container">
+                <div class="fl">
+                    <a href="#">小米商城</a>
+                    <a href="#">MIUI</a>
+                    <a href="#">loT</a>
+                    <a href="#">云服务</a>
+                    <a href="#">金融</a>
+                    <a href="#">有品</a>
+                    <a href="#">小爱开放平台</a>
+                    <a href="#">政企服务</a>
+                    <a href="#">下载app</a>
+                    <a href="#">Slect Region</a>
+                </div>
+                <div class="fr">
+                    <a href="#">登陆</a>
+                    <a href="#">注册</a>
+                    <a href="#">消息通知</a>
+                    <a href="#" class="shopping-cart"><i class="i-caigou-xianxing"></i> 购物车(0)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav page">
+            <div class="row container">
+                <div class="col-5 logo">
+                    <a href="#"><img src="https://s01.mifile.cn/i/logo.png" alt=""></a>
+                    <a href="#" class="sub"><img src="http://i8.mifile.cn/v1/a1/b7acecd8-729b-dc3a-6a93-1eeb82cd0846.webp"
+                            alt=""></a>
+                </div>
+                <div class="col-13 links">
+                    <a href="#">小米手机</a>
+                    <a href="#">红米</a>
+                    <a href="#">电视</a>
+                    <a href="#">笔记本</a>
+                    <a href="#">空调</a>
+                    <a href="#">新品</a>
+                    <a href="#">路由器</a>
+                    <a href="#">智能硬件</a>
+                    <a href="#">服务</a>
+                    <a href="#">社区</a>
+                </div>
+                <form action="" class="col-6 search text-right">
+                    <input type="text"> <button><i class="i-sousuotianchong"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="product-group">
+            <div class="row container">
+                <div class="twenty-percent type">
+                    <div class="row">
+                        <div class="fl">手机 电话卡</div><div class="fr"><i class="i-fanhui2"></i></div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">电视 盒子</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">笔记本 平板</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">家电 插线板</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">出行 穿戴</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">智能 路由器</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">电源 配件</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">健康 儿童</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">耳机 音箱</div>
+                    </div>
+                    <div class="row">
+                        <div class="fl">生活 箱包</div>
+                    </div>
+                </div>
+                <div class="eighty-percent banner">
+                    <img src="https://i1.mifile.cn/a4/xmad_15390566336542_Wascm.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>
