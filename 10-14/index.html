@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <title>小米商城</title>
+    <link rel="stylesheet" href="../icon/ali/iconfont.css">
     <style>
         .col-1 {
             width: 4.16666666666667%;
@@ -109,8 +109,6 @@
             width: 80%;
         }
 
-        .twenty-percent,
-        .eighty-percent,
         .col-1,
         .col-2,
         .col-3,
@@ -135,6 +133,8 @@
         .col-22,
         .col-23,
         .col-24,
+        .twenty-percent,
+        .eighty-percent,
         .fl {
             float: left;
         }
@@ -155,28 +155,19 @@
             box-sizing: border-box;
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
-            margin: 0;padding: 0;
-            list-style: none;
-        }
-
-        body {
-            font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        form {
-            margin: 0;
+        body {
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: sans-serif;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-        }
-
-        .container {
-            max-width: 1230px;
-            margin: 0 auto;
         }
 
         .text-center {
@@ -186,32 +177,29 @@
         .text-right {
             text-align: right;
         }
-    </style>
-    <style>
-        .wrapper > * {
-            padding-left: 6px;
-            padding-right: 6px;
+
+
+        .container {
+            max-width: 1230px;
+            margin: 0 auto;
         }
+
         .wrapper {
             margin-left: -6px;
             margin-right: -6px;
         }
-        
-        .bg-container {
-            overflow: hidden;
+
+        .wrapper>* {
+            padding-left: 6px;
+            padding-right: 6px;
         }
 
         .del-line {
             text-decoration: line-through;
             color: #aaa;
         }
-
-        .price  {
-            color: rgb(223, 73, 73);
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
+    </style>
+    <style>
         .ad a {
             display: block;
             width: 100%;
@@ -222,193 +210,10 @@
             margin: 40px 0;
         }
 
-        header .ad-top a {
-            display: block;
-            width: 100%;
-            height: 120px;
-            background-image: url(https://i1.mifile.cn/a4/cms_15392619375595_OtGhC.jpg);
-            background-repeat: no-repeat;
-            background-position: center 0;
+        .ad.top a {
+            margin: 0;
         }
 
-        header .nav.global {
-            background: #333;
-            color: #aaa;
-        }
-
-        header .nav.global a {
-            font-size: 13px;
-            display: inline-block;
-            padding: 5px;
-            margin: 6px;
-        }
-
-
-        header .nav.page {
-            margin: 15px 0;
-        }
-
-        header .nav.page a {
-            display: inline-block;
-        }
-
-        header .nav.page .logo a {
-            width: 90%;
-            height: 70px;
-            background-image: url(./logo.png);
-            background-repeat: no-repeat;
-            background-position: center 0;
-        }
-
-        header .nav.page .links a {
-            padding: 15px 8px;
-            margin: 10px 0;
-        }
-
-        header .nav.page .links a:hover {
-            color: rgb(223, 167, 65);
-        }
-
-        header .nav.page .search {
-            position: relative;
-            top: 10px;
-        }
-
-        header .nav.page .search input {
-            outline: none;
-            padding: 16px 10px;
-            font-size: 14px;
-            width: 100%;
-            border: 1px solid #ddd;
-        }
-
-        header .nav.page .search button {
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            background-image: url(./search.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            border: 1px solid #ddd;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        header .product-group {
-            margin-bottom: 15px;
-        }
-
-        header .product-group .list {
-            background: #666;
-            color: #fff;
-            font-size: 14px;
-            padding: 15px 0;
-        }
-
-        header .product-group .list > * {
-            padding: 12px 30px;
-        }
-
-        header .product-group .list > *:hover{
-            background: rgb(226, 209, 54);
-            cursor: pointer;
-        }
-
-        header .product-group .banner a {
-            display: block;
-            height: 460px;
-            background-image: url(https://i1.mifile.cn/a4/xmad_15390566279642_JIicR.jpg);
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        header .express {
-            margin-bottom: 10px;
-        }
-        header .express .twenty-percent {
-            font-size: 12px;
-            color: #eee;
-            background: #666;
-        }
-        header .express .twenty-percent a {
-            display: inline-block;
-            width: 100%;
-            padding: 13px;
-        }
-        header .express .eighty-percent a {
-            display: block;
-            height: 170px;
-            background-image: url(https://i1.mifile.cn/a4/xmad_15382347809011_iElHK.jpg);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-        header .express .wrapper {
-            margin-left: 6px;
-        }
-        .header .title {
-            padding-top: 30px;
-            font-size: 24px;
-            padding-bottom: 15px;
-            font-weight: 100;
-        }
-        .header .fr {
-            padding-top: 40px;
-        }
-        .header .fr span {
-            margin-left: 30px;
-        }
-
-        header .flash-sales .bg-container img {
-            display: block;
-            height: 330px;
-            width: 100%;
-        }
-        header .flash-sales .twenty-percent {
-            position: relative;
-        }
-        header .flash-sales .twenty-percent .info {
-            position: absolute;
-            color: #777;
-            top: 200px;
-            left: 30%;
-        }
-        header .flash-sales .twenty-percent a {
-            display: block;
-            height: 330px;
-            background-color: #eee;
-        }
-        header .flash-sales a img {
-            display: block;
-            height: 220px;
-            width: 220px;
-            margin: 0 auto;
-        }
-        header .flash-sales a .content {
-            margin-top: 20px;
-        }
-        header .flash-sales a .content .name {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        header .flash-sales a .content .desc {
-            font-size: 12px;
-            color: #777;
-        }
-    </style>
-    <style>
-        main {
-            background: #eee;
-        }
-        main .phone .twenty-percent a {
-            display: block;
-            height: 612px;
-            width: 100%;
-            background-image: url(https://dummyimage.com/300x650);
-            background-repeat: no-repeat;
-            background-position: center 0;
-        }
         a.card {
             display: block;
             background-color: #fff;
@@ -416,38 +221,72 @@
             margin-bottom: 12px;
             position: relative;
             overflow: hidden;
+            transition: all .5s ease-in-out;
         }
+        
+        main a.card:hover {
+        transform:translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
         a.card.small {
             height: 144px;
         }
+
         a.card img {
             display: block;
-            height: 180px;
-            width: 220px;
-            margin: 0 auto;
+            height: 160px;
+            width: 160px;
+            margin: 25px auto 20px auto;
         }
+
         a.card.small img {
-            height: 130px;
+            margin: 30px 20px 20px 150px;
+            height: 80px;
+            width: 80px;
         }
+
         a.card.full img {
             height: 300px;
+            width: 100%;
+            margin: 0;
         }
+
+        a.card.long {
+            height: 612px;
+        }
+        a.card.long img {
+            height: 612px;
+            margin: 0;
+            width: 100%;
+        }
+
         a.card .content {
             margin-top: 20px;
         }
+
         a.card.small .content {
             position: absolute;
-            top:20px;
+            top: 20px;
             left: 20%;
         }
+
+        a.card .content .price {
+            color: rgb(223, 73, 73);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
         a.card .content .name {
             font-size: 14px;
             margin-bottom: 5px;
         }
+
         a.card .content .desc {
-            font-size: 12px;
             color: #777;
+            font-size: 12px;
         }
+
         a.card .content .new,
         a.card .content .discount {
             position: absolute;
@@ -456,14 +295,17 @@
             top: 0;
             left: 38%;
         }
+
         a.card .content .new {
-            padding: 2px 20px;
-            background: green;
+            padding: 0 20px;
+            background: rgb(113, 231, 113);
         }
-        a.card .content .discount{
-            padding: 2px 10px;
-            background: red;
+
+        a.card .content .discount {
+            padding: 0 10px;
+            background: rgb(231, 68, 68);
         }
+
         a.card.small .content .more {
             font-size: 18px;
             margin-top: 8px;
@@ -471,10 +313,282 @@
         }
     </style>
     <style>
+        header .nav.global {
+            background-color: #333;
+        }
+        header .nav.global a {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 10px 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+        header .nav.global .shopping-cart {
+            background: #444;
+            padding: 5px 20px 5px 15px;
+            margin-right: 0;
+        }
+        header .nav.global .shopping-cart > * {
+            vertical-align: middle;
+        }
+        header .nav.global .shopping-cart i {
+            font-size: 20px;
+        }
+        header .nav.global a:hover {
+            color: #fff;
+        }
+
+        header .nav.page {
+            margin: 20px 0;
+        }
+        header .nav.page .logo a img {
+            vertical-align: middle;
+        }
+        header .nav.page .logo .sub {
+            margin-left: 20px;
+        }
+        header .nav.page .links a {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        header .nav.page .links a:hover {
+            color: orange;
+        }
+        header .nav.page .search {
+            position: relative;
+            top: 10px;
+        }
+        header .nav.page .search input {
+            outline: none;
+            border: 1px solid #ddd;
+            width: 90%;
+            padding: 15px 10px;
+        }
+        header .nav.page .search input:focus {
+            border-color: orange;
+        }
+        header .nav.page .search button {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            color: #666;
+            padding: 10px 14px;
+            font-size: 23px;
+            top: 0;
+            right: 0;
+        } 
+    </style>
+    <style>
+        header .product-group .banner {
+            position: relative;
+            font-size: 35px;
+            text-align: center;
+            color: #bbb;
+        }
+        header .product-group .banner .bg {
+            background-image: url(https://i1.mifile.cn/a4/xmad_15382123647923_htHCk.jpg);
+            display: block;
+            width: 100%;
+            height: 460px;
+            background-repeat: no-repeat;
+            background-position: 100% 0;
+            background-size: cover;
+        }
+        header .product-group .banner .i-fanhui1 {
+            position: absolute;
+            border-radius: 4px;
+            padding: 10px 0;
+            width: 48px;
+            height: 70px;
+            left: 15px;
+            top: 43%;
+            z-index: 1;
+        }
+        header .product-group .banner .i-fanhui2 {
+            position: absolute;
+            border-radius: 4px;
+            padding: 10px 0;
+            width: 45px;
+            height: 70px;
+            right: 15px;
+            top: 43%;
+            z-index: 1;
+        }
+        header .product-group .banner .i-fanhui1:hover,
+        header .product-group .banner .i-fanhui2:hover {
+            background: #888;
+        }
+
+
+
+        header .product-group .type-list {
+            padding: 20px 0;
+            background: #777;
+            color: #eee;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        header .product-group .type-list .row {
+            padding: 10px 20px 10px 30px;
+        }
+        header .product-group .type-list .row i {
+            font-weight: 900;
+        }
+        header .product-group .type-list .row:hover {
+            background-color: orange;
+        }
+
+        header .express {
+            margin: 15px 0;
+        }
+        header .express .eighty-percent .bg {
+            background-image: url(https://i1.mifile.cn/a4/xmad_15166223451193_skuUX.jpg);
+            display: block;
+            width: 100%;
+            height: 170px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        header .express .service {
+            background-color: grey;
+            color: #ddd;
+            font-size: 12px;
+        }
+        header .express .service .row {
+            padding: 10px;
+        }
+        header .express .service .row a {
+            display: block;
+            padding-bottom: 5px;
+        }
+        header .express .service .row a:hover {
+            color: #fff;
+        }
+        header .express .service a i {
+            font-size: 28px;
+        }
+        header .express .service a.bd-r {
+            border-right: 1px solid #999;
+        }
+        header .express .eighty-percent .col-8 {
+            padding-left: 12px;
+        }
+    </style>
+    <style>
+        .header .title {
+            padding-top: 30px;
+            font-size: 24px;
+            padding-bottom: 15px;
+            font-weight: 100;
+        }
+        .header .fr {
+            padding-top: 40px;
+            font-size: 16px;
+        }
+        .header .fr a:hover,
+        .header .fr span:hover {
+            color: orange;
+        }
+        .header .fr button {
+            background-color: #fff;
+            color: #777;
+            width: 35px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+        }
+        .header .fr span {
+            margin-left: 30px;
+            cursor: pointer;
+        }
+        .flash-sales .twenty-percent a {
+            background: #fafafa;
+        }
+        .flash-sales .twenty-percent:nth-of-type(1) a {
+            display: block;
+            background-color: #f1eded;
+            height: 300px;
+        }
+        .flash-sales .countdown {
+            color: grey;
+            font-size: 26px;
+            margin-top: 20px;
+        }
+        .flash-sales .countdown span {
+            color: #fff;
+            background-color: grey;
+            display: inline-block;
+            padding: 0 6px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        .flash-sales .twenty-percent:nth-of-type(1) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: red;
+        }
+        .flash-sales .twenty-percent:nth-of-type(2) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: turquoise;
+        }
+        .flash-sales .twenty-percent:nth-of-type(3) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: coral;
+        }
+        .flash-sales .twenty-percent:nth-of-type(4) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: purple;
+        }
+        .flash-sales .twenty-percent:nth-of-type(4) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: chartreuse;
+        }
+        .flash-sales .twenty-percent:nth-of-type(5) a:before {
+            display: block;
+            content: ' ';
+            height: 1px;
+            background-color: orchid;
+        }
+
+        .flash-sales .twenty-percent:nth-of-type(1) a .info {
+            color: #777;
+            margin-top: 20px;
+        }
+        .flash-sales .twenty-percent a .time {
+            color: red;
+            font-size: 20px;
+            padding: 40px 0 30px 0;
+        }
+    </style>
+    <style>
+        main {
+            background-color: #eee;
+        }
+    </style>
+    <style>
         footer .service {
             padding-bottom: 30px;
             border-bottom: 1px solid #ddd;
             color: #666;
+            font-size: 17px;
+        }
+        footer .service i {
+            font-size: 24px;
+        }
+        footer .service a > * {
+            vertical-align: middle;
         }
         footer .contact {
             padding: 40px 0;
@@ -528,31 +642,38 @@
 
 <body>
     <header>
-        <div class="ad-top"><a href="#"></a></div>
+        <div class="ad top"><a href="#"></a></div>
+
         <div class="nav global">
             <div class="row container">
-                <div class="col-12">
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
-                    <a href="#">小米</a>
+                <div class="fl">
+                    <a href="#">小米商城</a>
+                    <a href="#">MIUI</a>
+                    <a href="#">loT</a>
+                    <a href="#">云服务</a>
+                    <a href="#">金融</a>
+                    <a href="#">有品</a>
+                    <a href="#">小爱开放平台</a>
+                    <a href="#">政企服务</a>
+                    <a href="#">下载app</a>
+                    <a href="#">Slect Region</a>
                 </div>
-                <div class="col-12 text-right">
+                <div class="fr">
                     <a href="#">登陆</a>
                     <a href="#">注册</a>
                     <a href="#">消息通知</a>
-                    <a href="#">购物车</a>
+                    <a href="#" class="shopping-cart"><i class="i-caigou-xianxing"></i> 购物车(0)</a>
                 </div>
             </div>
         </div>
+
         <div class="nav page">
             <div class="row container">
-                <div class="col-5 logo"><a href="#"></a></div>
+                <div class="col-5 logo">
+                    <a href="#"><img src="https://s01.mifile.cn/i/logo.png" alt=""></a>
+                    <a href="#" class="sub"><img src="http://i8.mifile.cn/v1/a1/b7acecd8-729b-dc3a-6a93-1eeb82cd0846.webp"
+                            alt=""></a>
+                </div>
                 <div class="col-13 links">
                     <a href="#">小米手机</a>
                     <a href="#">红米</a>
@@ -565,109 +686,132 @@
                     <a href="#">服务</a>
                     <a href="#">社区</a>
                 </div>
-                <form class="col-6 search">
-                    <input type="text">
-                    <button type="submit"></button>
+                <form action="" class="col-6 search text-right">
+                    <input type="text"> <button><i class="i-sousuotianchong"></i></button>
                 </form>
             </div>
         </div>
+
         <div class="product-group">
             <div class="row container">
-                <div class="twenty-percent list">
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
-                    <div>手机 电话卡</div>
+                <div class="type-list twenty-percent">
+                    <div class="row">
+                        <div class="fl">手机 电话卡</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">电视 盒子</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">笔记本 平板</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">家电 插线板</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">出行 穿戴</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">智能 路由器</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">电源 配件</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">健康 儿童</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">耳机 音箱</div> <i class="i-fanhui2 fr"></i>
+                    </div>
+                    <div class="row">
+                        <div class="fl">生活 箱包</div> <i class="i-fanhui2 fr"></i>
+                    </div>
                 </div>
-                <div class="eighty-percent banner">
-                    <a href="#"></a>
+
+                <div class="banner eighty-percent">
+                    <a class="bg" href="#"></a>
+                    <i class="i-fanhui1"></i>
+                    <i class="i-fanhui2"></i>
                 </div>
             </div>
         </div>
+
         <div class="express">
-            <div class="container">
-
-                <div class="row">
-                    <div class="twenty-percent">
+            <div class="row container">
+                <div class="service twenty-percent">
+                    <div class="row">
                         <div class="col-8 text-center">
-                            <a href="#">
-                                <img src="https://dummyimage.com/40x40">
+                            <a href="#" class="bd-r">
+                                <div><i class="i-shouji"></i></div>
                                 <div>选购手机</div>
                             </a>
                         </div>
                         <div class="col-8 text-center">
-                            <a href="#">
-                                <img src="https://dummyimage.com/40x40">
-                                <div>选购手机</div>
+                            <a href="#" class="bd-r">
+                                <div><i class="i-shouji"></i></div>
+                                <div>不玩手机</div>
                             </a>
                         </div>
                         <div class="col-8 text-center">
                             <a href="#">
-                                <img src="https://dummyimage.com/40x40">
+                                <div><i class="i-shouji"></i></div>
+                                <div>我的手机</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 text-center">
+                            <a href="#" class="bd-r">
+                                <div><i class="i-shouji"></i></div>
                                 <div>选购手机</div>
                             </a>
                         </div>
                         <div class="col-8 text-center">
-                            <a href="#">
-                                <img src="https://dummyimage.com/40x40">
-                                <div>选购手机</div>
+                            <a href="#" class="bd-r">
+                                <div><i class="i-shouji"></i></div>
+                                <div>换个手机</div>
                             </a>
                         </div>
                         <div class="col-8 text-center">
                             <a href="#">
-                                <img src="https://dummyimage.com/40x40">
-                                <div>选购手机</div>
-                            </a>
-                        </div>
-                        <div class="col-8 text-center">
-                            <a href="#">
-                                <img src="https://dummyimage.com/40x40">
+                                <div><i class="i-shouji"></i></div>
                                 <div>选购手机</div>
                             </a>
                         </div>
                     </div>
-
-                    <div class="eighty-percent wrapper">
-                        <div class="col-8">
-                            <a href="#"></a>
-                        </div>
-                        <div class="col-8">
-                            <a href="#"></a>
-                        </div>
-                        <div class="col-8">
-                            <a href="#"></a>
-                        </div>
-                    </div>
-
                 </div>
-
+                <div class="eighty-percent">
+                    <div class="col-8"><a class="bg" href="#"></a></div>
+                    <div class="col-8"><a class="bg" href="#"></a></div>
+                    <div class="col-8"><a class="bg" href="#"></a></div>
+                </div>
             </div>
         </div>
+
         <div class="flash-sales">
             <div class="container">
+
                 <div class="row header">
                     <div class="title fl">小米闪购</div>
                     <div class="fr">
-                        <button>前</button><button>后</button>
+                        <button><i class="i-zuojiantou"></i></button><button><i class="i-youjiantou"></i></button>
                     </div>
                 </div>
 
-                <div class="row wrapper">
-
+                <div class="row wrapper text-center">
                     <div class="twenty-percent">
-                        <div class="bg-container"><img src="https://dummyimage.com/250x350"></div>
-                        <div class="info">距离开始还有</div>
+                        <a>
+                            <div class="time">18:00 场</div>
+                            <div><img src="https://i1.mifile.cn/f/i/2018/mihome/flashpurchase.png"></div>
+                            <div class="info">距离开始还有</div>
+                            <div class="countdown">
+                                <span>01</span>:<span>21</span>:<span>33</span>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="twenty-percent">
-                        <a href="#">
-                            <img src="https://dummyimage.com/150x150">
+                        <a href="#" class="card">
+                            <div><img src="./233.png"></div>
                             <div class="content text-center">
                                 <div class="name">米家wiha精修螺丝刀套装</div>
                                 <div class="desc">满足大多数日常所需</div>
@@ -680,8 +824,8 @@
                     </div>
 
                     <div class="twenty-percent">
-                        <a href="#">
-                            <img src="https://dummyimage.com/150x150">
+                        <a href="#" class="card">
+                            <img src="./233.png">
                             <div class="content text-center">
                                 <div class="name">米家wiha精修螺丝刀套装</div>
                                 <div class="desc">满足大多数日常所需</div>
@@ -694,8 +838,8 @@
                     </div>
 
                     <div class="twenty-percent">
-                        <a href="#">
-                            <img src="https://dummyimage.com/150x150">
+                        <a href="#" class="card">
+                            <img src="./233.png">
                             <div class="content text-center">
                                 <div class="name">米家wiha精修螺丝刀套装</div>
                                 <div class="desc">满足大多数日常所需</div>
@@ -708,8 +852,8 @@
                     </div>
 
                     <div class="twenty-percent">
-                        <a href="#">
-                            <img src="https://dummyimage.com/150x150">
+                        <a href="#" class="card">
+                            <img src="./233.png">
                             <div class="content text-center">
                                 <div class="name">米家wiha精修螺丝刀套装</div>
                                 <div class="desc">满足大多数日常所需</div>
@@ -723,6 +867,7 @@
                 </div>
 
                 <div class="ad"><a href="#"></a></div>
+
             </div>
         </div>
     </header>
@@ -736,14 +881,15 @@
 
                 <div class="row wrapper">
                     <div class="twenty-percent">
-                        <a href="#"></a>
+                        <a href="#" class="card long"><img src="https://i1.mifile.cn/a4/xmad_15323220713837_GLBVX.jpg"
+                                alt=""></a>
                     </div>
 
                     <div class="eighty-percent">
                         <div class="wrapper">
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -761,7 +907,7 @@
 
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -779,7 +925,7 @@
 
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -798,7 +944,7 @@
 
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -816,7 +962,7 @@
 
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -828,14 +974,14 @@
                                             <span>1399元</span> &nbsp;
                                             <span class="del-line">99元</span>
                                         </div>
-                                        <span class="discount">减100元</span>
+                                        <span class="discount">享8折</span>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="col-6">
                                 <a class="card" href="#">
-                                    <img src="https://dummyimage.com/200x160">
+                                    <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
                                             <span>小米8</span> &nbsp;
@@ -854,27 +1000,25 @@
 
                             <div class="col-6">
                                 <a class="card small" href="#">
-                                    <img src="https://dummyimage.com/200x130">
+                                    <img src="https://i1.mifile.cn/a1/pms_1522142136.45425672.jpg?width=80&height=80">
                                     <div class="content text-center">
                                         <div class="name">
-                                            <span>青春版</span> &nbsp;
-                                            <span>4GB+64GB</span>
+                                            <span>MiMIX 2S...</span>
                                         </div>
                                         <div class="price">
-                                            <span>1399元</span> &nbsp;
+                                            <span>99元</span> &nbsp;
                                         </div>
                                     </div>
                                 </a>
 
                                 <a class="card small" href="#">
-                                    <img src="https://dummyimage.com/200x130">
+                                    <img src="https://i1.mifile.cn/a1/pms_1521634907.16181074!220x220.jpg">
                                     <div class="content text-center">
                                         <div class="name">
-                                            <span>青春版</span> &nbsp;
-                                            <span>4GB+64GB</span>
+                                            <span>小米净水器...</span>
                                         </div>
                                         <div class="price">
-                                            <span>1399元</span> &nbsp;
+                                            <span>1999元</span> &nbsp;
                                         </div>
                                     </div>
                                 </a>
@@ -882,7 +1026,7 @@
 
                             <div class="col-6">
                                 <a class="card small" href="#">
-                                    <img src="https://dummyimage.com/200x130">
+                                    <img src="https://i1.mifile.cn/a1/pms_1522142136.45425672.jpg?width=80&height=80">
                                     <div class="content">
                                         <div class="more">浏览更多</div>
                                         <div class="desc">
@@ -892,7 +1036,7 @@
                                 </a>
 
                                 <a class="card small" href="#">
-                                    <img>
+                                    <img src="./122.png">
                                     <div class="content">
                                         <div class="more">浏览更多</div>
                                         <div class="desc">
@@ -926,13 +1070,13 @@
                 <div class="row wrapper">
                     <div class="twenty-percent">
                         <a class="card full" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a4/xmad_15232433421155_vCzhJ.jpg">
                         </a>
                     </div>
 
                     <div class="twenty-percent">
                         <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a4/xmad_15350951136177_QUuVm.png">
                             <div class="content text-center">
                                 <div class="name">
                                     <span>小米8</span> &nbsp;
@@ -951,7 +1095,7 @@
 
                     <div class="twenty-percent">
                         <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a1/pms_1537323963.1278763!220x220.jpg">
                             <div class="content text-center">
                                 <div class="name">
                                     <span>小米8</span> &nbsp;
@@ -970,7 +1114,7 @@
 
                     <div class="twenty-percent">
                         <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a1/pms_1539051273.95659582!220x220.jpg">
                             <div class="content text-center">
                                 <div class="name">
                                     <span>小米8</span> &nbsp;
@@ -989,26 +1133,7 @@
 
                     <div class="twenty-percent">
                         <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
-                            <div class="content text-center">
-                                <div class="name">
-                                    <span>小米8</span> &nbsp;
-                                    <span>青春版</span> &nbsp;
-                                    <span>4GB+64GB</span>
-                                </div>
-                                <div class="desc">潮流镜面渐变色, 2400万自拍旗舰</div>
-                                <div class="price">
-                                    <span>1399元</span> &nbsp;
-                                    <span class="del-line">99元</span>
-                                </div>
-                                <span class="discount">减100元</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="twenty-percent">
-                        <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!220x220.jpg">
                             <div class="content text-center">
                                 <div class="name">
                                     <span>小米8</span> &nbsp;
@@ -1027,13 +1152,32 @@
 
                     <div class="twenty-percent">
                         <a class="card full" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg">
                         </a>
                     </div>
 
                     <div class="twenty-percent">
                         <a class="card" href="#">
-                            <img src="https://dummyimage.com/200x160">
+                            <img src="https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg">
+                            <div class="content text-center">
+                                <div class="name">
+                                    <span>小米8</span> &nbsp;
+                                    <span>青春版</span> &nbsp;
+                                    <span>4GB+64GB</span>
+                                </div>
+                                <div class="desc">潮流镜面渐变色, 2400万自拍旗舰</div>
+                                <div class="price">
+                                    <span>1399元</span> &nbsp;
+                                    <span class="del-line">99元</span>
+                                </div>
+                                <span class="discount">减100元</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="twenty-percent">
+                        <a class="card" href="#">
+                            <img src="https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg">
                             <div class="content text-center">
                                 <div class="name">
                                     <span>小米8</span> &nbsp;
@@ -1069,7 +1213,6 @@
                 <div class="row header"></div>
 
                 <div class="row wrapper">
-                    <div class="twenty-percent"></div>
                 </div>
 
             </div>
@@ -1080,6 +1223,9 @@
                 <div class="row header"></div>
 
                 <div class="row wrapper">
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
                     <div class="col-6"></div>
                 </div>
 
@@ -1092,6 +1238,9 @@
 
                 <div class="row wrapper">
                     <div class="col-6"></div>
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
                 </div>
 
             </div>
@@ -1102,6 +1251,9 @@
                 <div class="row header"></div>
 
                 <div class="row wrapper">
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
                     <div class="col-6"></div>
                 </div>
 
@@ -1114,19 +1266,29 @@
             <div class="service">
                 <div class="row wrapper text-center">
                     <div class="twenty-percent">
-                        <a href="#">预约维修服务</a>
+                        <a href="#">
+                            <i class="i-xiugai"></i>
+                            预约维修服务</a>
                     </div>
                     <div class="twenty-percent">
-                        <a href="#">7天无理由退货</a>
+                        <a href="#">
+                            <i class="i-24xiaoshiqiantai"></i>
+                            7天无理由退货</a>
                     </div>
                     <div class="twenty-percent">
-                        <a href="#">7天无理由退货</a>
+                        <a href="#">
+                                <i class="i-wuliu"></i>
+                            3天内发货</a>
                     </div>
                     <div class="twenty-percent">
-                        <a href="#">7天无理由退货</a>
+                        <a href="#">
+                            <i class="i-duoyun"></i>
+                            明天是个好天气</a>
                     </div>
                     <div class="twenty-percent">
-                        <a href="#">7天无理由退货</a>
+                        <a href="#">
+                            <i class="i-manyi"></i>
+                            满意度调查</a>
                     </div>
                 </div>
             </div>
@@ -1225,9 +1387,9 @@
                         </div>
                     </div>
                     <div class="col-9 pic">
-                        <a href="#"><img src="http://dummyimage.com/80x30"></a>
-                        <a href="#"><img src="http://dummyimage.com/80x30"></a>
-                        <a href="#"><img src="http://dummyimage.com/80x30"></a>
+                        <a href="#"><img src="https://i8.mifile.cn/b2c-mimall-media/ba10428a4f9495ac310fd0b5e0cf8370.png"></a>
+                        <a href="#"><img src="https://s01.mifile.cn/i/v-logo-2.png"></a>
+                        <a href="#"><img src="https://s01.mifile.cn/i/v-logo-1.png"></a>
                         <a href="#"><img src="http://dummyimage.com/80x30"></a>
                         <a href="#"><img src="http://dummyimage.com/80x30"></a>
                     </div>
