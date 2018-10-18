@@ -135,6 +135,10 @@
 }
 
 
+.container {
+    margin-left: 5px;
+    margin-right: 5px;
+}
 .ad a {
     height: 80px;
     background-position: center;
@@ -155,6 +159,11 @@ header .nav.page {
 header .nav.page .logo a img {
     margin-left: 1rem;
     margin-top: .3em;
+}
+
+header .express .eighty-percent .col-8 {
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 
