@@ -346,6 +346,15 @@
             vertical-align: middle;
             margin: 0   auto;
         }
+        @media screen and (max-width: 1090px) {
+            header .nav.page .logo a img {
+                margin-left: 30%;
+                display: block;
+            }
+            header .nav.page .logo a.sub img {
+                margin: 0 auto;
+            }
+        }
         header .nav.page .links a {
             display: inline-block;
             padding: 10px;
@@ -637,6 +646,37 @@
             color: #666;
         }
     </style>
+    <style media="screen and (max-width:1225px)">
+                header .nav.page .links a {
+                padding: 10px 5px;
+                margin: 5px 0;
+            }
+    </style>
+    <style media="screen and (max-width:1060px)">
+            footer .logo {
+                display: none;
+            }
+    </style>
+       <style media="screen and (max-width:1060px)">
+            .flash-sales .countdown {
+                font-size: 20px;
+            }
+       </style>
+    <style media="screen and (max-width:780px)">
+        header .nav.page .links a {
+            font-size: 15px;
+            margin-left: 2px;
+        }
+        .flash-sales .countdown {
+            font-size: 16px;
+        }
+        footer .service {
+            padding-bottom: 10px;
+            font-size: 13px;
+        }
+    </style>
+    <link rel="stylesheet" href="medial.css" media="screen and (max-width:960px)">
+    <link rel="stylesheet" href="small.css" media="screen and (max-width:660px)" >
 </head>
 
 <body>
@@ -645,7 +685,7 @@
 
         <div class="nav global">
             <div class="row container">
-                <div class="fl">
+                <div class="fl col-m-17">
                     <a href="#">小米商城</a>
                     <a href="#">MIUI</a>
                     <a href="#">loT</a>
@@ -657,7 +697,7 @@
                     <a href="#">下载app</a>
                     <a href="#">Slect Region</a>
                 </div>
-                <div class="fr">
+                <div class="fr col-m-7">
                     <a href="#">登陆</a>
                     <a href="#">注册</a>
                     <a href="#">消息通知</a>
@@ -668,12 +708,12 @@
 
         <div class="nav page">
             <div class="row container">
-                <div class="col-5 logo">
+                <div class="col-5 logo col-m-3">
                     <a href="#"><img src="https://s01.mifile.cn/i/logo.png" alt=""></a>
-                    <a href="#" class="sub"><img src="http://i8.mifile.cn/v1/a1/b7acecd8-729b-dc3a-6a93-1eeb82cd0846.webp"
+                    <a href="#" class="sub hide"><img src="http://i8.mifile.cn/v1/a1/b7acecd8-729b-dc3a-6a93-1eeb82cd0846.webp"
                             alt=""></a>
                 </div>
-                <div class="col-13 links">
+                <div class="col-13 links col-m-21">
                     <a href="#">小米手机</a>
                     <a href="#">红米</a>
                     <a href="#">电视</a>
@@ -685,7 +725,7 @@
                     <a href="#">服务</a>
                     <a href="#">社区</a>
                 </div>
-                <form action="" class="col-6 search text-right">
+                <form action="" class="col-6 search text-right hide">
                     <input type="text"> <button><i class="i-sousuotianchong"></i></button>
                 </form>
             </div>
@@ -693,7 +733,7 @@
 
         <div class="product-group">
             <div class="row container">
-                <div class="type-list twenty-percent">
+                <div class="type-list twenty-percent hide">
                     <div class="row">
                         <div class="fl">手机 电话卡</div> <i class="i-fanhui2 fr"></i>
                     </div>
@@ -726,7 +766,7 @@
                     </div>
                 </div>
 
-                <div class="banner eighty-percent">
+                <div class="banner eighty-percent col-m-24">
                     <a class="bg" href="#"></a>
                     <i class="i-fanhui1"></i>
                     <i class="i-fanhui2"></i>
@@ -736,7 +776,7 @@
 
         <div class="express">
             <div class="row container">
-                <div class="service twenty-percent">
+                <div class="service twenty-percent hide">
                     <div class="row">
                         <div class="col-8 text-center">
                             <a href="#" class="bd-r">
@@ -778,7 +818,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="eighty-percent">
+                <div class="eighty-percent col-m-24">
                     <div class="col-8"><a class="bg" href="#"></a></div>
                     <div class="col-8"><a class="bg" href="#"></a></div>
                     <div class="col-8"><a class="bg" href="#"></a></div>
@@ -1276,13 +1316,13 @@
                     </div>
                     <div class="twenty-percent">
                         <a href="#">
-                                <i class="i-wuliu"></i>
+                            <i class="i-wuliu"></i>
                             3天内发货</a>
                     </div>
                     <div class="twenty-percent">
                         <a href="#">
                             <i class="i-duoyun"></i>
-                            明天是个好天气</a>
+                            明天好天气</a>
                     </div>
                     <div class="twenty-percent">
                         <a href="#">
