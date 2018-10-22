@@ -1,0 +1,368 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>一加</title>
+    <link rel="stylesheet" href="../icon/ali/iconfont.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        button {
+            color: inherit;
+            font-size: 16px;
+            border: 1px solid #fff;
+            background: none;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        header .ad a {
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            padding: 15px 0;
+            background-image: url(https://image01.oneplus.net/shop/201808/10/457/1939d7361538b79ee7c7543e0644cc5b.jpg);
+            background-repeat: no-repeat;
+            background-position: center 0;
+            background-size: cover;
+        }
+
+        .nav {
+            display: flex;
+            font-size: 16px;
+            color: #888;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav a {
+            display: inline-block;
+        }
+
+        .nav i {
+            font-size: 32px;
+        }
+
+        .nav .logo {
+            color: red;
+            font-weight: bold;
+        }
+
+        .nav .links div,
+        .nav .user div {
+            display: inline-block;
+        }
+
+        .nav .links div:after {
+            display: block;
+            content: '';
+            background-color: red;
+            padding: 0;
+            height: 2px;
+            width: 100%;
+        }
+
+        .nav .user div:after {
+            display: block;
+            content: '';
+            background-color: black;
+            padding: 0;
+            height: 2px;
+        }
+
+        .nav .links a {
+            padding: 20px 35px;
+        }
+
+        .nav .links a:hover {
+            color: red;
+        }
+
+        .nav .user a {
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+
+        .nav .user a:hover {
+            color: #000;
+        }
+
+        .nav .user a i {
+            font-size: 28px;
+        }
+    </style>
+    <style>
+        main .banner {
+            display: block;
+            padding: 200px;
+            background-image: url(https://image01.oneplus.cn/shop/201809/30/1635/4cb3486e8d48c78737b5f248a9873eac.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        main .banner .text {
+            color: #fff;
+            margin-left: 40px;
+        }
+
+        main .banner .text .sub-title {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        main .banner .text .title {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        main .banner .text .info {
+            font-size: 18px;
+        }
+
+        main .banner .text .btn button {
+            padding: 15px 50px;
+            margin: 10px 0 20px 0;
+        }
+    </style>
+    <style>
+        main {
+            background-color: #eee;
+        }
+
+        main .service {
+            display: flex;
+        }
+
+        main .service a[class^="item-"] {
+            flex-grow: 1;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        main .service .title {
+            font-size: 26px;
+            margin-top: 15px;
+            margin-left: 30px;
+            margin-bottom: 220px;
+        }
+
+        main .service .item-1 {
+            background-image: url(https://image01.oneplus.cn/shop/201808/27/982/6966b85e5aa37e6d3e11d65d23e3bca4.jpg);
+        }
+
+        main .service .item-2 {
+            background-image: url(https://image01.oneplus.cn/shop/201810/09/1371/055b121c2259c388bfe7f5d767f916c0.jpg);
+        }
+
+        main .service .item-3 {
+            background-image: url(https://image01.oneplus.cn/shop/201711/27/1144/04788510f69288329e75c754eff3fa00.jpg);
+        }
+
+        main .join {
+            background-image: url(https://image01.oneplus.cn/shop/201809/26/880/8070f60cb10b64a0bcf03d98242947ca.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            padding: 200px 0;
+        }
+
+        main .join .title {
+            font-size: 48px;
+        }
+
+        main .join .btn button {
+            padding: 10px 40px;
+            margin-top: 30px;
+            border-width: 2px;
+        }
+
+        main .join .btn button:hover {
+            color: #000;
+            background-color: #fff;
+        }
+
+        main .card-group {
+            display: flex;
+            padding: 0 10px;
+        }
+
+        main .card-group a[class^="item-"] {
+            flex-grow: 1;
+            margin-top: 70px;
+            margin-bottom: 70px;
+            padding: 0 10px;
+        }
+        main .card-group a .wrapper {
+            background-color: #fff;
+        }
+
+        main .card-group a img {
+            width: 100%;
+        }
+
+        main .card-group a .text {
+            padding: 20px 20px;
+        }
+
+        main .card-group a .title {
+            font-size: 18px;
+        }
+
+        main .card-group a .desc {
+            color: #777;
+            font-size: 13px;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="ad text-center"><a href="#">一加云耳 火热售卖 立即购买 >></a></div>
+        <div class="container">
+            <div class="nav">
+                <div class="logo"><a href="#"><i class="i-quanping1"></i></a></div>
+                <div class="links">
+                    <div>
+                        <a href="#">OnePlus6</a>
+                    </div>
+                    <div>
+                        <a href="#">商城</a>
+                    </div>
+                    <div>
+                        <a href="#">服务</a>
+                    </div>
+                    <div>
+                        <a href="#">品牌</a>
+                    </div>
+                    <div>
+                        <a href="#">论坛</a>
+                    </div>
+                </div>
+                <div class="user">
+                    <div>
+                        <a href="#"><i class="i-yonghu"></i></a>
+                    </div>
+                    <div><a href="#">
+                            <i class="i-gouwu"></i></a>
+                    </div>
+                    <a href="#"><i class="i-sousuo"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <a class="banner" href="#">
+            <div class="container">
+                <div class="text">
+                    <div class="sub-title">OnePlus 6T 新品发布会 </div>
+                    <div class="title">Unlock The Speed</div>
+                    <div class="btn">
+                        <button>立即参与</button>
+                    </div>
+                    <div class="info">11月5日 14:00 深圳大运中心体育馆</div>
+                </div>
+            </div>
+        </a>
+        <div class="service">
+            <a class="item-1" href="#">
+                <div class="title">以旧换新</div>
+            </a>
+            <a class="item-2" href="#">
+                <div class="title">参赛赢手机</div>
+            </a>
+            <a class="item-3" href="#">
+                <div class="title">推荐有礼</div>
+            </a>
+        </div>
+        <div class="join text-center">
+            <div class="title">Shot on OnePlus</div>
+            <div class="btn">
+                <button>我要参加</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-group">
+                <a href="#" class="item-1">
+                    <div class="wrapper">
+                        <div><img src="https://image01.oneplus.cn/shop/201810/11/177/1ff19e3121bff3083812e050fa7b8ac5.jpg"></div>
+                        <div class="text">
+                            <div class="title">博客</div>
+                            <div class="desc">百万土豆大叔 Kevin Abosch 和 OnePlus 的影像之缘</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="item-2">
+                    <div class="wrapper">
+                        <div><img src="https://image01.oneplus.cn/shop/201810/10/644/50a4a33de2e2f5e036f5796e55232aec.jpg"></div>
+                        <div class="text">
+                            <div class="title">新闻</div>
+                            <div class="desc">aaaaaaaaaaaaaaa</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="item-3">
+                    <div class="wrapper">
+                        <div><img src="https://image01.oneplus.cn/shop/201810/17/1834/ab3aa0a023b295546c47212406ef232c.jpg"></div>
+                        <div class="text">
+                            <div class="title">技巧</div>
+                            <div class="desc">DDDDDDDDDDDDDDD</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="promise"></div>
+        </div>
+        <div class="container">
+            <div class="service"></div>
+        </div>
+        <div class="container">
+            <div class="area"></div>
+        </div>
+        <div class="container">
+            <div class="owner"></div>
+        </div>
+    </footer>
+</body>
+
+</html>
