@@ -1,0 +1,619 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>典当铺-最专业的XX游戏交易平台</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/mian.css">
+    <link rel="stylesheet" href="../icon/ali/iconfont.css">
+    <style>
+        header {
+            background-color: #777;
+            color: #eee;
+        }
+
+        header .nav.global .container {
+            display: flex;
+            align-items: center;
+        }
+
+        header .nav.global .container .type {
+            font-size: 16px;
+            flex-grow: 1;
+        }
+
+        header .nav.global a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px;
+        }
+
+        header .nav.global a:hover {
+            color: rgb(231, 222, 198);
+        }
+
+        main {
+            background-color: #eee;
+            padding-top: 15px;
+        }
+
+        main>.container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        main .title {
+            font-size: 20px;
+        }
+
+        main aside .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        main aside .header .more {
+            flex-grow: 1;
+        }
+
+        main aside .header .more:hover {
+            text-decoration: underline;
+            color: #f7c259;
+        }
+
+        main aside.left .header {
+            padding-right: 10px;
+        }
+
+        main aside.left .content {
+            background-color: #fff;
+            margin: 10px;
+            padding: 10px 0;
+        }
+
+        main aside.left .content div[class^=item] {
+            display: flex;
+            padding: 8px;
+        }
+
+        main aside.left .content div[class^=item]:hover {
+            background: #eee;
+        }
+
+        main aside.left .content div[class^=item] .time {
+            font-size: 12px;
+            color: #777;
+            flex-grow: 1;
+        }
+
+        main aside.right .express {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        main aside.right .express a {
+            display: block;
+            margin: 10px 20px;
+        }
+
+        main aside.right .express a:hover {
+            background: rgb(241, 227, 227);
+        }
+
+        main aside.right .express .icon {
+            font-size: 32px;
+        }
+
+        main aside.right .content {
+            margin: 20px 10px 50px 15px;
+        }
+
+        main aside.right .content .header .title {
+            font-size: 17px;
+        }
+
+
+        main .hot-sales .content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        main .hot-sales .content div[class^="item"] {
+            flex-basis: 33.33333333333333%;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        main .hot-sales .content a.card {
+            display: block;
+        }
+
+        main .hot-sales .content a.card img {
+            width: 100%;
+        }
+
+        main .hot-sales .content a.card .text {
+            padding: 5px;
+        }
+
+        main .hot-sales .content a.card .text .name {
+            font-size: 16px;
+        }
+
+        main .hot-sales .content a.card .text .desc {
+            color: #777;
+            margin: 5px 0;
+        }
+
+        main .hot-sales .content a.card .text .price {
+            color: red;
+        }
+
+        main .hot-sales .content a.card .text .tags span {
+            background-color: rgb(160, 235, 222);
+            color: #666;
+            display: inline-block;
+            padding: 0 5px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        main .hot-sales .content div[class^="item"] .star {
+            font-size: 12px;
+        }
+
+        main .hot-sales .content div[class^="item"] .star i {
+            color: tomato;
+            font-size: 14px;
+        }
+
+        main .hot-sales .content div[class^="item"] .fork:hover {
+            color: tomato;
+        }
+
+        main .hot-sales .content div[class^="item"] .fork button {
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        main aside {
+            flex-basis: 20.83333333333333%;
+        }
+
+        main .hot-sales {
+            flex-basis: 58.33333333333333%;
+        }
+
+        .paginator {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .paginator a {
+            display: inline-block;
+            color: #37a;
+            padding: 4px 8px;
+            margin: 0 10px;
+        }
+
+        .paginator a:hover {
+            background-color: rgb(70, 185, 147);
+        }
+
+        footer>.container {
+            display: flex;
+        }
+    </style>
+    <style media="screen and (max-width:1010px)">
+        main aside.left .content .time {
+            display: none;
+        }
+    </style>
+    <style media="screen and (max-width:850px)">
+        main aside {
+            flex-basis: 25%;
+        }
+
+        main .hot-sales {
+            flex-basis: 50%;
+        }
+
+        main .hot-sales .content div[class^="item"] {
+            flex-basis: 50%;
+        }
+    </style>
+    <style media="screen and (max-width:600px)">
+        header .nav.global .logo {
+            display: none;
+        }
+
+        header .nav.global .user .help {
+            display: none;
+        }
+
+        main aside.left {
+            display: none;
+        }
+
+        main aside.right {
+            flex-basis: 100%;
+            order: -1;
+        }
+
+        main .hot-sales {
+            flex-basis: 100%;
+        }
+
+        main .hot-sales .content div[class^="item"] {
+            flex-basis: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav global">
+            <div class="container">
+                <div class="logo">
+                    <a href="#" title="首页">
+                        <img src="./img/logo.png" alt="典当铺">
+                    </a>
+                </div>
+                <div class="type text-center">
+                    <a href="#" class="item1">账号买卖</a>
+                    <a href="#" class="item2">装备市场</a>
+                    <a href="#" class="item3">货币交易</a>
+                    <a href="#" class="item5">回收专区</a>
+                </div>
+                <div class="user text-center">
+                    <a href="#" class="login"><i class="i-yonghu"></i> 登陆</a>
+                    <a href="#" class="message"><i class="i-duanxin"></i> 消息</a>
+                    <a href="#" class="help">帮助中心</a>
+                    <a href="#" class="map">站点导航>> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <aside class="left">
+                <div class="header">
+                    <div class="title"><i class="i-guangbo" style="color: rgb(141, 177, 224);"></i> 公告通知</div>
+                    <div class="more text-right"><a href="#">更多</a></div>
+                </div>
+                <div class="content">
+                    <div class="item1"><a href="#">银行卡支付渠道暂时...</a> <span class="time text-right">10-11</span></div>
+                    <div class="item2"><a href="#">国庆回馈月活动...</a> <span class="time text-right">10-03</span></div>
+                    <div class="item3"><a href="#">微信支付功能暂时...</a> <span class="time text-right">09-27</span></div>
+                    <div class="item4"><a href="#">系统维护公告！</a> <span class="time text-right">09-18</span></div>
+                    <div class="item5"><a href="#">在线客服系统维护...</a> <span class="time text-right">08-11</span></div>
+                    <div class="item6"><a href="#">近期外挂封号名单...</a> <span class="time text-right">07-14</span></div>
+                    <div class="item7"><a href="#">问卷调查中奖通知！</a> <span class="time text-right">06-11</span></div>
+                </div>
+            </aside>
+
+            <div class="hot-sales">
+                <div class="header">
+                    <div class="title text-center">
+                        <i class="i-huo" style="color: #ff0036;"></i> 热门推荐
+                    </div>
+                </div>
+
+                <div class="content">
+
+                    <div class="item1">
+                        <a href="#" class="card">
+                            <img src="./user1/img/1.png">
+                            <div class="text">
+                                <div class="name">刺客全S装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item2">
+                        <a href="#" class="card">
+                            <img src="./user1/img/2.png">
+                            <div class="text">
+                                <div class="name">刺客全S装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item3">
+                        <a href="#" class="card">
+                            <img src="./user1/img/3.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item4">
+                        <a href="#" class="card">
+                            <img src="./user1/img/4.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item5">
+                        <a href="#" class="card">
+                            <img src="./user1/img/5.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item6">
+                        <a href="#" class="card">
+                            <img src="./user1/img/6.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item7">
+                        <a href="#" class="card">
+                            <img src="./user1/img/7.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item8">
+                        <a href="#" class="card">
+                            <img src="./user1/img/8.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item9">
+                        <a href="#" class="card">
+                            <img src="./user1/img/9.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item10">
+                        <a href="#" class="card">
+                            <img src="./user1/img/10.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="row desc">
+                                    <div class="from fl">福建一区</div>
+                                    <div class="price fr">1100元</div>
+                                </div>
+                                <div class="tags">
+                                    <span>刺客</span>
+                                    <span>天空套</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row action">
+                            <div class="star fl"><i class="i-shoucangfill"></i> 101个收藏</div>
+                            <div class="fork fr">
+                                <i class="i-quguo2"></i>
+                                <button>加入关注</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="paginator text-center">
+                    <span>上一页</span>
+                    <span>&nbsp;&nbsp;</span>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <span>&nbsp;&nbsp;</span>
+                    <a href="#">下一页</a>
+                </div>
+            </div>
+
+            <aside class="right">
+                <div class="express text-center">
+                    <div class="flex-12">
+                        <a href="#" class="disc">
+                            <div class="icon"><i class="i-huobiduihuan" style="color: rgb(206, 209, 49);"></i></div>
+                            <div class="name">折扣充值</div>
+                        </a>
+                    </div>
+                    <div class="flex-12">
+                        <a href="#" class="cart">
+                            <div class="icon"><i class="i-ziyouanpai" style="color: rgb(23, 214, 135);"></i></div>
+                            <div class="name">我的订单</div>
+                        </a>
+                    </div>
+                    <div class="flex-12">
+                        <a href="#" class="practice">
+                            <div class="icon"><i class="i-shengqian" style="color: rgb(64, 179, 187);"></i></div>
+                            <div class="name">代练专区</div>
+                        </a>
+                    </div>
+                    <div class="flex-12">
+                        <a href="#" class="service">
+                            <div class="icon"><i class="i-kefu" style="color: rgb(119, 154, 221);"></i></div>
+                            <div class="name">联系客服</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <div class="title"> 最新上架</div>
+                        <div class="more text-right"><a href="#">更多</a></div>
+                    </div>
+                    <hr>
+                    <div class="item1">
+
+                    </div>
+                    <div class="item2">
+
+                    </div>
+                    <div class="item3">
+
+                    </div>
+                    <div class="item4">
+
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="left flex-16"></div>
+            <div class="right flex-8"></div>
+        </div>
+    </footer>
+</body>
+
+</html>
