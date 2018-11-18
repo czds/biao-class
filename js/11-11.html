@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script>
+    let arr = ['a1', 'a2', ['b1', 'b2', ['c1', 'c2', 'c3'], 'b3'], 'a3'];
+    let str = '';
+    let str2 = '';
+    let str3 = '';
+    let arr2, arr3;
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof (arr[i]) == 'string')
+            str += arr[i] + ' ';
+        if (typeof (arr[i]) == 'array')
+            arr2 = arr[i];
+    }
+    console.log('第' + 1 + '级: ' + str);
+    for (let i = 0; i < arr2.length; i++) {
+        if (typeof (arr2[i]) == 'string')
+            str += arr2[i] + ' ';
+        if (typeof (arr[i]) == 'array')
+            arr2 = arr2[i];
+    }
+    console.log('第' + 2 + '级: ' + str2);
+</script>
