@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动效果</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .pic {
+            margin-left: -200%;
+            width: 100%;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //选取所有图片
+            const oPic = document.querySelectorAll('.container .pic');
+            console.log(oPic);
+            //current为图片的索引
+            let current = 0;
+            //下一张图的索引
+            let next = 1;
+
+            //JS加载
+            boot();
+
+            function boot() {
+                //显示第一张
+                oPic[current].style.marginLeft = 0;
+
+                setInterval(function () {
+                    slide(0.5);
+                }, 30)
+            };
+
+            //便宜距离，单位百分比
+            let distance = 0;
+
+            function slide(num) {
+                //计算当前位移百分比
+                distance += num;
+
+                //临界点
+                if (distance > 100) {
+                    distance = 100;
+                };
+
+                //设置图片显示偏移
+                oPic[current].style.marginRight = 0;
+                oPic[current].style.marginLeft = "-" + distance + "%";
+                oPic[next].style.marginLeft = 0;
+                oPic[next].style.marginRight = "-" + (100 - distance) + "%";
+
+                //达到临界点处理
+                if (distance >= 100) {
+                    //偏移回零
+                    distance = 0;
+
+                    //索引加1
+                    current++;
+                    next = current + 1;
+                    console.log(current);
+                    console.log(next);
+
+                    if (current == oPic.length - 1) {
+                        next = 0;
+                    };
+                    if (current > oPic.length - 1) {
+                        current = 0
+                        next = 1;
+
+                        oPic.forEach(it => it.style.marginLeft = '-200%');
+                        oPic[0].style.marginLeft = 0;
+
+                    }
+                };
+            };
+
+            //第一次滑动
+            // oPic[current].style.marginRight = 0;
+
+            // oPic[current].style.marginLeft = '-50%';
+            // oPic[current+1].style.marginLeft = 0;
+            // oPic[current+1].style.marginRight = '-50%';
+
+            //第二次滑动
+            // oPic[current].style.marginRight = 0;
+
+            // oPic[current].style.marginLeft = '-100%';
+            // oPic[current+1].style.marginLeft = 0;
+            // oPic[current+1].style.marginRight = '0';
+
+
+            //第三次滑动
+            // oPic[current+1].style.marginRight = 0;
+
+            // oPic[current+1].style.marginLeft = '-50%';
+            // oPic[current+2].style.marginLeft = 0;
+            // oPic[current+2].style.marginRight = '-50%';
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <img class="pic" src="../10-24/user1/img/2.png">
+        <img class="pic" src="../10-24/user1/img/3.png">
+        <img class="pic" src="../10-24/user1/img/4.png">
+        <img class="pic" src="../10-24/user1/img/5.png">
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, iusto in aspernatur voluptates ab assumenda
+        consequatur sint suscipit et molestias velit tempora. Aperiam, veniam. Magnam quibusdam voluptate minus.
+        Dolorum, accusamus.</p>
+    <script>
+
+    </script>
+</body>
+
+</html>

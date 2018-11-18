@@ -17,15 +17,24 @@
             align-items: center;
         }
 
+        header .nav.global a {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px;
+        }
+
+        header .nav.global .logo a {
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        header .nav.global .logo img {
+            width: 40px;
+        }
+
         header .nav.global .container .type {
             font-size: 16px;
             flex-grow: 1;
-        }
-
-        header .nav.global a {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px;
         }
 
         header .nav.global a:hover {
@@ -33,7 +42,6 @@
         }
 
         main {
-            background-color: #eee;
             padding-top: 15px;
         }
 
@@ -44,6 +52,22 @@
 
         main .title {
             font-size: 20px;
+        }
+
+        main .card {
+            display: block;
+            background-color: #eee;
+            border-radius: 5px;
+            transition: .6s ease-in-out;
+        }
+
+        main .card img {
+            border-radius: 4px 4px 0 0;
+            width: 100%;
+        }
+
+        main .card:hover {
+            transform: translateY(-5px);
         }
 
         main aside .header {
@@ -62,13 +86,12 @@
         }
 
         main aside.left .header {
-            padding-right: 10px;
+            padding: 0 20px;
         }
 
         main aside.left .content {
-            background-color: #fff;
-            margin: 10px;
-            padding: 10px 0;
+            background-color: #eee;
+            margin: 0 10px;
         }
 
         main aside.left .content div[class^=item] {
@@ -94,6 +117,7 @@
         main aside.right .express a {
             display: block;
             margin: 10px 20px;
+            border-radius: 4px;
         }
 
         main aside.right .express a:hover {
@@ -125,20 +149,12 @@
             padding: 0 10px;
         }
 
-        main .hot-sales .content a.card {
-            display: block;
-        }
-
-        main .hot-sales .content a.card img {
-            width: 100%;
-        }
-
         main .hot-sales .content a.card .text {
-            padding: 5px;
+            padding: 10px;
         }
 
         main .hot-sales .content a.card .text .name {
-            font-size: 16px;
+            font-size: 15px;
         }
 
         main .hot-sales .content a.card .text .desc {
@@ -147,7 +163,7 @@
         }
 
         main .hot-sales .content a.card .text .price {
-            color: red;
+            color: rgb(231, 110, 110);
         }
 
         main .hot-sales .content a.card .text .tags span {
@@ -157,6 +173,10 @@
             padding: 0 5px;
             border-radius: 5px;
             margin-right: 10px;
+        }
+
+        main .hot-sales .content .action {
+            margin-top: 10px;
         }
 
         main .hot-sales .content div[class^="item"] .star {
@@ -181,16 +201,17 @@
         }
 
         main aside {
-            flex-basis: 20.83333333333333%;
+            flex-basis: 20%;
         }
 
         main .hot-sales {
-            flex-basis: 58.33333333333333%;
+            flex-basis: 60%;
         }
 
         .paginator {
             color: #666;
             margin-bottom: 30px;
+            margin-top: 20px;
         }
 
         .paginator a {
@@ -204,8 +225,87 @@
             background-color: rgb(70, 185, 147);
         }
 
+        main aside.right .content [class^="item"] {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        main aside.right .content .text {
+            padding: 5px;
+        }
+
+        main aside.right .content .text .desc {
+            font-size: 13px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        main aside.right .content .text .desc .from {
+            color: #777;
+        }
+
+        main aside.right .content .text .desc .price {
+            color: rgb(231, 110, 110);
+        }
+
+        footer .blank {
+            height: 50px;
+            background-color: #f5f5f5;
+        }
+
         footer>.container {
             display: flex;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #f7c259;
+        }
+
+        footer .info {
+            padding: 40px 0;
+            justify-content: space-around;
+        }
+
+        footer .info [class^="item"] .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        footer .info [class^="item"] .content {
+            font-size: 12px;
+        }
+
+        footer .info [class^="item"] .content a {
+            display: inline-block;
+            margin: 5px 10px 8px 0;
+        }
+
+        footer .owner {
+            padding: 30px 10px;
+        }
+
+        footer .owner .right {
+            padding-left: 50px;
+        }
+
+        footer .owner .left {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+            line-height: 2;
+        }
+
+        footer .owner .right a {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        footer .prompt {
+            color: #ff6008;
         }
     </style>
     <style media="screen and (max-width:1010px)">
@@ -282,7 +382,7 @@
         <div class="container">
             <aside class="left">
                 <div class="header">
-                    <div class="title"><i class="i-guangbo" style="color: rgb(141, 177, 224);"></i> 公告通知</div>
+                    <div class="title">公告通知</div>
                     <div class="more text-right"><a href="#">更多</a></div>
                 </div>
                 <div class="content">
@@ -293,9 +393,11 @@
                     <div class="item5"><a href="#">在线客服系统维护...</a> <span class="time text-right">08-11</span></div>
                     <div class="item6"><a href="#">近期外挂封号名单...</a> <span class="time text-right">07-14</span></div>
                     <div class="item7"><a href="#">问卷调查中奖通知！</a> <span class="time text-right">06-11</span></div>
+                    <div class="item4"><a href="#">系统维护公告！</a> <span class="time text-right">05-18</span></div>
+                    <div class="item6"><a href="#">近期外挂封号名单...</a> <span class="time text-right">05-14</span></div>
+                    <div class="item7"><a href="#">节日礼包活动详情</a> <span class="time text-right">5-1</span></div>
                 </div>
             </aside>
-
             <div class="hot-sales">
                 <div class="header">
                     <div class="title text-center">
@@ -558,7 +660,6 @@
                     <a href="#">下一页</a>
                 </div>
             </div>
-
             <aside class="right">
                 <div class="express text-center">
                     <div class="flex-12">
@@ -593,25 +694,101 @@
                     </div>
                     <hr>
                     <div class="item1">
-
+                        <a href="#" class="card">
+                            <img src="./user1/img/7.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="desc">
+                                    <div class="from">福建一区</div>
+                                    <div class="price">1100元</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="item2">
-
+                        <a href="#" class="card">
+                            <img src="./user1/img/8.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="desc">
+                                    <div class="from">福建一区</div>
+                                    <div class="price">1100元</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="item3">
-
+                        <a href="#" class="card">
+                            <img src="./user1/img/9.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="desc">
+                                    <div class="from">福建一区</div>
+                                    <div class="price">1100元</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="item4">
-
+                        <a href="#" class="card">
+                            <img src="./user1/img/10.png">
+                            <div class="text">
+                                <div class="name">刺客全SS装 秒天秒地秒空气</div>
+                                <div class="desc">
+                                    <div class="from">福建一区</div>
+                                    <div class="price">1100元</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </aside>
         </div>
     </main>
     <footer>
-        <div class="container">
-            <div class="left flex-16"></div>
-            <div class="right flex-8"></div>
+        <div class="blank"> </div>
+        <div class="container info">
+            <div class="item1">
+                <div class="title">新手上路</div>
+                <div class="content">
+                    <div>
+                        <a href="#">如何购买账号？</a>
+                        <a href="#">如何出售账号？</a>
+                    </div>
+                    <a href="#">装备和游戏币购买流程是什么？</a>
+                </div>
+            </div>
+            <div class="item2">
+                <div class="title">常见问题</div>
+                <div class="content">
+                    <div><a href="#">买家付款后，何时收到钱？</a></div>
+                    <a href="#">收不到短信验证码怎么办？</a>
+                </div>
+            </div>
+            <div class="item3">
+                <div class="title">支付方式</div>
+                <div class="content">
+                    <div>
+                        <a href="#">退款退到哪里？</a>
+                        <a href="#">提现多久到账？</a>
+                    </div>
+                    <a href="#">申请退款，卖家逾期未处理怎么办？</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container owner">
+            <div class="left">
+                <div>© 未来计算机科技有限公司 版权所有 ICP备15xxxxxxx号 联系电话：021-5020xxxx</div>
+                <div> <span style="font-weight: bold;">典当铺</span> 是未来计算机科技有限公司开发的网游虚拟物品交易平台，为游戏玩家提供安全可靠、方便快捷的交易服务</div>
+                <div class="prompt">适龄提示：适合12岁以上使用</div>
+            </div>
+            <div class="right">
+                <a href="#"><img src="./img/3.png"></a>
+                <a href="#"><img src="./img/5.png"></a>
+                <a href="#"><img src="./img/6.png"></a>
+                <a href="#"><img src="./img/2.png"></a>
+            </div>
         </div>
     </footer>
 </body>

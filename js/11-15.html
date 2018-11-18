@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试页面</title>
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            position: relative;
+        }
+
+        .slider>[class^="item"] {
+            opacity: 0;
+            position: absolute;
+            display: block;
+            transition: all .5s;
+        }
+
+        #prev {
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 50px;
+            top: 100px;
+            left: 10%;
+            border-radius:50%;
+            border: 0;
+            outline: 0;
+        }
+
+        #next {
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 50px;
+            top: 100px;
+            right: 10%;
+            border-radius:50%;
+            border: 0;
+            outline: 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slider">
+            <a href="#" class="item1">
+                <img src="http://dummyimage.com/1000x500?text=A" alt="A">
+            </a>
+            <a href="#" class="item2">
+                <img src="http://dummyimage.com/1000x500?text=B" alt="B">
+            </a>
+            <a href="#" class="item3">
+                <img src="http://dummyimage.com/1000x500?text=C" alt="C">
+            </a>
+            <button id="prev">0</button>
+            <button id="next">1</button>
+        </div>
+    </div>
+
+    <script src='4.js'></script>
+
+</body>
+
+</html>

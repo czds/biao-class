@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11月16日</title>
+    <script>
+        window.onload = function () {
+            var oTxt1 = document.getElementById('txt1');
+            var oTxt2 = document.getElementById('txt2');
+            var oBtn = document.getElementById('btn1');
+            oBtn.onclick = function () {
+                alert(parseInt(oTxt1.value) + parseInt(oTxt2.value));
+            };
+            var user = {
+                username: "LeeShuan0",
+                intro: "不，给你一个字的回答"
+            };
+            console.log(user.username);
+            console.log(user['username']);//这不会报错，正常打印出 LeeShuan0
+
+        };
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+    <button id="btn1">求和</button>
+</body>
+
+</html>
