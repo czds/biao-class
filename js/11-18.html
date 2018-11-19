@@ -38,10 +38,10 @@
 
                 setInterval(function () {
                     slide(0.5);
-                }, 30)
+                }, 50)
             };
 
-            //便宜距离，单位百分比
+            //偏移距离，单位百分比
             let distance = 0;
 
             function slide(num) {
@@ -54,10 +54,18 @@
                 };
 
                 //设置图片显示偏移
-                oPic[current].style.marginRight = 0;
-                oPic[current].style.marginLeft = "-" + distance + "%";
-                oPic[next].style.marginLeft = 0;
-                oPic[next].style.marginRight = "-" + (100 - distance) + "%";
+                if (current < oPic.length - 1) {
+                    oPic[current].style.marginRight = 0;
+                    oPic[current].style.marginLeft = "-" + distance + "%";
+                    oPic[next].style.marginLeft = 0;
+                    oPic[next].style.marginRight = "-" + (100 - distance) + "%";
+                } else {
+                    //当前为最后一张图，改变的CSS设置不一样
+                    oPic[current].style.marginRight = 0;
+                    oPic[current].style.marginLeft = "-" + distance + "%";
+                    oPic[next].style.marginLeft = 0;
+                    oPic[next].style.marginRight = "-" + 200 + "%";
+                }
 
                 //达到临界点处理
                 if (distance >= 100) {
@@ -67,44 +75,20 @@
                     //索引加1
                     current++;
                     next = current + 1;
-                    console.log(current);
-                    console.log(next);
 
                     if (current == oPic.length - 1) {
+                        //当前为最后一张图时，下一张索引归0
                         next = 0;
                     };
                     if (current > oPic.length - 1) {
+                        //超过数组索引，回归初始设置
                         current = 0
                         next = 1;
-
                         oPic.forEach(it => it.style.marginLeft = '-200%');
                         oPic[0].style.marginLeft = 0;
-
-                    }
+                    };
                 };
             };
-
-            //第一次滑动
-            // oPic[current].style.marginRight = 0;
-
-            // oPic[current].style.marginLeft = '-50%';
-            // oPic[current+1].style.marginLeft = 0;
-            // oPic[current+1].style.marginRight = '-50%';
-
-            //第二次滑动
-            // oPic[current].style.marginRight = 0;
-
-            // oPic[current].style.marginLeft = '-100%';
-            // oPic[current+1].style.marginLeft = 0;
-            // oPic[current+1].style.marginRight = '0';
-
-
-            //第三次滑动
-            // oPic[current+1].style.marginRight = 0;
-
-            // oPic[current+1].style.marginLeft = '-50%';
-            // oPic[current+2].style.marginLeft = 0;
-            // oPic[current+2].style.marginRight = '-50%';
 
         };
     </script>
@@ -112,10 +96,10 @@
 
 <body>
     <div class="container">
-        <img class="pic" src="../10-24/user1/img/2.png">
-        <img class="pic" src="../10-24/user1/img/3.png">
-        <img class="pic" src="../10-24/user1/img/4.png">
-        <img class="pic" src="../10-24/user1/img/5.png">
+        <img class="pic a1" src="../10-24/user1/img/2.png">
+        <img class="pic a2" src="../10-24/user1/img/3.png">
+        <img class="pic a3" src="../10-24/user1/img/4.png">
+        <img class="pic a4" src="../10-24/user1/img/5.png">
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, iusto in aspernatur voluptates ab assumenda
         consequatur sint suscipit et molestias velit tempora. Aperiam, veniam. Magnam quibusdam voluptate minus.
