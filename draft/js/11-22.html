@@ -100,24 +100,51 @@
     </div>
 
     <script>
-        //点击时弹出一个消息，且消息背后有一个遮罩层出现在当前页面上，函数传入2个参数，触发弹出窗的元素 和 需要弹出的元素
-        //做法，执行函数的时候，先在DOM中添加一个类名为 plug-mask 的元素，需要弹出的元素添加一个类名 plug-popup，且默认隐藏
+        //点击时弹出一个消息，消息背后有一个遮罩层出现在当前页面上
+        //函数传入2个参数，触发弹出窗的元素 和 需要弹出的元素
+
+        //做法：定义相关样式，先添加一个类名为 plug-mask 的遮罩层
+        //然后给需要弹出的元素添加一个类名 plug-popup，且默认隐藏
+
+        //先定义3个全局变量，触发，弹出，遮罩
         let trigger, popup, mask;
 
+        //加载JS
         boot('#trigger', '#popup');
 
+
         function boot(triggerSelector, popupSelector) {
-            //选中元素
-            trigger = document.querySelector(triggerSelector),
-                popup = document.querySelector(popupSelector);
+            //初始化
+            initPopup(triggerSelector, popupSelector);
 
-            //添加遮罩层
-            addMask();
+            //绑定相关事件
+            bindEvent();
+        };
 
-            //给弹出元素添加一个类名plug-popup,且默认为隐藏状态
+        function initPopup(triggerSelector, popupSelector) {
+            //选中触发元素与弹出元素
+            trigger = document.querySelector(triggerSelector);
+            popup = document.querySelector(popupSelector);
+
+            //给弹出元素添加一个类名plug-popup,且默认隐藏
             popup.classList.add("plug-popup");
             popup.hidden = true;
 
+            //添加遮罩层
+            addMask();
+        }
+
+        function addMask() {
+            //定义一个类名为plug-mask的div元素
+            mask = document.createElement('div');
+            mask.classList.add("plug-mask");
+            //默认隐藏
+            mask.hidden = true;
+            //向页面中添加这个遮罩层元素
+            document.body.appendChild(mask);
+        };
+
+        function bindEvent() {
             //给触发元素绑定事件
             trigger.addEventListener('click', () => {
                 showPopup();
@@ -138,19 +165,10 @@
             });
         };
 
-        function addMask() {
-            //定义一个类名为plug-mask的div元素
-            mask = document.createElement('div');
-            mask.classList.add("plug-mask");
-            //默认隐藏
-            mask.hidden = true;
-            //向页面中添加这个遮罩层元素
-            document.body.appendChild(mask);
-        };
-
         function showPopup() {
-            //显示弹出消息，然后改变位置，不然无法准确计算显示位置
+            //先显示弹出消息，然后改变位置，不然无法准确计算显示位置
             mask.hidden = popup.hidden = false;
+
             repositionPopup();
         };
 
@@ -158,17 +176,75 @@
             mask.hidden = popup.hidden = true;
         };
 
-        function repositionPopup(xOffset = 0, yOffset = 0) {
+        /**
+         * xOffset,yOffset分别为弹出消息的X轴与Y周偏移量
+         * 往上移yOffset加负值，往左移xOffset同理
+         * position默认居中center，可为其他参数：mid-top（中上）、mid-bottom（中下）
+         * left-top（左上）、left-mid（左中）、left-bottom（左下）
+         * right-top（右上）、right-mid（右中）、right-bottom（右下）
+         */
+        function repositionPopup(xOffset = 0, yOffset = 0, position = 'center') {
             // 获取浏览器窗口的尺寸
             let windowWidth = window.innerWidth;
             let windowHeight = window.innerHeight;
             // 获取元素本身的尺寸
             let width = popup.offsetWidth;
             let height = popup.offsetHeight;
+
             //设置消息位置
-            popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
-            popup.style.top = windowHeight / 2 - height / 2 - yOffset + 'px';
+            switch (position) {
+                //居中
+                case 'center':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+
+                //中上
+                case 'mid-top':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //中下
+                case 'mid-bottom':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.bottom = -yOffset + 'px';
+                    break;
+
+                //左上
+                case 'left-top':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //左中
+                case 'left-mid':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+                //左下
+                case 'left-bottom':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.bottom = -yOffset + 'px';
+                    break;
+
+                //右上
+                case 'right-top':
+                    popup.style.right = -xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //右中
+                case 'right-mid':
+                    popup.style.right = -xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+                //右下
+                case 'right-bottom':
+                    popup.style.right = -xOffset + 'px';
+                    popup.style.bottom = -yOffset + 'px';
+                    break;
+
+            };
         };
+
 
     </script>
 </body>

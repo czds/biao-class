@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [hidden] {
+            display: none !important;
+        }
+
+        /* 遮罩层样式 */
+        .plug-mask {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #777;
+            z-index: 999;
+        }
+
+        /* 弹出窗口样式 */
+        .plug-popup {
+            position: fixed;
+            z-index: 1000;
+            background-color: #fff;
+            padding: 10px;
+            border: 4px solid #000;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            text-align: center;
+            /* 不指定宽度会有BUG */
+            /* width: 180px; */
+        }
+
+        button {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="trigger">收藏</button>
+    <div id="popup">
+        <p>按ESC 退出</p>
+        <button onclick="repositionPopup('mid-top')">中上</button>
+        <button onclick="repositionPopup('center')">默认</button>
+        <button onclick="repositionPopup('mid-bottom')">中下</button>
+
+        <div>
+            <button onclick="repositionPopup('left-top')">左上</button>
+            <button onclick="repositionPopup('left-mid')">左中</button>
+            <button onclick="repositionPopup('left-bottom')">左下</button>
+        </div>
+
+        <button onclick="repositionPopup('right-top')">右上</button>
+        <button onclick="repositionPopup('right-mid')">右中</button>
+        <button onclick="repositionPopup('right-bottom')">右下</button>
+    </div>
+
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+    </div>
+
+    <script>
+        //点击时弹出一个消息，消息背后有一个遮罩层出现在当前页面上
+        //函数传入2个参数，触发弹出窗的元素 和 需要弹出的元素
+
+        //做法：定义相关样式，先添加一个类名为 plug-mask 的遮罩层
+        //然后给需要弹出的元素添加一个类名 plug-popup，且默认隐藏
+
+        //先定义3个全局变量，触发，弹出，遮罩
+        let trigger, popup, mask;
+
+        //加载JS
+        boot('#trigger', '#popup');
+
+
+        function boot(triggerSelector, popupSelector) {
+            //初始化
+            initPopup(triggerSelector, popupSelector);
+
+            //绑定相关事件
+            bindEvent();
+        };
+
+        function initPopup(triggerSelector, popupSelector) {
+            //选中触发元素与弹出元素
+            trigger = document.querySelector(triggerSelector);
+            popup = document.querySelector(popupSelector);
+
+            //给弹出元素添加一个类名plug-popup,且默认隐藏
+            popup.classList.add("plug-popup");
+            popup.hidden = true;
+
+            //添加遮罩层
+            addMask();
+        }
+
+        function addMask() {
+            //定义一个类名为plug-mask的div元素
+            mask = document.createElement('div');
+            mask.classList.add("plug-mask");
+            //默认隐藏
+            mask.hidden = true;
+            //向页面中添加这个遮罩层元素
+            document.body.appendChild(mask);
+        };
+
+        function bindEvent() {
+            //给触发元素绑定事件
+            trigger.addEventListener('click', () => {
+                showPopup();
+            });
+
+            //绑定隐藏遮罩层事件
+            window.addEventListener('keyup', (event) => {
+                if (event.code === 'Escape')
+                    hidePopup();
+            });
+            //点击遮罩层隐藏
+            // mask.addEventListener('click', () => {
+            //     hidePopup();
+            // });
+
+            //浏览器改变大小时，调整弹出消息位置
+            window.addEventListener('resize', () => {
+                repositionPopup();
+            });
+        };
+
+        function showPopup() {
+            //先显示弹出消息，然后改变位置，不然无法准确计算显示位置
+            mask.hidden = popup.hidden = false;
+
+            repositionPopup();
+        };
+
+        function hidePopup() {
+            mask.hidden = popup.hidden = true;
+        };
+
+        /**
+         * xOffset,yOffset分别为弹出消息的X轴与Y周偏移量
+         * 往上移yOffset加负值，往左移xOffset同理
+         * position默认居中center，可为其他参数：mid-top（中上）、mid-bottom（中下）
+         * left-top（左上）、left-mid（左中）、left-bottom（左下）
+         * right-top（右上）、right-mid（右中）、right-bottom（右下）
+         */
+        function repositionPopup(position = 'center', xOffset = 0, yOffset = 0) {
+            // 获取浏览器窗口的尺寸
+            let windowWidth = window.innerWidth;
+            let windowHeight = window.innerHeight;
+            // 获取元素本身的尺寸
+            let width = popup.offsetWidth;
+            let height = popup.offsetHeight;
+
+            //设置消息位置
+            switch (position) {
+                //居中
+                case 'center':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+
+                //中上
+                case 'mid-top':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //中下
+                case 'mid-bottom':
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = windowHeight - height + yOffset + 'px';
+                    break;
+
+                //左上
+                case 'left-top':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //左中
+                case 'left-mid':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+                //左下
+                case 'left-bottom':
+                    popup.style.left = xOffset + 'px';
+                    popup.style.top = windowHeight - height + yOffset + 'px';
+                    break;
+
+                //右上
+                case 'right-top':
+                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.top = yOffset + 'px';
+                    break;
+                //右中
+                case 'right-mid':
+                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+                    break;
+                //右下
+                case 'right-bottom':
+                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.top = windowHeight - height + yOffset + 'px';
+                    break;
+                default:
+                    popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
+            };
+        };
+
+
+    </script>
+</body>
+
+</html>
