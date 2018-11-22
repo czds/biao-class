@@ -64,7 +64,7 @@
                     oPic[current].style.marginRight = 0;
                     oPic[current].style.marginLeft = "-" + distance + "%";
                     oPic[next].style.marginLeft = 0;
-                    oPic[next].style.marginRight = "-" + 200 + "%";
+                    oPic[next].style.marginRight = "-" + 100 + "%";
                 }
 
                 //达到临界点处理
@@ -84,7 +84,9 @@
                         //超过数组索引，回归初始设置
                         current = 0
                         next = 1;
-                        oPic.forEach(it => it.style.marginLeft = '-200%');
+                        oPic.forEach(function(it){
+                            it.style.marginLeft = '-200%';
+                        });
                         oPic[0].style.marginLeft = 0;
                     };
                 };

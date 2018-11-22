@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [hidden] {
+            display: none !important;
+        }
+
+        /* 遮罩层样式 */
+        .plug-mask {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #777;
+            z-index: 999;
+        }
+
+        /* 弹出窗口样式 */
+        .plug-popup {
+            position: fixed;
+            z-index: 1000;
+            background-color: #fff;
+            padding: 10px;
+            border: 4px solid #000;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="trigger">收藏</button>
+    <div id="popup">
+        确定要收藏吗？
+        <img src="http://dummyimage.com/200x200">
+    </div>
+
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore maiores nam natus necessitatibus
+        nihil
+        quasi quibusdam sit tempora, vel? Dolores eos est itaque, laborum numquam obcaecati vitae voluptate
+        voluptatibus!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur corporis debitis dolore ducimus eaque ex
+        id,
+        ipsa itaque modi nisi, odit optio perspiciatis quos recusandae reiciendis tempore vel voluptatem, voluptates.
+    </div>
+
+    <script>
+        //点击时弹出一个消息，且消息背后有一个遮罩层出现在当前页面上，函数传入2个参数，触发弹出窗的元素 和 需要弹出的元素
+        //做法，执行函数的时候，先在DOM中添加一个类名为 plug-mask 的元素，需要弹出的元素添加一个类名 plug-popup，且默认隐藏
+        let trigger, popup, mask;
+
+        boot('#trigger', '#popup');
+
+        function boot(triggerSelector, popupSelector) {
+            //选中元素
+            trigger = document.querySelector(triggerSelector),
+                popup = document.querySelector(popupSelector);
+
+            //添加遮罩层
+            addMask();
+
+            //给弹出元素添加一个类名plug-popup,且默认为隐藏状态
+            popup.classList.add("plug-popup");
+            popup.hidden = true;
+
+            //给触发元素绑定事件
+            trigger.addEventListener('click', () => {
+                showPopup();
+            });
+
+            //绑定隐藏遮罩层事件
+            window.addEventListener('keyup', (event) => {
+                if (event.code === 'Escape')
+                    hidePopup();
+            });
+        };
+
+        function addMask() {
+            //定义一个类名为plug-mask的div元素
+            mask = document.createElement('div');
+            mask.classList.add("plug-mask");
+            //默认隐藏
+            mask.hidden = true;
+            //向页面中添加这个遮罩层元素
+            document.body.appendChild(mask);
+        };
+
+        function showPopup() {
+            //改变弹出窗口的位置，然后显示
+            repositionPopup();
+            mask.hidden = popup.hidden = false;
+
+            function repositionPopup(xOffset = 0, yOffset = 0) {
+                // 获取浏览器窗口的尺寸
+                let windowWidth = window.innerWidth;
+                let windowHeight = window.innerHeight;
+                // 获取元素本身的尺寸
+                let width = popup.offsetWidth;
+                let height = popup.offsetHeight;
+
+                // 默认的，Popup在横轴和纵轴都居中，也就是'center'
+                popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                popup.style.top = windowHeight / 2 - height / 2 - yOffset + 'px';
+            };
+
+        };
+
+        function hidePopup() {
+            mask.hidden = popup.hidden = true;
+        };
+    </script>
+</body>
+
+</html>

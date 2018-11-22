@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM接口</title>
+    <style>
+        button {
+            background-color: #bbb;
+            margin-bottom: 5px;
+            border: none;
+            font-size: 15px;
+            padding: 8px 10px;
+            color: #222;
+        }
+
+        .links a {
+            display: block;
+            background: #666;
+            text-align: center;
+            text-decoration: none;
+            color: #eee;
+            padding: 6px;
+        }
+
+        .links {
+            padding: 5px 0;
+            background-color: #666;
+            width: 80px;
+        }
+
+        .article {
+            background-color: #aaa;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 15px;
+            line-height: 1.4;
+        }
+
+        .article .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggle">查看更多</button> <button id="toggle2" style="margin:0 10px">鼠标移过来</button>
+    <div class="links">
+        <a href="#">扫一扫</a>
+        <a href="#">加好友</a>
+        <a href="#">搜索</a>
+        <a href="#">帮助</a>
+        <a href="#">关于我们</a>
+    </div>
+    <div class="article">
+        <div class="title">小标题</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore officiis consectetur reprehenderit! Sed,
+            inventore, sit quidem autem minima ex reiciendis perspiciatis ad incidunt nesciunt ullam? Fugiat corrupti
+            fuga eos a.</div>
+    </div>
+
+    <script>
+        ; (function () {
+            'use strict';
+            const toggle = document.querySelector('#toggle');
+            const toggle2 = document.querySelector('#toggle2');
+            const links = document.querySelector('.links');
+            const article = document.querySelector('.article');
+
+            toggle.addEventListener('click', () => {
+                links.hidden = !links.hidden;
+            });
+
+            toggle2.addEventListener('mouseenter', () => {
+                links.hidden = true;
+            });
+            toggle2.addEventListener('mouseleave', () => {
+                links.hidden = false;
+            });
+
+            window.addEventListener('keyup', (event) => {
+                console.log(event);
+                if (event.key === 'q' && event.ctrlKey) {
+                    article.hidden = !article.hidden;
+                };
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
