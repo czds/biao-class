@@ -128,6 +128,14 @@
                 if (event.code === 'Escape')
                     hidePopup();
             });
+            mask.addEventListener('click', () => {
+                hidePopup();
+            });
+
+            //浏览器改变大小时，调整弹出消息位置
+            window.addEventListener('resize', () => {
+                repositionPopup();
+            });
         };
 
         function addMask() {
@@ -141,27 +149,27 @@
         };
 
         function showPopup() {
-            //改变弹出窗口的位置，然后显示
-            repositionPopup();
+            //显示弹出消息，然后改变位置，不然无法准确计算显示位置
             mask.hidden = popup.hidden = false;
-
-            function repositionPopup(xOffset = 0, yOffset = 0) {
-                // 获取浏览器窗口的尺寸
-                let windowWidth = window.innerWidth;
-                let windowHeight = window.innerHeight;
-                // 获取元素本身的尺寸
-                let width = popup.offsetWidth;
-                let height = popup.offsetHeight;
-
-                popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
-                popup.style.top = windowHeight / 2 - height / 2 - yOffset + 'px';
-            };
-
+            repositionPopup();
         };
 
         function hidePopup() {
             mask.hidden = popup.hidden = true;
         };
+
+        function repositionPopup(xOffset = 0, yOffset = 0) {
+            // 获取浏览器窗口的尺寸
+            let windowWidth = window.innerWidth;
+            let windowHeight = window.innerHeight;
+            // 获取元素本身的尺寸
+            let width = popup.offsetWidth;
+            let height = popup.offsetHeight;
+            //设置消息位置
+            popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+            popup.style.top = windowHeight / 2 - height / 2 - yOffset + 'px';
+        };
+
     </script>
 </body>
 
