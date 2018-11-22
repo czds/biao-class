@@ -32,8 +32,6 @@
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
             font-size: 14px;
             text-align: center;
-            /* 不指定宽度会有BUG */
-            /* width: 180px; */
         }
 
         button {
@@ -58,7 +56,7 @@
             <button onclick="repositionPopup('left-bottom')">左下</button>
         </div>
 
-        <button onclick="repositionPopup('right-top')">右上</button>
+        <button onclick="repositionPopup('right-top',-20)">右上</button>
         <button onclick="repositionPopup('right-mid')">右中</button>
         <button onclick="repositionPopup('right-bottom')">右下</button>
     </div>
@@ -219,53 +217,63 @@
                 //居中
                 case 'center':
                     popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
                     break;
 
                 //中上
                 case 'mid-top':
                     popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = yOffset + 'px';
                     break;
                 //中下
                 case 'mid-bottom':
                     popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = windowHeight - height + yOffset + 'px';
                     break;
 
                 //左上
                 case 'left-top':
                     popup.style.left = xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = yOffset + 'px';
                     break;
                 //左中
                 case 'left-mid':
                     popup.style.left = xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
                     break;
                 //左下
                 case 'left-bottom':
                     popup.style.left = xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = windowHeight - height + yOffset + 'px';
                     break;
 
                 //右上
                 case 'right-top':
-                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.left = 'auto';
+                    popup.style.right = 0;
                     popup.style.top = yOffset + 'px';
                     break;
                 //右中
                 case 'right-mid':
-                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.left = 'auto';
+                    popup.style.right = 0;
                     popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
                     break;
                 //右下
                 case 'right-bottom':
-                    popup.style.left = windowWidth - width + xOffset + 'px';
+                    popup.style.left = 'auto';
+                    popup.style.right = 0;
                     popup.style.top = windowHeight - height + yOffset + 'px';
                     break;
                 default:
                     popup.style.left = windowWidth / 2 - width / 2 + xOffset + 'px';
+                    popup.style.right = 'auto';
                     popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
             };
         };
