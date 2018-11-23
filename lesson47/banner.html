@@ -17,6 +17,7 @@
         img {
             display: block;
             width: 100%;
+            transition: all 2s;
         }
 
         .btn span {
@@ -99,7 +100,12 @@
             //点击时改变图片的源
             for (let a = 0; a < imgSrc.length - 1; a++) {
                 items[a].addEventListener('click', function () {
+                    img.style.transform='';
                     img.src = imgSrc[a];
+                    img.style.transform='scaleX(1.1)';
+                });
+                items[a].addEventListener('mousedown', function () {
+                    img.style.transform='';
                 });
             };
         }
