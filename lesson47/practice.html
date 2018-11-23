@@ -56,7 +56,7 @@
             <button onclick="repositionPopup('left-bottom')">左下</button>
         </div>
 
-        <button onclick="repositionPopup('right-top',-20)">右上</button>
+        <button onclick="repositionPopup('right-top')">右上</button>
         <button onclick="repositionPopup('right-mid')">右中</button>
         <button onclick="repositionPopup('right-bottom')">右下</button>
     </div>
@@ -256,19 +256,19 @@
                 //右上
                 case 'right-top':
                     popup.style.left = 'auto';
-                    popup.style.right = 0;
+                    popup.style.right = -xOffset + 'px';
                     popup.style.top = yOffset + 'px';
                     break;
                 //右中
                 case 'right-mid':
                     popup.style.left = 'auto';
-                    popup.style.right = 0;
+                    popup.style.right = -xOffset + 'px';
                     popup.style.top = windowHeight / 2 - height / 2 + yOffset + 'px';
                     break;
                 //右下
                 case 'right-bottom':
                     popup.style.left = 'auto';
-                    popup.style.right = 0;
+                    popup.style.right = -xOffset + 'px';
                     popup.style.top = windowHeight - height + yOffset + 'px';
                     break;
                 default:

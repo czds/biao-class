@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        .box {
+            position: relative;
+            font-size: 15px;
+            margin: 0 auto;
+            width: 600px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .btn span {
+            position: absolute;
+            display: inline-block;
+            font-size: 30px;
+            background: #ddd;
+            top: 40%;
+            border-radius: 50%;
+        }
+
+        .prev {
+            padding: 0 10px 3px 7px;
+            left: 7%;
+        }
+
+        .next {
+            padding: 0 7px 3px 10px;
+            right: 7%;
+        }
+
+        .index {
+            position: absolute;
+            bottom: 10%;
+            font-size: 20px;
+            right: 20%;
+            text-align: center;
+            color: #333;
+        }
+
+        .item {
+            display: inline-block;
+            background: #ddd;
+            margin: 0 2px;
+            padding: 0 8px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <img src="../draft/10-24/user1/img/8.png">
+        <div class="btn">
+            <span class="prev">&lt;</span>
+            <span class="next">&gt;</span>
+        </div>
+        <div class="index">
+            <span class="item">1</span>
+            <span class="item">2</span>
+            <span class="item">3</span>
+            <span class="item">4</span>
+            <span class="item">5</span>
+        </div>
+    </div>
+
+    <script>
+        //改变图片路径，图片路径放到一个数组里
+        var imgSrc = ['../draft/10-24/user1/img/8.png', '../draft/10-24/user1/img/7.png',
+            '../draft/10-24/user1/img/6.png', '../draft/10-24/user1/img/5.png',
+            '../draft/10-24/user1/img/4.png', '../draft/10-24/user1/img/3.png'];
+        //选中元素
+        var img = document.querySelector('img');
+        var prev = document.querySelector('.prev');
+        var next = document.querySelector('.next');
+        var items = document.querySelectorAll('.item');
+        //定义全局变量index,为数组imgSrc的索引
+        var index = 0;
+        //绑定点击事件
+        window.onload = function () {
+            prev.addEventListener('click', function () {
+                index == 0 ? index = imgSrc.length - 1 : index--;
+                img.src = imgSrc[index];
+            });
+            next.addEventListener('click', function () {
+                index <= imgSrc.length - 2 ? index++ : index = 0;
+                img.src = imgSrc[index];
+            });
+            //点击时改变图片的源
+            for (let a = 0; a < imgSrc.length - 1; a++) {
+                items[a].addEventListener('click', function () {
+                    img.src = imgSrc[a];
+                });
+            };
+        }
+    </script>
+
+</body>
+
+</html>
