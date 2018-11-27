@@ -12,6 +12,7 @@
             font-size: 15px;
             margin: 0 auto;
             width: 600px;
+            overflow: hidden;
         }
 
         img {
@@ -99,13 +100,12 @@
             });
             //点击时改变图片的源
             for (let a = 0; a < imgSrc.length - 1; a++) {
-                items[a].addEventListener('click', function () {
-                    img.style.transform='';
+                items[a].addEventListener('mouseup', function () {
                     img.src = imgSrc[a];
                     img.style.transform='scaleX(1.1)';
                 });
                 items[a].addEventListener('mousedown', function () {
-                    img.style.transform='';
+                    img.style.transform='none';
                 });
             };
         }

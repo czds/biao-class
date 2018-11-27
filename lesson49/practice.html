@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出提示</title>
+    <style>
+        .btn {
+            margin: 10px;
+            width: 4em;
+            height: 2em;
+            outline: 0;
+        }
+
+        button,
+        .popout {
+            border: 2px solid;
+        }
+
+        .popout {
+            padding: 10px;
+            display: inline-block;
+            position: fixed;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            background: #fff;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn" data-popout="Yo Yo Yo" data-position="right">YO</button>
+    <button class="btn" data-popout="Hi ~ " data-position="bottom">Hi</button>
+    <script>
+        //点击一个按钮，当按钮data-popout有内容时，弹出内容提示
+        //只显示当前最后点击按钮的弹出提示
+        //点击非触发元素时隐藏所有弹出提示
+
+        //做法，给window绑定点击事件，判断事件源有没有.dataset.popout属性
+        //如果有， 再判断该元素是否已经添加过弹出元素
+        //如果已经添加过，就直接显示它
+        //如果没有添加过，就给该元素添加一个类名为popout的元素，
+        //其内容为dataset.popout里储存的信息，然后调整其显示位置
+
+        //当window点击事件源没有.dataset.popout属性，隐藏所有添加的弹出元素
+        //当依次点击两个具有.dataset.popout属性的按钮时，
+        //只显示当前点击的按钮的弹出提示，
+        //做法是先隐藏全部，再显示当前
+
+        //定义全局变量，存储所有弹出消息元素
+        let triggers = new Set();
+
+        boot();
+
+        function boot() {
+            bindEvent();
+        };
+
+        function bindEvent() {
+            window.addEventListener('click', event => {
+                let el = event.target;
+                let content = el.dataset.popout;
+                //判断事件源是否具有.dataset.popout属性
+                if (content) {
+                    show(el, content);
+                } else {
+                    //隐藏所有弹出消息
+                    triggers.forEach(it => it.hidden = true);
+                }
+            })
+        };
+
+        function show(el, content) {
+            //判断有没有添加过弹出元素，el._mark为添加过元素的标记
+            if (el._mark) {
+                //如果已经添加过，显示弹出消息,
+                //在这之前先隐藏所有弹出消息，再显示当前
+                triggers.forEach(it => it.hidden = true);
+                el._mark.hidden = false;
+            } else {
+                //先隐藏其他消息
+                triggers.forEach(it => it.hidden = true);
+
+                //先添加一个类名为.popout的元素
+                //其内容为.dataset.popout属性的值
+                let popout = document.createElement('div');
+                popout.classList.add('popout');
+                popout.innerHTML = content;
+                document.body.appendChild(popout);
+
+                //做标记
+                el._mark = popout;
+                //当前弹出消息元素添加集合中
+                triggers.add(popout);
+
+                //调整位置,传参为该元素本身
+                //el._mark（popout）作为元素属性，全局可见
+                reposition(el);
+            }
+        };
+
+        function reposition(el) {
+            //el._mark即是弹出的提示元素，el为触发元素
+            let p = el._mark;
+            let elPosition = el.getBoundingClientRect();
+
+            switch (el.dataset.position) {
+                // 如果放在顶部
+                case 'top':
+                    // 左边顶头
+                    p.style.left = elPosition.left + 'px';
+                    // 向上移动一个弹出框（高度）的距离
+                    p.style.top = elPosition.top - p.offsetHeight - 5 + 'px';
+                    break;
+                // 如果放在底部
+                case 'bottom':
+                    // 左边顶头
+                    p.style.left = elPosition.left + 'px';
+                    // 向下移动一个按钮（高度）的距离
+                    p.style.top = elPosition.top + el.offsetHeight + 5 + 'px';
+                    break;
+                // 如果放在底部
+                case 'left':
+                    // 向左移动一个弹出框（宽度）的距离
+                    p.style.left = elPosition.left - p.offsetWidth - 5 + 'px';
+                    p.style.top = elPosition.top + 'px';
+                    break;
+                case 'right':
+                    // 向右移动一个按钮（宽度）的距离
+                    p.style.left = elPosition.left + el.offsetWidth + 5 + 'px';
+                    p.style.top = elPosition.top + 'px';
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
