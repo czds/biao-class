@@ -124,9 +124,10 @@
 
                 //给删除按钮绑定事件
                 let delBtn = tr.querySelector('.del');
-                delBtn.addEventListener('click', function (index) {
+                delBtn.addEventListener('click', function () {
                     //从数组中删除数据
                     userInfo.splice(index, 1);
+                    console.log(index);
                     //重新渲染页面
                     render(lastSet);
                 });
