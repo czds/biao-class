@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>筛选/过滤</title>
+    <style>
+        :root {
+            font-family: sans-serif;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            border: 1px solid #000;
+            padding: .5em;
+        }
+
+        .toolbar {
+            margin: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>花名册</h1>
+    <div class="toolbar">
+        <div class="score-filter">
+            <!-- data属性里面分别设置了范围的最小值与最大值 -->
+            <button data-min="0" data-max="100">查看全部</button>
+            <button data-min="80" data-max="100">只看学霸</button>
+            <button data-min="60" data-max="80">只看学酥</button>
+            <button data-min="0" data-max="60">只看学渣</button>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>分数</th>
+            <th>操作</th>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+        //用户数据
+        let userInfo = [
+            {
+                name: '王花花',
+                gender: '男',
+                score: 60,
+            },
+            {
+                name: '赵铁柱',
+                gender: '男',
+                score: 70,
+            },
+            {
+                name: '赵克爽',
+                gender: '男',
+                score: 80,
+            },
+            {
+                name: '李拴蛋',
+                gender: '女',
+                score: 82,
+            },
+        ];
+        //选中要插入内容的元素
+        let tbody = document.getElementById('tbody');
+        //选中用于筛选的所有按钮
+        let filterBtns = document.querySelectorAll('.score-filter button');
+        //记录最后一次筛选设置
+        let lastSet = 0;
+
+        boot();
+
+        function boot() {
+            //用数据生成内容
+            render();
+            //给筛选用按钮绑定事件
+            bindEvents();
+        };
+
+        function render(dataset) {
+            //先清空当前内容
+            tbody.innerHTML='';
+
+            userInfo.forEach(function (user, index) {
+                //如果传入了筛选条件
+                if (dataset) {
+                    //记录当前传入筛选条件
+                    // console.log(dataset);
+                    lastSet = dataset;
+                    //判断数据是否符合条件
+                    let inRange =
+                        user.score <= parseFloat(dataset.max) &&
+                        user.score > parseFloat(dataset.min);
+                    //不符合就跳过
+                    if (!inRange)
+                        return;
+                };
+
+                //这里执行添加内容
+                let tr = document.createElement('tr');
+                tr.innerHTML = `
+                        <td>${user.name}</td>
+                        <td>${user.gender}</td>
+                        <td>${user.score}</td>
+                        <td><button class="del">删除</button></td>
+                        `;
+                //内容添加到页面中
+                tbody.appendChild(tr);
+
+                //给删除按钮绑定事件
+                let delBtn = tr.querySelector('.del');
+                delBtn.addEventListener('click', function (index) {
+                    //从数组中删除数据
+                    userInfo.splice(index, 1);
+                    //重新渲染页面
+                    render(lastSet);
+                });
+            });
+        };
+
+        function bindEvents() {
+            //当点击筛选按钮时，根据条件重新渲染页面
+            filterBtns.forEach(btn=>{
+                btn.addEventListener('click',function(){
+                    render(btn.dataset);
+                });
+            });
+        };
+
+    </script>
+</body>
+
+</html>

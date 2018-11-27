@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取信息的方式</title>
+    <style>
+        .card{
+            width: 25%;
+            float: left;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+
+    <script>
+        let info = [
+            {
+                title: '第一个',
+                imgSrc: 'https://dummyimage.com/100x100',
+                content: '内容等待填充1'
+            },
+            {
+                title: '第二个',
+                imgSrc: 'https://dummyimage.com/101x101',
+                content: '内容等待填充2'
+            },
+            {
+                title: '第三个',
+                imgSrc: 'https://dummyimage.com/102x102',
+                content: '内容等待填充3'
+            }
+        ];
+        
+        let el = document.querySelector('.container');
+
+        info.forEach(it => {
+            let card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+            <div class="title">${it.title}</div>
+            <img src='${it.imgSrc}'>
+            <div class="content">${it.content}</div>
+            `;
+            el.appendChild(card);
+        })
+    </script>
+</body>
+
+</html>

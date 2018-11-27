@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习1</title>
+    <style>
+        ：root {
+            font-family: sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            border: 1px solid #000;
+            padding: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>成绩册</h1>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>分数</th>
+            <th>操作</th>
+        </thead>
+        <tbody id='tbody'>
+        </tbody>
+    </table>
+
+    <script>
+        //用户数据
+        let userInfo = [
+            {
+                name: '王花花',
+                gender: '男',
+                score: 60,
+            },
+            {
+                name: '赵铁柱',
+                gender: '男',
+                score: 70,
+            },
+            {
+                name: '赵克爽',
+                gender: '男',
+                score: 80,
+            },
+            {
+                name: '李拴蛋',
+                gender: '女',
+                score: 82,
+            },
+        ];
+        //选中要添加的位置
+        let tbody = document.querySelector('#tbody');
+
+        boot();
+
+        function boot() {
+            romance();
+        };
+
+        function romance() {
+            //每次渲染先清除当前内容
+            tbody.innerHTML = '';
+            //循环数据，然后每条数据生成一行对应内容
+            userInfo.forEach((user, index) => {
+                //创建元素
+                let tr = document.createElement('tr');
+                //添加内容
+                tr.innerHTML = `
+                <td>${user.name}</td>
+                <td>${user.gender}</td>
+                <td>${user.score}</td>
+                <td><button class="del">删除</button></td>
+                `;
+                //添加内容到页面中
+                tbody.appendChild(tr);
+                //选中删除按钮并添加事件
+                let delBtn =tr.querySelector('.del');
+                delBtn.addEventListener('click',()=>{
+                    //删除数据
+                    userInfo.splice(index,1);
+                    //重新渲染页面
+                    romance();
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
