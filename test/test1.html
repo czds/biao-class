@@ -1,0 +1,204 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<!--
+该测试程序将仿真一个 Web 页面，用于监视和控制一个风力发电机
+STEP 7 中所需的 PLC 变量和数据块变量：
+PLC 变量：
+User_ID: Int
+数据块：
+Data_block_1
+Data_Block_1 中的变量：
+Location: String
+TurbineNumber: Int
+WindSpeed: Real
+WindDirection: Real
+Temperature: Real
+PowerOutput: Real
+ManualOverrideEnable: Bool
+TurbineSpeed: Real
+YawOverride: Bool
+Yaw: Real
+PitchOverride: Bool
+Pitch: Real
+Braking: Real
+用户自定义的网页中将显示 PLC 数据的当前值，并提供一个选择列表，以便使用枚举类
+型分配设置 3 个布尔值。 “提交”按钮将提交所选择的布尔值以及用于涡轮机速度、偏
+航和桨距的数据条目字段。 无需点击“提交”按钮即可设置制动值。
+使用该页面时，无需运行实际的 STEP 7 程序。 理论上来说，如果设置了相关布尔
+值，则 STEP 7 程序将只计算涡轮机速度、偏航和桨距的值。 对 STEP 7 的唯一要
+求是，通过该页面所生成数据块的 DB 编号调用 WWW 指令。
+-->
+<!-- AWP_In_Variable Name='"Data_block_1"' -->
+<!-- AWP_In_Variable Name='"Data_block_1".ManualOverrideEnable' -->
+<!-- AWP_In_Variable Name='"Data_block_1".PitchOverride' -->
+<!-- AWP_In_Variable Name='"Data_block_1".YawOverride' -->
+<!-- AWP_In_Variable Name="SERVER:current_user_id" Use="User_ID"-->
+<!-- AWP_Enum_Def Name="OverrideStatus" Values='0:"Off",1:"On"' -->
+<!-- AWP_Enum_Ref Name='"Data_block_1".ManualOverrideEnable' Enum="OverrideStatus" -->
+<!-- AWP_Enum_Ref Name='"Data_block_1".PitchOverride' Enum="OverrideStatus" -->
+<!-- AWP_Enum_Ref Name='"Data_block_1".YawOverride' Enum="OverrideStatus" -->
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <link rel="stylesheet" href="Wind_turbine.css">
+    <title>Remote Wind Turbine Monitor 页面</title>
+    <style>
+        h2 {
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14.0pt;
+        color: #FFFFFF;
+        margin-top:0px;
+        margin-bottom:10px;
+        }
+        p {
+        font-family: Arial;
+        font-weight: bold;
+        color: #FFFFFF;
+        font-size: 12.0pt;
+        margin-top:0px;
+        margin-bottom:0px;
+        }
+        td.Text {
+        font-family: Arial;
+        font-weight: bold;
+        color: #FFFFFF;
+        font-size: 12.0pt;
+        margin-top:0px;
+        margin-bottom:0px;
+        }
+    </style>
+</head>
+
+<body>
+    <table style="background-image: url('./Wind_turbine.jpg'); width: 904px; height: 534px;" cellpadding="0"
+        cellspacing="2">
+        <tr style="height: 2%;">
+            <td colspan="2">
+                <h2>Remote Wind Turbine Monitor: Turbine
+                    #:="Data_block_1".TurbineNumber: :="Data_block_1".Location:</h2>
+            </td>
+        <tr style="height: 2%;">
+            <td style="width: 24%;">
+                <p>Wind
+                    speed:</p>
+            </td>
+            <td>
+                <p> :="Data_block_1".WindSpeed: km/h</p>
+            </td>
+        </tr>
+        <tr style="height: 2%;">
+            <td style="width: 24%;">
+                <p>Wind direction:</p>
+            </td>
+            <td>
+                <p> :="Data_block_1".WindDirection: deg.</p>
+            </td>
+        </tr>
+        <tr style="height: 2%;">
+            <td style="width:24%;">
+                <p>Temperature:</p>
+            </td>
+            <td>
+                <p> :="Data_block_1".Temperature: deg. C</p>
+            </td>
+        </tr>
+        <tr style="height: 2%;">
+            <td style="width: 24%;">
+                <p>Power output:</p>
+            </td>
+            <td>
+                <p style="margin-bottom:5px;"> :="Data_block_1".PowerOutput:
+                    KW</p>
+            </td>
+        </tr>
+        <form method="POST" action="">
+            <tr style="height: 2%;">
+                <td style="width:24%; border-top-style: Solid; border-top-width:2px; border-top-color: #ffffff;">
+                    <p>Manual override: :="Data_block_1".ManualOverrideEnable:</p>
+                </td>
+                <td class="Text">Set:
+                    <select name='"Data_block_1".ManualOverrideEnable'>
+                        <option value=':="Data_block_1".ManualOverrideEnable:'> </option>
+                        <option value="On">Yes</option>
+                        <option value="Off">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr style="vertical-align: top; height: 2%;">
+                <td style="width:24%;">
+                    <p>Turbine speed:</p>
+                </td>
+                <td>
+                    <p style="margin-bottom:5px;">
+                        <input name='"Data_block_1".TurbineSpeed' size="10" value=':="Data_block_1".TurbineSpeed:' type="text">
+                        RPM</p>
+                </td>
+            </tr>
+            <tr style="vertical-align: top; height: 2%;">
+                <td style="width: 24%;">
+                    <p>Yaw override: :="Data_block_1".YawOverride: </p>
+                </td>
+                <td class="Text">Set:
+                    <select name='"Data_block_1".YawOverride'>
+                        <option value=':="Data_block_1".YawOverride:'> </option>
+                        <option value="On">Yes</option>
+                        <option value="Off">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr style="vertical-align: top; height: 2%;">
+                <td style="width: 24%;">
+                    <p>Turbine yaw:</p>
+                </td>
+                <td>
+                    <p style="margin-bottom:5px;">
+                        <input name='"Data_block_1".Yaw' size="10" value=':="Data_block_1".Yaw:' type="text"> deg.</p>
+                </td>
+            </tr>
+            <tr style="vertical-align: top; height: 2%;">
+                <td style="width: 24%;">
+                    <p>Pitch override: :="Data_block_1".PitchOverride: </p>
+                </td>
+                <td class="Text">Set:
+                    <select name='"Data_block_1".PitchOverride'>
+                        <option value=':="Data_block_1".PitchOverride:'> </option>
+                        <option value="On">Yes</option>
+                        <option value="Off">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr style="vertical-align: top; height: 2%;">
+                <td style="width: 24%; border-bottom-style: Solid; border-bottom-width: 2px; border-bottom-color: #ffffff;">
+                    <p>Blade pitch:</p>
+                </td>
+                <td>
+                    <p style="margin-bottom:5px;"><input name='"Data_block_1".Pitch' size="10" value=':="Data_block_1".Pitch:'
+                            type="text"> deg.</p>
+                </td>
+            </tr>
+            <tr style="height: 2%;">
+                <td colspan="2"><br>
+                    <input type="submit" value="Submit override settings and values">
+                </td>
+            </tr>
+        </form>
+        <tr style="vertical-align: top; height: 2%;">
+            <td style="width: 24%;">
+                <p>Braking:</p>
+            </td>
+            <td>
+                <form method="POST" action="">
+                    <p> <input name='"Data_block_1".Braking' size="10" value=':="Data_block_1".Braking:' type="text"> %</p>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>

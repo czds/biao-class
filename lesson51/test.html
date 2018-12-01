@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单存取值</title>
+    <style>
+        form {
+            width: 200px;
+        }
+        input {
+            width: 100%;
+            margin: 5px 10px;
+        }
+        .btn {
+            text-align: center;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="http://baidu.com">
+        <input type="text" name="name" placeholder="姓名" value="1">
+        <input type="text" name="age" placeholder="年龄" value="2">
+        <input type="text" name="gender" placeholder="性别" value="3">
+        <input type="text" name="height" placeholder="身高" value="4">
+        <input type="text" name="a" placeholder="身高" value="5">
+        <input type="text" name="b" placeholder="身高" value="6">
+        <input type="text" name="c" placeholder="身高" value="7">
+        <input type="text" name="d" placeholder="身高" value="8">
+        <div class="btn"><button type="submit">提交</button></div>
+    </form>
+    <script src="./formData.js"></script>
+    <script>
+        let form = document.querySelector('form');
+        let data = window.formData.get(form);
+        console.log(data);
+    </script>
+</body>
+
+</html>
