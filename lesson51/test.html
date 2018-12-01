@@ -28,16 +28,29 @@
         <input type="text" name="gender" placeholder="性别" value="3">
         <input type="text" name="height" placeholder="身高" value="4">
         <input type="text" name="a" placeholder="身高" value="5">
-        <input type="text" name="b" placeholder="身高" value="6">
-        <input type="text" name="c" placeholder="身高" value="7">
-        <input type="text" name="d" placeholder="身高" value="8">
         <div class="btn"><button type="submit">提交</button></div>
     </form>
+    <form action="http://baidu.com" id="b">
+        <input type="text" name="name" placeholder="姓名">
+        <input type="text" name="age" placeholder="年龄">
+        <input type="text" name="gender" placeholder="性别">
+        <input type="text" name="height" placeholder="身高">
+        <button type="submit">提交</button>
+      </form>
     <script src="./formData.js"></script>
     <script>
         let form = document.querySelector('form');
         let data = window.formData.get(form);
         console.log(data);
+        //存值
+        let info={
+            name:'王二',
+            age:'18',
+            gender:'男',
+            height:'180'
+        };
+        let b = document.querySelector('#b');
+        formData.set(info,b);
     </script>
 </body>
 

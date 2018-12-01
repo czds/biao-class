@@ -9,11 +9,10 @@ window.formData = {
  * @return {Object}
  */
 function get(form) {
-
   //data为返回的数据
   let data = {};
   //选取表单内具有name属性的元素
-  let inputs = form.querySelectorAll('[name]');
+let inputs = form.querySelectorAll('[name]');
   //循环取值
   inputs.forEach(it => {
     switch (it.type) {
@@ -52,10 +51,9 @@ function get(form) {
       default:
         data[it.name] = it.value;
     };
-
-    //返回数据
-    return data;
   });
+      //返回数据
+      return data;
 };
 
 /**
