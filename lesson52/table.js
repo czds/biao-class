@@ -34,7 +34,7 @@
                     let content = format.fn;
                     trContent += `<td><button>${content}</button></td>`;
                     tr.innerHTML = trContent;
-                    tr.querySelector('button').$id = it.name;
+                    tr.querySelector('button').dataset.id = it.name;
                 } else {
                     let content = it[key] || '-';
                     trContent += `<td>${content}</td>`;
@@ -42,22 +42,21 @@
                 };
             };
             tbody.innerHTML += tr.innerHTML;
-                    console.dir(tr.querySelector('button'))
         });
 
         table.addEventListener('click', (e) => {
             if (e.target.nodeName == 'BUTTON') {
-                //从页面中移除内容
-                // e.target.parentNode.parentNode.remove();
+                // 从页面中移除内容
+                e.target.parentNode.parentNode.remove();
                 
-                //数组中移除数据,查看当前按钮的_index属性，
-                //从数据中删除同name的数据
-                let mark = e.target.$id;
-                console.dir(e.target);
+                // 数组中移除数据,查看当前按钮的_index属性，
+                // 从数据中删除同name的数据
+                let mark = e.target.dataset.id;
+                console.dir(mark);
                 if (mark) {
                     data.forEach((it, index) => {
                         for (let key in it) {
-                            if (key == mark)
+                            if (it[key] == mark)
                                 data.splice(index, 1);
                         }
                     })
