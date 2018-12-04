@@ -49,6 +49,7 @@
             if (e.target.nodeName == 'BUTTON') {
                 //从页面中移除内容
                 // e.target.parentNode.parentNode.remove();
+                
                 //数组中移除数据,查看当前按钮的_index属性，
                 //从数据中删除同name的数据
                 let mark = e.target.$id;
