@@ -52,7 +52,6 @@
                 // 数组中移除数据,查看当前按钮的_index属性，
                 // 从数据中删除同name的数据
                 let mark = e.target.dataset.id;
-                console.dir(mark);
                 if (mark) {
                     data.forEach((it, index) => {
                         for (let key in it) {
