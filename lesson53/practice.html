@@ -18,18 +18,84 @@
             border: 1px solid #000;
             padding: .5em;
         }
+
+        button {
+            margin-left: 10px;
+        }
     </style>
 </head>
 
 <body>
     <table id="a"></table>
 
+    <script src="./table.js"></script>
     <script>
-        let data=[
+        let data = [
             {
-                
+                name: '王花花',
+                gender: '男',
+                score: 60,
+                height: 180,
+            },
+            {
+                name: '赵铁柱',
+                gender: '男',
+                score: 70,
+            },
+            {
+                name: '赵克爽',
+                gender: '男',
+                score: 80,
+            },
+            {
+                name: '李拴蛋',
+                gender: '',
+                score: 82,
+            },
+        ];
+
+        //封装一个方法,调用此方法,传入3个参数:表单元素、总数据、
+        //还有 表头与对应要显示的数据,这些信息写到一个对象类型里
+        let format = {
+            name: '姓名',
+            gender: '性别',
+            score: '分数',
+        };
+        //定义一些操作与相应方法，作为生成表单时的可选功能
+        let operation = [
+            {
+                name: '删除',
+                class: 'delete',
+                action: function (id,tr) {
+                    //根据数据id删除
+                    data.forEach((it,index)=>{
+                        if(it.id==id)
+                        data.splice(index,1);
+                    });
+                    tr.remove();
+                }
+            },
+            {
+                name: '修改',
+                class: 'modify',
+                action: function (id,tr) {
+                    //让当前行的数据都变为可修改状态
+                    //鼠标点击进入可修改数据内容
+                    //修改完当失去焦点时，验证数据是否符合设定
+                    //符合就修改对应的数据，不符合就退回修改时
+                    //单元格刚获得焦点时的内容
+                }
+            },
+            {
+                name: '',
+                class: '',
+                action: function (id) {
+                }
             }
-        ]
+        ];
+
+        //调用此方法,生成内容
+        data_table.set('#a', data, format, operation);
     </script>
 </body>
 
