@@ -168,7 +168,7 @@
         username.onblur = function () {
             (isUsername(username.value).value) ?
                 errorInfo.innerHTML = '&nbsp;' :
-                errorInfo.innerHTML = `${isUsername(username.value).info}`;
+                errorInfo.innerHTML = `&nbsp;${isUsername(username.value).info}`;
         };
         username.addEventListener('keyup', e => {
             if (e.key == 'Enter' || e.key == 'Tab') {
@@ -179,7 +179,7 @@
                     email.select();
                 }
                 else {
-                    errorInfo.innerHTML = `${isUsername(username.value).info}`;
+                    errorInfo.innerHTML = `&nbsp;${isUsername(username.value).info}`;
                 }
             }
         });
@@ -187,7 +187,7 @@
         email.onblur = function () {
             isEmail(email.value) ?
                 errorInfo.innerHTML = '&nbsp;' :
-                errorInfo.innerHTML = '请输入正确的邮箱地址';
+                errorInfo.innerHTML = `  &nbsp;    请输入正确的邮箱地址`;
         };
         email.addEventListener('keyup', e => {
             if (e.key == 'Enter' || e.key == 'Tab') {
@@ -198,7 +198,7 @@
                     phone.select();
                 }
                 else {
-                    errorInfo.innerHTML = '请输入正确的邮箱地址';
+                    errorInfo.innerHTML = `  &nbsp;    请输入正确的邮箱地址`;
                 }
             }
         });
@@ -206,7 +206,7 @@
         phone.onblur = function () {
             isPhone(phone.value) ?
                 errorInfo.innerHTML = '&nbsp;' :
-                errorInfo.innerHTML = '请输入正确的手机号码';
+                errorInfo.innerHTML = `   &nbsp;   请输入正确的手机号码`;
         };
         phone.addEventListener('keyup', e => {
             if (e.key == 'Enter' || e.key == 'Tab') {
@@ -217,7 +217,7 @@
                     password.select();
                 }
                 else {
-                    errorInfo.innerHTML = '请输入正确的手机号码';
+                    errorInfo.innerHTML = `   &nbsp;   请输入正确的手机号码`;
                 }
             }
         });
@@ -225,7 +225,7 @@
         password.onblur = function () {
             isPassword(password.value) ?
                 errorInfo.innerHTML = '&nbsp;' :
-                errorInfo.innerHTML = '请输入正确的密码';
+                errorInfo.innerHTML = `   &nbsp;   请输入正确的密码`;
         };
         password.addEventListener('keyup', e => {
             if (e.key == 'Enter' || e.key == 'Tab') {
@@ -235,7 +235,7 @@
                     btn.focus();
                 }
                 else {
-                    errorInfo.innerHTML = '请输入正确的密码';
+                    errorInfo.innerHTML = `   &nbsp;   请输入正确的密码`;
                 }
             }
         });
@@ -244,18 +244,20 @@
             btn.style.color = '#fff';
         }
 
-        btn.addEventListener('click', e => {g
+        btn.addEventListener('click', e => {
+            errorInfo.innerHTML='&nbsp;';
+
             if (!isUsername(username.value).value)
-                errorInfo.innerHTML += `      ${isUsername(username.value).info}`;
+                errorInfo.innerHTML += `${isUsername(username.value).info}`;
 
             if (!isEmail(email.value))
-                errorInfo.innerHTML += `      请输入正确的邮箱地址`;
+                errorInfo.innerHTML += `  &nbsp;    请输入正确的邮箱地址`;
 
             if (!isPhone(phone.value))
-                errorInfo.innerHTML += `      请输入正确的手机号码`;
+                errorInfo.innerHTML += `   &nbsp;   请输入正确的手机号码`;
 
             if (!isPassword(password.value))
-                errorInfo.innerHTML += `      请输入正确的密码`;
+                errorInfo.innerHTML += `   &nbsp;   请输入正确的密码`;
 
             if (isUsername(username.value).value &&
                 isEmail(email.value) &&
