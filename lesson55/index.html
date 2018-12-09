@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单据验证</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            color: #444;
+            font-family:sans-serif;
+        }
+        .body{
+            font-size: 20px;
+            padding: 2em;
+            width: 800px;
+        }
+        .container{
+            width: 500px;
+            margin: 0 auto;
+        }
+        form input,button{
+            display: block;
+            font-size: inherit;
+            margin: .5em 0;
+            padding: .3em;
+            width: 100%;
+            outline: none;
+        }
+        form input:focus{
+            outline-color: cornflowerblue;
+            outline-style: dotted;
+        }
+        form span {
+            margin-top: 1.2em;
+            color: #666;
+            font-size: .8em;
+            display: block;
+        }
+        form button {
+            margin-top: 2em;
+            background-color: lightseagreen;
+            padding: 8px 0;
+            color: #fff;
+            font-size: 1em;
+            letter-spacing: .3em;
+            border: none;
+            border-radius: 4px;
+        }
+        h1 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        .error-info{
+            margin-top: 2em;
+            color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="container">
+            <form id="a">
+                <h1>注册</h1>
+                <div><span class="name">用户名</span><input type="text" name="username" placeholder="用户名" value="王花花"></div>
+                <div><span class="name">邮箱</span><input type="email" name="email" placeholder="邮箱" value="cxd@163.com"></div>
+                <span class="name">手机号码</span><input type="text" name="phone" placeholder="手机号" value="13815555128">
+                <span class="name">密码</span><input type="password" name="password" placeholder="密码" value="cheeee">
+                <div class="error-info">&nbsp;</div>
+                <button>提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //敏感词库
+        let lexicon = '管理员' && '垃圾';
+        //验证长度
+        function validLength(num, min, max) {
+            return num >= min && num <= max;
+        }
+
+        function isUsername(str) {
+            let result = {};
+
+            if (validLength(str.length, 4, 9) && !str.includes(lexicon)) {
+                if (uniqueName.has(str)) {
+                    result.value = false;
+                    result.info = '已存在的用户名';
+                    return result;
+                }
+
+                result.value = true;
+                result.info = '';
+                return result;
+            }
+            result.value = false;
+            result.info = '用户名格式不正确';
+            return result;
+        }
+        function isEmail(str) {
+            //包含@且位置在中间，@后面xx.xx
+            if (str.indexOf('@') > 0 && str.indexOf('@') < str.length - 1)
+                if (str.indexOf('.') - str.indexOf('@') > 1 && str.indexOf('.') < str.length - 1)
+                    return true;
+
+            return false;
+        }
+        function isPhone(str) {
+            //手机电话号码长度11位，考虑前面+86
+            if (str.length == 11 && str.startsWith('1'))
+                return true;
+
+            if (str.length == 13 && str.startsWith('861'))
+                return true;
+
+            if (str.length == 14 && str.startsWith('+861'))
+                return true;
+
+            return false;
+        }
+        function isPassword(str) {
+            if (validLength(str.length, 4, 9))
+                return true;
+        }
+
+        //开始验证页面上的内容
+        let data = [];
+        //用户名唯一
+        let uniqueName = new Set();
+        //选中表单内所有具有name属性的input元素
+        let inputs = [];
+        document.querySelector('#a').querySelectorAll('input').forEach((it) => {
+            if (it.name)
+                inputs.push(it);
+        });
+        //取值，相同的name取值时后面会覆盖前面
+        inputs.forEach(it => {
+            data[it.name] = it.value;
+        });
+        //验证,返回的错误提示信息插入到页面中
+        let errorInfo = document.querySelector('#a').getElementsByClassName('error-info')[0];
+        //选中输入框
+        let select = document.querySelector('#a').querySelector.bind(document.querySelector('#a'));
+        let username = select('[name=username]'),
+            email = select.call(document, '[name=email]'),
+            phone = select.call(document, '[name=phone]'),
+            password = select.call(document, '[name=password]');
+        let btn = document.querySelector('#a').querySelector('button');
+
+        //绑定事件
+        //取消默认提交事件
+        document.querySelector('#a').addEventListener('submit', e => {
+            e.preventDefault();
+        })
+        document.querySelector('#a').addEventListener('keydown', e => {
+            if (e.key == 'Tab')
+                e.preventDefault();
+        })
+
+        username.onblur = function () {
+            (isUsername(username.value).value) ?
+                errorInfo.innerHTML = '&nbsp;' :
+                errorInfo.innerHTML = `${isUsername(username.value).info}`;
+        };
+        username.addEventListener('keyup', e => {
+            if (e.key == 'Enter' || e.key == 'Tab') {
+                if (isUsername(username.value).value) {
+                    errorInfo.innerHTML = '&nbsp;';
+                    //光标下移
+                    email.focus();
+                    email.select();
+                }
+                else {
+                    errorInfo.innerHTML = `${isUsername(username.value).info}`;
+                }
+            }
+        });
+
+        email.onblur = function () {
+            isEmail(email.value) ?
+                errorInfo.innerHTML = '&nbsp;' :
+                errorInfo.innerHTML = '请输入正确的邮箱地址';
+        };
+        email.addEventListener('keyup', e => {
+            if (e.key == 'Enter' || e.key == 'Tab') {
+                if (isEmail(email.value)) {
+                    errorInfo.innerHTML = '&nbsp;';
+                    //光标下移
+                    phone.focus();
+                    phone.select();
+                }
+                else {
+                    errorInfo.innerHTML = '请输入正确的邮箱地址';
+                }
+            }
+        });
+
+        phone.onblur = function () {
+            isPhone(phone.value) ?
+                errorInfo.innerHTML = '&nbsp;' :
+                errorInfo.innerHTML = '请输入正确的手机号码';
+        };
+        phone.addEventListener('keyup', e => {
+            if (e.key == 'Enter' || e.key == 'Tab') {
+                if (isPhone(phone.value)) {
+                    errorInfo.innerHTML = '&nbsp;';
+                    //光标下移
+                    password.focus();
+                    password.select();
+                }
+                else {
+                    errorInfo.innerHTML = '请输入正确的手机号码';
+                }
+            }
+        });
+
+        password.onblur = function () {
+            isPassword(password.value) ?
+                errorInfo.innerHTML = '&nbsp;' :
+                errorInfo.innerHTML = '请输入正确的密码';
+        };
+        password.addEventListener('keyup', e => {
+            if (e.key == 'Enter' || e.key == 'Tab') {
+                if (isPassword(password.value)) {
+                    errorInfo.innerHTML = '&nbsp;';
+                    btn.style.color = 'pink';
+                    btn.focus();
+                }
+                else {
+                    errorInfo.innerHTML = '请输入正确的密码';
+                }
+            }
+        });
+
+        btn.onblur = function () {
+            btn.style.color = '#fff';
+        }
+
+        btn.addEventListener('click', e => {g
+            if (!isUsername(username.value).value)
+                errorInfo.innerHTML += `  ${isUsername(username.value).info}`;
+
+            if (!isEmail(email.value))
+                errorInfo.innerHTML += `  请输入正确的邮箱地址`;
+
+            if (!isPhone(phone.value))
+                errorInfo.innerHTML += `  请输入正确的手机号码`;
+
+            if (!isPassword(password.value))
+                errorInfo.innerHTML += `  请输入正确的密码`;
+
+            if (isUsername(username.value).value &&
+                isEmail(email.value) &&
+                isPhone(phone.value) &&
+                isPassword(password.value)) {
+                let user = {};
+                inputs.forEach(it => {
+                    user[it.name] = it.value
+                });
+                data.push(user);
+                //存入用户名库，便于下次查询
+                uniqueName.add(user.username);
+
+                console.log(data);
+            };
+        });
+
+    </script>
+</body>
+
+</html>

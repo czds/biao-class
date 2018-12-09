@@ -4,7 +4,7 @@
     window.data_table = {
         set
     };
-    function set(tableSelector, data, format, operation) {
+    function set(tableSelector, data, format) {
         //选择元素
         let table = document.querySelector(tableSelector);
         //创建表头
@@ -17,55 +17,51 @@
         //生成内容
         for (let key in format) {
             //表头内容
-            theadContent += `<th>${format[key]}</th>`;
+            //判断值类型，是数组取第一个内容为操作
+            //第二个内容是回调函数
+            Array.isArray(format[key]) ?
+                theadContent += `<th>操作</th>` :
+                theadContent += `<th>${format[key]}</th>`;
         };
-        if (operation)
-            theadContent += `<th>操作</th>`;
         //需要用中间量存放，不然innerHTML自增默认加tr
         thead.innerHTML = theadContent;
 
-        data.forEach((it, index) => {
-            //给数据一个id作为标记
-            it.id = index;
-            //每条数据对应表格一行内容
+        data.forEach(it => {
             let tr = document.createElement('tr'), trContent = '';
-
             for (let key in format) {
-                let content = it[key] || '-';
-                trContent += `<td>${content}</td>`;
+                if (key == 'fn') {
+                    //如果没有对应内容则为-
+                    let content = format.fn;
+                    trContent += `<td><button>${content}</button></td>`;
+                    tr.innerHTML = trContent;
+                    tr.querySelector('button').dataset.id = it.name;
+                } else {
+                    let content = it[key] || '-';
+                    trContent += `<td>${content}</td>`;
+                    tr.innerHTML = trContent;
+                };
             };
-
-            //操作部分，添加按钮，按钮加类，用类名选中相应
-            //按钮后绑定点击事件，触发时执行相应操作方法并传参
-            if (operation) {
-                //生成按钮并放入一个单元格
-                let btn = '';
-                operation.forEach(e => {
-                    if (e.name) {
-                        btn += `<button class='${e.class}'>${e.name}</button>`
-                    }
-                });
-                trContent += '<td>' + btn + '</td>';
-            };
-
-            tr.innerHTML = trContent;
-
-            tbody.appendChild(tr);
-
-            if (operation) {
-                operation.forEach(e => {
-                    if (e.class) {
-                        tr.querySelector(`.${e.class}`)
-                            .addEventListener('click', function () {
-                                //执行对应方法，传参为 当前行的数据id和元素
-                                e.action(it.id, tr);
-                            });
-                    };
-                });
-            };
-
+            tbody.innerHTML += tr.innerHTML;
         });
 
+        table.addEventListener('click', (e) => {
+            if (e.target.nodeName == 'BUTTON') {
+                // 从页面中移除内容
+                e.target.parentNode.parentNode.remove();
+                
+                // 数组中移除数据,查看当前按钮的_index属性，
+                // 从数据中删除同name的数据
+                let mark = e.target.dataset.id;
+                if (mark) {
+                    data.forEach((it, index) => {
+                        for (let key in it) {
+                            if (it[key] == mark)
+                                data.splice(index, 1);
+                        }
+                    })
+                }
+            }
+        })
 
         //将内容添加到页面中
         table.appendChild(thead);
