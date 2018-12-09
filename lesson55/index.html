@@ -246,16 +246,16 @@
 
         btn.addEventListener('click', e => {g
             if (!isUsername(username.value).value)
-                errorInfo.innerHTML += `  ${isUsername(username.value).info}`;
+                errorInfo.innerHTML += `      ${isUsername(username.value).info}`;
 
             if (!isEmail(email.value))
-                errorInfo.innerHTML += `  请输入正确的邮箱地址`;
+                errorInfo.innerHTML += `      请输入正确的邮箱地址`;
 
             if (!isPhone(phone.value))
-                errorInfo.innerHTML += `  请输入正确的手机号码`;
+                errorInfo.innerHTML += `      请输入正确的手机号码`;
 
             if (!isPassword(password.value))
-                errorInfo.innerHTML += `  请输入正确的密码`;
+                errorInfo.innerHTML += `      请输入正确的密码`;
 
             if (isUsername(username.value).value &&
                 isEmail(email.value) &&
