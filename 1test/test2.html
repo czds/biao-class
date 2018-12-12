@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .git *{
+            padding: 8px;
+            margin: 10px;
+        }
+        #map{
+            width: 700px;
+            height: 600px;
+            margin-left: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="git">
+        <div> github用户名<input type="text" name="username"><button>查询</button></div>
+        <div class="content"></div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://webapi.amap.com/maps?v=1.4.8&key=66a8cadd1a8263a4b1b6eaff4ce09fee&callback=init"></script>
+    <script>
+        //加载后初始化地图
+        //传入要插入页面中元素的id并配置
+        window.init = function () {
+            var map = new AMap.Map('map', {
+                resizeEnable: true,
+                mapStyle: "amap://styles/c0a45c01058d4cbfe54aca3ee8f8e105",
+                center: [116.480983, 39.989628],
+                zoom: 11
+            });
+            if (location.href.indexOf('guide=1') !== -1) {
+                map.setStatus({ scrollWheel: false });
+                map.plugin(["AMap.ToolBar"], function () {
+                    map.addControl(new AMap.ToolBar({ liteStyle: true }))
+                });
+            }
+        };
+
+        let username = document.querySelector("input[name=username]");
+        let info = document.querySelector(".content");
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", () => {
+            info.innerHTML = "";
+
+            let http = new XMLHttpRequest;
+            http.open("get", `https://api.github.com/users/${username.value}`);
+            http.send();
+            http.addEventListener('load', () => {
+                let data = JSON.parse(http.responseText);
+                for (let key in data) {
+                    info.innerHTML += key + " —— " + data[key] + "<br>";
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

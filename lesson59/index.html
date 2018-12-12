@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;          
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",
+                        Roboto,"Helvetica Neue",Arial,sans-serif;
+            font-size: 14px;
+        }
+        body{
+            padding: .2em;
+            box-sizing: border-box;
+        }
+        input{
+            display: block;
+            margin: .6em;
+            padding: .4em;
+            min-width: 10em;
+        }
+        button{
+            min-width: 10em;
+            padding: .2em;
+            margin-left: 1.6em;
+            margin-top: .8em;
+        }
+        h2{
+            font-size: 22px;
+            margin-left: 2.6em;
+        }
+        .container{
+            width: 260px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <nav>
+        <input type="search" id="search" data-rule="numeric|min:3|max:9" placeholder="搜索">
+    </nav>
+
+    <form id="a">
+        <h2>表单</h2>
+        <input type="number" data-rule="numeric|min:1900|max:2018" name="year" placeholder="年">
+        <input type="number" data-rule="numeric|min:1|max:12" name="month" placeholder="月">
+        <input type="number" data-rule="numeric|min:1|max:31" name="day" placeholder="日">
+
+        <input type="number" data-rule="numeric|positive|min:1" name="age" placeholder="年龄">
+
+        <input type="text" data-rule="phone:zh" name="phone" placeholder="手机号">
+
+        <input type="text" data-rule="email" name="eamil" placeholder="邮箱地址">
+
+        <input type="text" data-rule="in:男,女|length:1" name="gender" placeholder="性别">
+
+        <input type="text" data-rule="regex:^\w{4,12}$" name="username" placeholder="用户名">
+
+        <input type="password" data-rule="regex:\w|minLength:4|maxLength:9|repeat" name="password" placeholder="密码">
+        <input type="password" data-rule="regex:\w|minLength:4|maxLength:9|repeat" name="password" placeholder="密码">
+        <button>提交</button>
+    </form>
+</div>
+
+<script src="./valior.js"></script>
+<script>
+</script>
+
+<body>
+
+</body>
+
+</html>
