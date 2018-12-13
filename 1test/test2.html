@@ -147,7 +147,7 @@
             function onComplete(data) {
                 document.getElementById('status').innerHTML = '定位成功'
                 var str = [];
-                str.push('定位结果：' + data.position);
+                str.push('定位结果：' + data.formattedAddress + '(' + data.position + ')');
                 str.push('定位类别：' + data.location_type);
                 if (data.accuracy) {
                     str.push('精度：' + data.accuracy + ' 米');
@@ -156,9 +156,9 @@
                 document.getElementById('result').innerHTML = str.join('<br>');
 
                 //天气查询
-                // userPosition = data.formattedAddress;
-                console.log(data.formattedAddress);
-                userPosition = "西安";
+                if (data.formattedAddress.split("市")[0].split("省")[1])
+                    userPosition = data.formattedAddress.split("市")[0].split("省")[1] || "北京";
+                    
                 AMap.plugin('AMap.Weather', function () {
                     let weather = new AMap.Weather();
 
