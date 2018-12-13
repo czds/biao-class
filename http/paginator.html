@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分页插件测试</title>
+    <style>
+        button{
+            margin: 5px;
+            padding: 5px 10px;
+            display: inline-block;
+            border: none;
+        }
+        .paginator .active{
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="footer">
+    </div>
+
+    <script>
+        //封装一个插件，实现
+        //点击相应按钮，跳转到相应页面
+
+        //传入参数：总页数，当前页数，每页显示几个，当前页数
+        function paginator(elSelector, total, limit, current) {
+
+            //计算导航总数
+            let amount = Math.ceil(total / limit);
+            //当前页面在导航的索引
+            let currentIndex = Math.ceil(current / limit);
+
+            //生成上一页与下一页按钮
+            //按钮添加自定义属性$index记录页数
+            let prevBtn = document.createElement('button');
+            prevBtn.innerHTML = "上一页";
+            current > 1 ?
+                prevBtn.$index = current - 1 :
+                prevBtn.$index = 1;
+
+            let nextBtn = document.createElement('button');
+            nextBtn.innerHTML = "下一页";
+            current < total ?
+                nextBtn.$index = current + 1 :
+                nextBtn.$index = total;
+
+            //判断当前页面应生成几个按钮，默认limit个按钮
+            let btnNmubers = limit;
+            if (currentIndex == amount) {
+                //在最后一页，计算按钮数量
+                btnNmubers = total % limit;
+            }
+            //生成中间按钮内容
+            let btns = document.createElement('span');
+            //初始化
+            btns.innerHTML = "";
+            //挨个添加按钮
+            for (i = 1; i <= btnNmubers; i++) {
+                let btn = document.createElement('button');
+                //按钮内容为页数
+                btn.innerHTML = (currentIndex - 1) * limit + i;
+                //按钮添加附加属性，用于确认导航到那一页
+                btn.$index = (currentIndex - 1) * limit + i;
+                //如果按钮的索引跟当前页数相同，添加一个类
+                if(btn.$index==current)
+                btn.classList.add('active');
+                //加入到btns集合里
+                btns.appendChild(btn);
+            };
+
+            //拼接成页面内容,并插入页面
+            let paginator = document.createElement('div');
+            paginator.classList.add('paginator');
+            paginator.appendChild(prevBtn);
+            paginator.appendChild(btns);
+            paginator.appendChild(nextBtn);
+            let el = document.querySelector(elSelector);
+            el.appendChild(paginator);
+
+            //添加点击事件，当事件源为按钮且
+            //$index属性不为空，导航生效
+            paginator.addEventListener('click', e => {
+                if (e.target.nodeName == "BUTTON") {
+                    console.log(e.target.$index);
+                }
+            })
+
+        }
+        paginator('.footer', 50, 7, 13);
+    </script>
+</body>
+
+</html>

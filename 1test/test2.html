@@ -73,7 +73,7 @@
         //加载后初始化地图
         //传入要插入页面中元素的id并配置
         let lnglat = new AMap.LngLat(108.948024, 34.263161);
-        let userPosition = "";
+        let userPosition = "北京";
 
         window.init = function () {
             var map = new AMap.Map('map', {
@@ -157,7 +157,7 @@
 
                 //天气查询
                 if (data.formattedAddress.split("市")[0].split("省")[1])
-                    userPosition = data.formattedAddress.split("市")[0].split("省")[1] || "北京";
+                    userPosition = data.formattedAddress.split("市")[0].split("省")[1];
                     
                 AMap.plugin('AMap.Weather', function () {
                     let weather = new AMap.Weather();
