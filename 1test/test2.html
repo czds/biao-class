@@ -8,13 +8,21 @@
     <title>Document</title>
     <style>
         .git *{
-            padding: 8px;
+            padding: 5px;
             margin: 10px;
         }
         #map{
-            width: 700px;
-            height: 600px;
-            margin-left: 2em;
+            width: 350px;
+            height: 500px;
+            margin: 10px;
+        }
+        .amap-geolocation-con{
+            right: 25px !important;
+        }
+        .amap-geolocation-con .amap-geo {
+            border-radius: 50%;
+            background: rgb(86, 119, 228) url(../img/dingwei.png) 50% 50% no-repeat;
+            background-size: 100%;
         }
     </style>
 </head>
@@ -28,20 +36,50 @@
     <div class="info">
         <h4>天气</h4>
         <p id='forecast'></p>
+        <br>
+        <h4 id='status'></h4>
+        <p id='result'></p>
     </div>
     <div id="map"></div>
 
     <script src="https://webapi.amap.com/maps?v=1.4.8&key=66a8cadd1a8263a4b1b6eaff4ce09fee&callback=init"></script>
     <script>
+        var browser = {
+            versions: function () {
+                var u = window.navigator.userAgent;
+                return {
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否为iPad
+                    webApp: u.indexOf('Safari') == -1,//是否为web应用程序，没有头部与底部
+                    weixin: u.indexOf('MicroMessenger') == -1 //是否为微信浏览器
+                };
+            }()
+        }
+        // document.writeln(" 是否为移动终端: " + browser.versions.mobile);
+        // document.writeln(" ios终端: " + browser.versions.ios);
+        // document.writeln(" android终端: " + browser.versions.android);
+        // document.writeln(" 是否为iPhone: " + browser.versions.iPhone);
+        // document.writeln(" 是否iPad: " + browser.versions.iPad);
+        // document.writeln(navigator.userAgent);
+    </script>
+    <script>
         //加载后初始化地图
         //传入要插入页面中元素的id并配置
-        var lnglat = new AMap.LngLat(116.397, 39.918);
+        let lnglat = new AMap.LngLat(108.948024, 34.263161);
+        let userPosition = "";
 
         window.init = function () {
             var map = new AMap.Map('map', {
                 resizeEnable: true,
                 mapStyle: "amap://styles/c0a45c01058d4cbfe54aca3ee8f8e105",
-                center: lnglat,
+                // center: lnglat,
                 zoom: 11
             });
 
@@ -66,7 +104,7 @@
             }, 1);
 
             //右键显示全国范围
-            contextMenu.addItem("缩放至全国范围", function (e) {
+            contextMenu.addItem("查看全国", function (e) {
                 map.setZoomAndCenter(4, [108.946609, 34.262324]);
             }, 2);
 
@@ -78,55 +116,108 @@
                 });
             }, 3);
 
-            //地图绑定鼠标右击事件——弹出右键菜单
-            map.on('rightclick', function (e) {
-                contextMenu.open(map, e.lnglat);
-                contextMenuPositon = e.lnglat;
-            });
+            //地图绑定事件——弹出右键菜单
+            if (!browser.versions.android)
+                map.on('click', function (e) {
+                    contextMenu.open(map, e.lnglat);
+                    contextMenuPositon = e.lnglat;
+                });
 
-            AMap.plugin('AMap.Weather', function () {
-                let weather = new AMap.Weather();
+            //定位
+            AMap.plugin('AMap.Geolocation', function () {
+                var geolocation = new AMap.Geolocation({
+                    enableHighAccuracy: true,//是否使用高精度定位，默认:true
+                    timeout: 10000,          //超过10秒后停止定位，默认：5s
+                    buttonPosition: 'RB',    //定位按钮的停靠位置
+                    buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                    zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
 
-                weather.getLive('西安', function (err, data) {
-                    if (err)
-                        return;
-
-                    var str = [];
-                    str.push('<p>城市/区：' + data.city + '</p>');
-                    str.push('<p>天气：' + data.weather + '</p>');
-                    str.push('<p>温度：' + data.temperature + '℃</p>');
-                    str.push('<p>风向：' + data.windDirection + '</p>');
-                    if (typeof (data.windPower) == NaN)
-                        str.push('<p>风力：' + data.windPower + ' 级</p>');
-
-                    str.push('<p>空气湿度：' + data.humidity + '</p>');
-                    str.push('<p>发布时间：' + data.reportTime + '</p>');
-
-                    document.getElementById('forecast').innerHTML = str.join(' ');
-
-                    // 查询实时天气信息, 查询的城市到行政级别的城市，如朝阳区、杭州市
-                    //     weather.getLive('朝阳区', function (err, data) {
-                    //         if (!err) {
-                    //             var str = [];
-                    //             str.push('<h4 >实时天气' + '</h4><hr>');
-
-                    //             var marker = new AMap.Marker({ map: map, position: map.getCenter() });
-                    //             var infoWin = new AMap.InfoWindow({
-                    //                 content: '<div class="info" style="position:inherit;margin-bottom:0;">' + str.join('') + '</div><div class="sharp"></div>',
-                    //                 isCustom: true,
-                    //                 offset: new AMap.Pixel(0, -37)
-                    //             });
-                    //             infoWin.open(map, marker.getPosition());
-                    //             marker.on('mouseover', function () {
-                    //                 infoWin.open(map, marker.getPosition());
-                    //             });
-                    //         }
-                    //     });
+                });
+                map.addControl(geolocation);
+                // console.log(geolocation);
+                geolocation.getCurrentPosition(function (status, result) {
+                    if (status == 'complete') {
+                        onComplete(result)
+                    } else {
+                        onError(result)
+                    }
                 });
             });
+            //解析定位结果
+            function onComplete(data) {
+                document.getElementById('status').innerHTML = '定位成功'
+                var str = [];
+                str.push('定位结果：' + data.position);
+                str.push('定位类别：' + data.location_type);
+                if (data.accuracy) {
+                    str.push('精度：' + data.accuracy + ' 米');
+                }//如为IP精确定位结果则没有精度信息
+                str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+                document.getElementById('result').innerHTML = str.join('<br>');
+
+                //天气查询
+                // userPosition = data.formattedAddress;
+                console.log(data.formattedAddress);
+                userPosition = "西安";
+                AMap.plugin('AMap.Weather', function () {
+                    let weather = new AMap.Weather();
+
+                    weather.getLive(userPosition, function (err, data) {
+                        if (err)
+                            return;
+
+                        var str = [];
+                        str.push('<p>城市/区：' + data.city + '</p>');
+                        str.push('<p>天气：' + data.weather + '</p>');
+                        str.push('<p>温度：' + data.temperature + '℃</p>');
+                        str.push('<p>风向：' + data.windDirection + '</p>');
+                        if (typeof (data.windPower) == NaN)
+                            str.push('<p>风力：' + data.windPower + ' 级</p>');
+
+                        str.push('<p>空气湿度：' + data.humidity + '</p>');
+                        str.push('<p>发布时间：' + data.reportTime + '</p>');
+
+                        document.getElementById('forecast').innerHTML = str.join(' ');
+                    });
+                });
+            };
+            //解析定位错误信息
+            function onError(data) {
+                document.getElementById('status').innerHTML = '定位失败'
+                document.getElementById('result').innerHTML = '失败原因排查信息:' + data.message;
+            };
+
+
+
+            // 查询实时天气信息, 查询的城市到行政级别的城市，如朝阳区、杭州市
+            //     weather.getLive('朝阳区', function (err, data) {
+            //         if (!err) {
+            //             var str = [];
+            //             str.push('<h4 >实时天气' + '</h4><hr>');
+
+            //             var marker = new AMap.Marker({ map: map, position: map.getCenter() });
+            //             var infoWin = new AMap.InfoWindow({
+            //                 content: '<div class="info" style="position:inherit;margin-bottom:0;">' + str.join('') + '</div><div class="sharp"></div>',
+            //                 isCustom: true,
+            //                 offset: new AMap.Pixel(0, -37)
+            //             });
+            //             infoWin.open(map, marker.getPosition());
+            //             marker.on('mouseover', function () {
+            //                 infoWin.open(map, marker.getPosition());
+            //             });
+            //         }
+            //     });
+
+            // 未来4天天气预报
+            // weather.getForecast('朝阳区', function(err, data) {
+            //     if (err) {return;}
+            //     var str = [];
+            //     for (var i = 0,dayWeather; i < data.forecasts.length; i++) {
+            //         dayWeather = data.forecasts[i];
+            //         str.push(dayWeather.date+' <span class="weather">'+dayWeather.dayWeather+'</span> '+ dayWeather.nightTemp + '~' + dayWeather.dayTemp + '℃');
+            //     }
 
         };
-
 
 
 
@@ -142,7 +233,7 @@
             http.addEventListener('load', () => {
                 let data = JSON.parse(http.responseText);
                 for (let key in data) {
-                    info.innerHTML += key + " —— " + data[key] + "<br>";
+                    info.innerHTML += key + " — " + data[key] + "<br>";
                 }
             })
         })
