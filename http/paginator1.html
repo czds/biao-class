@@ -61,7 +61,7 @@
             //初始化
             btns.innerHTML = "";
             //挨个添加按钮
-            for (i = 1; i <= btnNmubers; i++) {
+            for (let i = 1; i <= btnNmubers; i++) {
                 let btn = document.createElement('button');
                 //按钮内容为页数
                 btn.innerHTML = (currentIndex - 1) * limit + i;
