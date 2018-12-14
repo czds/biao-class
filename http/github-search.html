@@ -134,7 +134,7 @@
     <div id="footer" class="text-center"></div>
 
 
-    <script src="../components/paginator.js"></script>
+    <script src="./paginator.js"></script>
     <script>
         let limit, fn,
             form, username, userList;
@@ -165,7 +165,6 @@
         }
 
         function render(data) {
-            console.log(data);
             userList.innerHTML = '';
 
             data.items.forEach(it => {
@@ -186,17 +185,22 @@
             //添加分页
             let btnNumber = 5;
             let fn = function (info) {
-                // console.log(info);
+                if(!info)
+                return;
+
                 currentPage = info;
                 getData();
             };
 
             document.querySelector('.result').innerHTML =
                 data.total_count + "个搜索结果, 每页显示" + limit.value + "个，共"
-                + Math.ceil(data.total_count / limit.value) + "页";
+                + Math.ceil(data.total_count / limit.value) + "页<br>只显示前1000条搜索结果";
 
             if ((data.total_count / limit.value) > 1) {
-                window.$paginator('#footer', Math.ceil(data.total_count / limit.value), btnNumber, currentPage, fn);
+                if(data.total_count>1000)
+                data.total_count=1000;
+
+                window.$paginator('#footer', Math.ceil(data.total_count / limit.value), btnNumber, currentPage, fn,limit.value);
             };
         };
     </script>
