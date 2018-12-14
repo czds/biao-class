@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GitHub用户搜索</title>
     <style>
-
         * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -27,7 +26,7 @@
 
         img {
         width: 100%;
-        display: block;
+        display: bunlock;
         }
 
         form button {
@@ -69,12 +68,16 @@
         #footer button{
             margin: 0 .6em;
             padding: 8px 12px;
-            display: inline-block;
+            display: inline-bunlock;
             border: none;
+            outline: none;
         }
         .paginator .active{
             background-color: #333;
             color: #fff;
+        }
+        .paginator .unactive{
+            color: #888;
         }
         #user-list{
             display: flex;
@@ -93,7 +96,7 @@
         }
 
         .item > * {
-        display: inline-block;
+        display: inline-bunlock;
         font-size: 1rem;
         vertical-align: top;
         }
@@ -136,32 +139,48 @@
 
     <script src="./paginator.js"></script>
     <script>
-        let limit, fn,
+        let limit, fn, currentPage,
             form, username, userList;
+        //添加一个程序锁
+        let unlock = true;
 
         form = document.querySelector('#search-form');
         userList = document.querySelector('#user-list');
 
         username = document.querySelector("input[name=username]");
         limit = document.querySelector('input[name=limit]');
-        //当前页面初始值为1
-        let currentPage = 1;
+
 
         form.addEventListener('submit', e => {
+            //当前页面初始值为1
+            currentPage = 1;
+
             e.preventDefault();
             getData();
 
         });
         function getData() {
-            let http = new XMLHttpRequest();
-            http.open('get', `https://api.github.com/search/users?q=${username.value}&page=${currentPage}&per_page=${limit.value}`);
-            http.send();
-            //当收到返回数据，开始数据可视化
-            http.addEventListener('load', $ => {
-                let json = http.responseText;
-                let data = JSON.parse(json);
-                render(data);
-            });
+            if (unlock) {
+                let http = new XMLHttpRequest();
+                http.open('get', `https://api.github.com/search/users?q=${username.value}&page=${currentPage}&per_page=${limit.value}`);
+                http.send();
+
+                unlock = false;
+
+                //当收到返回数据，开始数据可视化
+                http.addEventListener('load', $ => {
+                    let data = JSON.parse(http.responseText);
+                    render(data);
+                    unlock = true;
+                });
+
+                http.addEventListener('error', $ => {
+                    //失败返回相应信息
+                    console.log(JSON.parse(http.responseText));
+                    unlock = true;
+                });
+
+            }
         }
 
         function render(data) {
@@ -182,25 +201,28 @@
                 userList.appendChild(item);
             });
 
-            //添加分页
-            let btnNumber = 5;
-            let fn = function (info) {
-                if(!info)
-                return;
+            //添加分页按钮,数量为4
+            let btnNumber = 4;
+            //按钮点击触发动作
+            let fn = function (index) {
+                if (!index)
+                    return;
 
-                currentPage = info;
+                currentPage = index;
                 getData();
             };
-
+            //查询结果提示
             document.querySelector('.result').innerHTML =
                 data.total_count + "个搜索结果, 每页显示" + limit.value + "个，共"
                 + Math.ceil(data.total_count / limit.value) + "页<br>只显示前1000条搜索结果";
-
+            //github搜索结果限制处理,1页以上才加分页按钮
             if ((data.total_count / limit.value) > 1) {
-                if(data.total_count>1000)
-                data.total_count=1000;
-
-                window.$paginator('#footer', Math.ceil(data.total_count / limit.value), btnNumber, currentPage, fn,limit.value);
+                if (data.total_count > 1000)
+                    data.total_count = 1000;
+                //调用分页插件，插入内容
+                window.$paginator('#footer', currentPage, Math.ceil(data.total_count / limit.value), btnNumber, fn);
+            }else{
+                document.querySelector('#footer').innerHTML="";
             };
         };
     </script>
