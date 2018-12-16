@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>待办事件簿</title>
+    <style>
+        *{
+            margin: .2em;
+            padding: .5em;
+            box-sizing: border-box;
+            outline: none;
+            color: #222;
+        }
+        form{
+            border: 2px solid rgb(96, 196, 166);
+            text-align: center;
+            max-width: 30em;
+        }
+        span{
+            width: 8em;
+            text-align: left;
+            display: inline-block;
+        }
+        [type=search]{
+            padding: .5em;
+            margin: 1em;
+        }
+        button{
+            margin: .5em 0 .8em 4em;
+            border-radius: 5px;
+            background-color: pink;
+            border: none;
+            padding: .8em;
+        }
+        h1{
+            font-size: 30px;
+            margin-top: -0.8em;
+        }
+   </style>
+</head>
+
+<body>
+    <h1>待办事件簿</h1>
+    <form id="user">
+        <div><span>用户名</span> <input type="text" name="username"></div>
+        <div><span>年龄</span> <input type="number" name="age"></div>
+        <div><span>头像地址</span> <input type="text" name="avatar"></div>
+        <div><span>简介</span> <input type="text" name="bio"></div>
+        <button>添加用户</button>
+    </form>
+    <span>查看用户id</span> <input type="search" name="search">
+    <form id=toDo>
+        <div><span>用户id</span> <input type="text" name="userid"></div>
+        <div><span>提醒内容</span> <input type="text" name="content"></div>
+        <div><span>提醒时间</span> <input type="time" name="time"></div>
+        <button>添加记录</button>
+    </form>
+
+    <script src="../http/api.js"></script>
+    <script>
+        //选择页面元素
+        let select = function (name) {
+            return document.querySelector(`[name=${name}]`);
+        };
+
+        let username = select('username'),
+            age = select('age'), avatar = select('avatar'),
+            bio = select('bio');
+
+        let search = select('search');
+
+        let userid = select('userid'),
+            content = select('content'),
+            time = select('time');
+
+        let form_user = document.querySelector('#user'),
+            form_toDo = document.querySelector("#toDo");
+        //添加事件
+        form_user.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let user = {
+                'name': username.value,
+                'age': age.value,
+                'avatar_url': avatar.value,
+                'bio': bio.value
+            };
+            api('userinfo/create', info => { console.log(info) }, info => { console.log(info) }, user);
+            api('userinfo/read', info => { console.log(info) }, info => { console.log(info) });
+        });
+        search.addEventListener('keyup', function (e) {
+            if (e.key == 'Enter' && this.value) {
+                api('', info => { console.log(info) }, info => { console.log(info) });
+            }
+        })
+        form_toDo.addEventListener('submit', function (e) {
+            e.preventDefault();
+            api('', info => { console.log(info) }, info => { console.log(info) });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -3,11 +3,11 @@
     //对外接口
     window.api = post;
 
-    function post(action, data, onSuccess, onError) {
-        send('post', action, data, onSuccess, onError);
+    function post(action, onSuccess, onError, data = null) {
+        send(action, onSuccess, onError, 'post', data);
     }
 
-    function send(method, action, data, onSuccess, onError) {
+    function send(action, onSuccess, onError, method, data) {
         //地址
         let baseUrl = 'http://mock.biaoyansu.com/api/1/';
         //时间戳
@@ -24,8 +24,10 @@
         http.setRequestHeader('BIAO-MOCK-SIGNATURE', btoa(appKey + timestamp));
         http.setRequestHeader("Content-Type", "application/json");
         //消息以字符串形式传输
-        let json = JSON.stringify(data);
-        http.send(json);
+        if (data)
+            data = JSON.stringify(data);
+        http.send(data);
+        console.log(data);
 
         http.addEventListener('load', $ => {
             //成功返回解析后的JSON形式数据
@@ -34,7 +36,7 @@
 
         http.addEventListener('error', $ => {
             //失败返回相应信息
-            onError && onError(JSON.parse(http.responseText));
+            onError && onError(http.responseText);
         });
     }
 })();
