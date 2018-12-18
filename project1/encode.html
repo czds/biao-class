@@ -1,0 +1,24 @@
+function utf8_to_b64( str ) {
+    return window.btoa(unescape(encodeURIComponent( str )));
+}
+
+function b64_to_utf8( str ) {
+    return decodeURIComponent(escape(window.atob( str )));
+}
+
+
+//在js引擎内部,encodeURIComponent(str)相当于escape(unicodeToUTF8(str))
+
+//所以可以推导出unicodeToUTF8(str)等同于unescape(encodeURIComponent(str))
+
+<!-- 在各浏览器中,使用 window.btoa 对Unicode字符串进行编码都会触发一个字符越界的异常.
+先把Unicode字符串转换为UTF-8编码,可以解决这个问题, 代码来自Johan Sundstr?m: -->
+btoa是binary to ascii
+atob和btoa只能编码Latin1字符
+
+用这种方式支持汉字:先将 字符串 用encodeURIComponent编码
+var encodedString = btoa(encodeURIComponent(string));
+再解码
+var decodedString = decodeURIComponent(atob(encodedString));
+
+console.log(decodedString); //"Hello, 中国！"

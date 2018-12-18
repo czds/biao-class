@@ -85,19 +85,19 @@
                 'name': username.value,
                 'age': age.value,
                 'avatar_url': avatar.value,
-                'bio': bio.value
+                'bio': bio.value,
+                'userid': 1
             };
-            api('userinfo/create', info => { console.log(info) }, info => { console.log(info) }, user);
-            api('userinfo/read', info => { console.log(info) }, info => { console.log(info) });
+            api('userinfo/create', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) }, user);
         });
         search.addEventListener('keyup', function (e) {
             if (e.key == 'Enter' && this.value) {
-                api('', info => { console.log(info) }, info => { console.log(info) });
-            }
+                api('userinfo/find', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) });
+            };
         })
         form_toDo.addEventListener('submit', function (e) {
             e.preventDefault();
-            api('', info => { console.log(info) }, info => { console.log(info) });
+            api('', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) });
         });
 
     </script>

@@ -1,13 +1,13 @@
 ; (function () {
     'use strict';
-    //对外接口
+
     window.api = post;
 
     function post(action, onSuccess, onError, data = null) {
-        send(action, onSuccess, onError, 'post', data);
+        send(action, onSuccess, onError, data, 'post');
     }
 
-    function send(action, onSuccess, onError, method, data) {
+    function send(action, onSuccess, onError, data, method) {
         //地址
         let baseUrl = 'http://mock.biaoyansu.com/api/1/';
         //时间戳
@@ -26,17 +26,17 @@
         //消息以字符串形式传输
         if (data)
             data = JSON.stringify(data);
+
         http.send(data);
-        console.log(data);
 
         http.addEventListener('load', $ => {
             //成功返回解析后的JSON形式数据
-            onSuccess && onSuccess(JSON.parse(http.responseText));
+            onSuccess && onSuccess(JSON.parse(http.responseText), http.getResponseHeader("Content-Type"));
         });
 
         http.addEventListener('error', $ => {
             //失败返回相应信息
-            onError && onError(http.responseText);
+            onError && onError(http.responseText, http.getResponseHeader("Content-Type"));
         });
     }
 })();
