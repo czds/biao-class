@@ -44,23 +44,25 @@
 
 <body>
     <h1>待办事件簿</h1>
-    <form id="user">
+    <div><button id="sign-up">注册用户</button></div>
+    <form id="user" hidden>
         <div><span>用户名</span> <input type="text" name="username"></div>
         <div><span>年龄</span> <input type="number" name="age"></div>
         <div><span>头像地址</span> <input type="text" name="avatar"></div>
         <div><span>简介</span> <input type="text" name="bio"></div>
         <button>添加用户</button>
     </form>
-    <span>查看用户id</span> <input type="search" name="search">
+    <span>查询用户信息 请输入Q号:</span> <input type="search" name="search">
     <form id=toDo>
-        <div><span>用户id</span> <input type="text" name="userid"></div>
+        <div><span>用户Q号</span> <input type="text" name="userid"></div>
         <div><span>提醒内容</span> <input type="text" name="content"></div>
-        <div><span>提醒时间</span> <input type="time" name="time"></div>
+        <div><span>提醒时间</span> <input type="datetime-local" name="time"></div>
         <button>添加记录</button>
     </form>
 
     <script src="../http/api.js"></script>
     <script>
+        let currentUser = null;
         //选择页面元素
         let select = function (name) {
             return document.querySelector(`[name=${name}]`);
@@ -75,10 +77,20 @@
         let userid = select('userid'),
             content = select('content'),
             time = select('time');
+let a;
+           a= time.value=(new Date).toLocaleString();
 
         let form_user = document.querySelector('#user'),
             form_toDo = document.querySelector("#toDo");
+
         //添加事件
+        let signUpBtn = document.querySelector('#sign-up');
+        signUpBtn.addEventListener('click', e => {
+            signUpBtn.hidden = true;
+            form_user.hidden = false;
+            username.focus();
+        });
+
         form_user.addEventListener('submit', function (e) {
             e.preventDefault();
             let user = {
@@ -86,18 +98,41 @@
                 'age': age.value,
                 'avatar_url': avatar.value,
                 'bio': bio.value,
-                'userid': 1
             };
-            api('userinfo/create', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) }, user);
+
+            api('userinfo/create',
+                info => {
+                    let login = confirm('用户 ' + info.data.name + " 已成功创建,Q号为" + info.data.id + "\n是否登陆此用户？");
+                    if (login)
+                        currentUser = info.data;
+                },
+                info => { console.log(info) },
+                user);
         });
+
         search.addEventListener('keyup', function (e) {
             if (e.key == 'Enter' && this.value) {
-                api('userinfo/find', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) });
+                api('userinfo/find',
+                    info => {
+                        info.data ? alert('用户名 ' + info.data.name + "\n用户简介 " + info.data.bio)
+                            : alert('此用户未注册')
+                    },
+                    info => { console.log(info) },
+                    { id: this.value });
             };
-        })
+        });
+
         form_toDo.addEventListener('submit', function (e) {
             e.preventDefault();
-            api('', (info, info2) => { console.log(info, info2) }, (info, info2) => { console.log(info, info2) });
+            let thing = {
+                'userid': userid.value,
+                'content': content.value,
+                'remind_time': parseInt(time.value),
+                'create_time': (new Date).getTime(),
+            };
+            api('to_do/create', info => { console.log(info) },
+                info => { console.log(info) },
+                thing);
         });
 
     </script>
