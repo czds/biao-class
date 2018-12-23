@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            background-color: #555;
+        }
+        *{
+            margin: 5px;
+            padding: 5px;
+            background-color: rgba(100, 0, 0, .1);
+        }
+    </style>
+</head>
+
+<body>
+<div class="board">超市</div>
+<div class="a">
+    A
+    <div class="b">B</div>
+    <div class="c">C
+        <div class="e"><h1>fff</h1></div>
+    </div>
+</div>
+<div class="d">D</div>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script>
+    var board=$(".board");
+    setInterval(() => {
+        if(board.hasClass('active'))
+        {board.removeClass('active')}
+        else{
+            board.addClass('active');
+        }
+    }, 5000);
+    $('.c').html('<h1>fff</h1>');
+</script>
+</body>
+
+</html>

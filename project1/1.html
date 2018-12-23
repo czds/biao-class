@@ -8,16 +8,30 @@
     <title>待办事件簿</title>
     <style>
         *{
+            font-size: 15px;
+            font-family: sans-serif;
             margin: .2em;
             padding: .5em;
             box-sizing: border-box;
             outline: none;
-            color: #222;
+            color: #333;
+        }
+        body{
+            min-width: 650px;
+            min-height: 500px;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .wrapper{
+            margin-left: 10px;
+            width: 500px;
         }
         form{
-            border: 2px solid rgb(96, 196, 166);
+            border: 2px solid rgb(165, 201, 186);
+            border-radius: 6px;
             text-align: center;
-            max-width: 30em;
+            width: 30em;
         }
         span{
             width: 8em;
@@ -25,7 +39,7 @@
             display: inline-block;
         }
         input{
-            padding: .7em;
+            padding: .6em;
             width: 15em;
         }
         [type=search]{
@@ -33,155 +47,97 @@
             margin: 1em;
         }
         button{
-            margin: .5em 0 .8em 4em;
-            border-radius: 5px;
+            margin: .5em 0 .8em 6em;
+            border-radius: 4px;
             background-color: pink;
             border: none;
-            padding: .8em;
+            padding: .6em;
         }
         h1{
             font-size: 30px;
-            margin-top: -0.8em;
+            margin-left: 5em;
+        }
+        #current-user{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 10em;
+            color: pink;
+        }
+        #current-user div{
+            color: inherit;
+            margin: 0;
+            padding: 0 .6em;
+        }
+        #current-user span{
+            color: rgb(212, 160, 160);
+            width: auto;
+            padding: 0;
+            margin-right: 1em;
+        }
+        img{
+            width: 100%;
+            height: 8em;
+            border-radius: 12px;
+        }
+        #toDo{
+            margin-top: 10px;
+        }
+        .alert-container{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .alert-container *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .alert-container .alert{
+            margin-bottom: 1em;
         }
    </style>
 </head>
 
 <body>
-    <h1>待办事件簿</h1>
-    <div>
-        <button id="sign-up">注册用户</button>
-        <button id="sign-in">用户登陆</button>
+    <div class="wrapper">
+        <h1>待办事件簿</h1>
+        <div id="current-user">
+        </div>
+        <div>
+            <button id="sign-up">注册用户</button>
+            <button id="sign-in">用户登陆</button>
+        </div>
+        <form id="user" hidden>
+            <div><span>用户名</span> <input type="text" name="username"></div>
+            <div><span>密码</span> <input type="password" name="password"></div>
+            <div><span>年龄</span> <input type="number" name="age"></div>
+            <div><span>头像地址</span> <input type="text" name="avatar"></div>
+            <div><span>简介</span> <input type="text" name="bio"></div>
+            <button>添加用户</button>
+        </form>
+
+        <form id="login" hidden>
+            <div><span>用户名</span> <input type="text" name="username-login"></div>
+            <div><span>密码</span> <input type="password" name="password-login"></div>
+            <button>确认登陆</button>
+        </form>
+
+        <form id="toDo" hidden>
+            <div hidden><span>用户Q号</span> <input type="text" name="userid"></div>
+            <div><span>提醒内容</span> <input type="text" name="content"></div>
+            <div><span>提醒时间</span> <input type="datetime-local" name="time"></div>
+            <button>添加记录</button>
+        </form>
+
+        <div><span>查询用户信息 请输入Q号:</span> <input type="search" name="search"></div>
+        <div id="info"></div>
     </div>
-    <form id="user" hidden>
-        <div><span>用户名</span> <input type="text" name="username"></div>
-        <div><span>密码</span> <input type="password" name="password"></div>
-        <div><span>年龄</span> <input type="number" name="age"></div>
-        <div><span>头像地址</span> <input type="text" name="avatar"></div>
-        <div><span>简介</span> <input type="text" name="bio"></div>
-        <button>添加用户</button>
-    </form>
-
-    <form id="login" hidden>
-        <div><span>用户名</span> <input type="text" name="username-login"></div>
-        <div><span>密码</span> <input type="password" name="password-login"></div>
-        <button>确认登陆</button>
-    </form>
-
-    <form id="toDo">
-        <div hidden><span>用户Q号</span> <input type="text" name="userid"></div>
-        <div><span>提醒内容</span> <input type="text" name="content"></div>
-        <div><span>提醒时间</span> <input type="datetime-local" name="time"></div>
-        <button>添加记录</button>
-    </form>
-
-    <div><span>查询用户信息 请输入Q号:</span> <input type="search" name="search"></div>
 
     <script src="../http/api.js"></script>
     <script src="time.js"></script>
     <script src="alert.js"></script>
-    <script>
-        //记录当前登陆的用户
-        let currentUser = null;
-        //选择页面元素
-        let select = function (name) {
-            return document.querySelector(`[name=${name}]`);
-        };
-
-        let username = select('username'),
-            password = select('password'),
-            age = select('age'), avatar = select('avatar'),
-            bio = select('bio');
-
-        let username_login = select('username-login'),
-            password_login = select('password-login');
-
-        let search = select('search');
-
-        let userid = select('userid'),
-            content = select('content'),
-            time = select('time');
-
-        time.value = (new Date).Formate();
-
-        let form_user = document.querySelector('#user'),
-            form_login = document.querySelector("#login");
-        form_toDo = document.querySelector("#toDo");
-
-        //添加事件
-        let signUpBtn = document.querySelector('#sign-up');
-        signUpBtn.addEventListener('click', e => {
-            signUpBtn.hidden = true;
-            signInBtn.hidden = true;
-            form_user.hidden = false;
-            username.focus();
-        });
-        let signInBtn = document.querySelector('#sign-in');
-        signInBtn.addEventListener('click', e => {
-            signUpBtn.hidden = true;
-            signInBtn.hidden = true;
-            form_login.hidden = false;
-            username_login.focus();
-        });
-
-        form_user.addEventListener('submit', function (e) {
-            e.preventDefault();
-            let user = {
-                'name': username.value,
-                'age': age.value,
-                'avatar_url': avatar.value,
-                'bio': bio.value,
-            };
-
-            api('userinfo/create',
-                info => {
-                    let login = confirm('用户 ' + info.data.name + " 已成功创建,Q号为" + info.data.id + "\n是否登陆此用户？");
-                    if (login)
-                        currentUser = info.data;
-                },
-                info => { console.log(info) },
-                user);
-        });
-
-        search.addEventListener('keyup', function (e) {
-            if (e.key == 'Enter' && this.value) {
-                api('userinfo/find',
-                    info => {
-                        info.data ? alert('用户名 ' + info.data.name + "\n用户简介 " + info.data.bio)
-                            : alert('此用户未注册')
-                    },
-                    info => { console.log(info) },
-                    { id: this.value });
-            };
-        });
-
-        form_toDo.addEventListener('submit', function (e) {
-            e.preventDefault();
-            let thing = {
-                'userid': userid.value,
-                'content': content.value,
-                'remind_time': parseInt(time.value),
-                'create_time': (new Date).getTime(),
-            };
-            api('to_do/create', info => { console.log(info) },
-                info => { console.log(info) },
-                thing);
-        });
-        let a = new $Alert('yo');
-        let b = new $Alert('余额不足，请充值', {
-            desc: '请前往我的余额进行充值',
-            type: 'warn',
-            onClick(config) {
-                config.close();
-                console.log(config);
-            },
-            onShow() {
-                console.log('打开');
-            },
-            onClose() {
-                console.log('关闭');
-            },
-        });
-    </script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
